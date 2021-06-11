@@ -1,0 +1,82 @@
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<base href="/KnjizaraProjekat/">
+<meta charset="UTF-8">
+<title th:text="#{index.pageTitle}">Pocetna</title>
+</head>
+<body>
+
+	<div style="float:right">
+			<h4 th:text="#{lang.change}"></h4>
+		<ul>
+			<li><a href="Index/menjajLokalizacijuNaSrpski" th:text="#{lang.sr}"></a></li>
+			<li><a href="Index/menjajLokalizacijuNaEngleski" th:text="#{lang.eng}"></a></li>
+		</ul>
+	</div>
+	
+	<h2 th:text="#{index.naslov}">Dobrodosli u aplikaciju</h2>
+	<br>
+	
+	
+	
+	<table th:if="${session.prijavljeniKorisnik != null}">
+		<tr><th th:text="#{knjige.loggedIn}"></th><td><a th:href="|Korisnici/Details?korisnickoIme=${session.prijavljeniKorisnik.korisnickoIme}|" th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.</td></tr>
+		<tr>
+			<td colspan="2">
+				<ul>
+					<li><a href="Korisnici/Logout" th:text="#{knjige.logOut}"></a></li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+		
+	<br>
+	
+	<table th:if="${session.prijavljeniKorisnik == null}">
+		<tr><th th:text="#{knjige.notLoggedIn}"></th></tr>
+		<tr>
+			<td>
+				<ul>
+					<li><a href="registracija.html">registracija</a></li>
+					<li><a href="login.html">prijava</a></li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<table th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga != 'administrator'}">
+		<tr><th th:text="#{log.loggedIn}"></th></tr>
+		<tr>
+			<td>
+				<ul>
+					<li><a href="Knjige">Knjige</a></li>
+					<li>--------------------</li>
+					<li><a href="KorisnickaKorpa">Prikazi korisnicku korpu</a>
+					<li><a href="ZahtevLoyaltyKartice">Zahtev za loyalty karticu</a>
+				</ul>
+			</td>
+		</tr>
+	</table>
+	
+	<table th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}">
+		<tr><th>Prijavljen si</th></tr>
+		<tr>
+			<td>
+				<ul>
+					<li><a href="Knjige">Knjige</a></li>
+					<li><a href="Korisnici">Korisnici</a></li>
+					<li><a href="Komentari">Komentari</a></li>
+					<li><a href="LoyaltyKartice">Loyalty Kartice</a></li>
+					<li><a href="Izvestaj">Izvestavanje</a>
+					<hr width="50%"/>
+					<br><br>
+					<li><a href="#">Tabelarni prikaz godine i datumi</a>
+					<li><a href="KnjigeIsbn">Pretraga po ISBN-u</a>
+				</ul>
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>

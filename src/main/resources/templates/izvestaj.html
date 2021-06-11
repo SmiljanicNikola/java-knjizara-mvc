@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<base href="/KnjizaraProjekat/">
+	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+	<title>Kupovine</title>
+</head>
+<body>
+	<div>
+		<form method="get">
+			<table class="tabela" border="1">
+				<caption>Kupovine</caption>
+				<tr>
+					<th>Datum Kupovine</th>
+					<th>Naziv knjige</th>
+					<th>Ime autora</th>
+					<th>Br prodatih primeraka</th>
+					<th>Ukupna cena</th>
+					
+					<th></th>
+				</tr>
+				<tr>
+					<th>
+						od:<input type="date" th:value="${param.datumKupovineOd?: '01-01-2021'}" name="datumKupovineOd"/><br/>
+						do:<input type="date" th:value="${param.datumKupovineDo?: '01-01-2021'}" name="datumKupovineDo"/>
+					</th>
+					<th>
+						
+					</th>
+					<th>
+					
+					</th>
+					<th>
+					<th>
+						<!-- od:<input type="number" th:value="${param.cenaKarteOd?: '0.0'}" min="0" step="0.1" name="cenaKarteOd"/><br/>
+						do:<input type="number" th:value="${param.cenaKarteDo?: '1000.0'}" min="0" step="0.1" name="cenaKarteDo"/> -->
+					</th>
+					<th><input type="submit" value="Pretraži"/></th>
+				</tr>
+				<tr th:each="itKupovina, status: ${kupovine}">
+					<td th:text="${itKupovina.datumKupovine}"></td>
+					<td><a th:href="|Knjige/Details?naziv=${itKupovina.knjiga.naziv}|"th:text="${itKupovina.knjiga.naziv}"></a></td>
+					<td th:text="${itKupovina.knjiga.autor}"></td>
+					<td class="broj" th:text="${itKupovina.brojKupljenihKnjiga}"></td>
+					<td class="broj" th:text="|${itKupovina.ukupnaCena} rsd|"></td>
+					<td></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<base href="/KnjizaraProjekat/">
+	<meta charset="UTF-8">
+	<title>Pojedinacna kupovina</title>
+	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+</head>
+<body>
+
+	<form action="" th:if="${session.prijavljeniKorisnik != null}">
+		<table class="tabela" border="1">
+		
+			<caption>Kupovina</caption>
+			
+			<tr><th>Ukupna cena:</th><td><input type="number" th:value="${kupovina.ukupnaCena}" name="ukupnaCena" readonly/></td></tr>
+			<tr><th>Datum Kupovine:</th><td><input type="date" th:value="${#temporals.format(kupovina.datumKupovine, 'yyyy-MM-dd')}" name="datumKupovine" readonly/></td></tr>
+			<tr><th>Musterija oznaka:</th><td><input type="text" th:value="${kupovina.musterija.korisnickoIme}" name="musterijaOznaka" readonly/></td></tr>
+			<tr><th>Broj Kupljenih knjiga</th><td><input type="number" th:value="${kupovina.brojKupljenihKnjiga}" name="brojKupljenihKnjiga" readonly/></td></tr>
+			<tr><th>Naziv Knjige</th><td><input type="text" th:value="${kupovina.knjiga.naziv}" readonly/></td></tr>	
+		
+		
+		</table>
+	</form>
+	
+	<hr width="100%"/>
+			
+</body>
+</html>

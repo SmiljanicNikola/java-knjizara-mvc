@@ -1,0 +1,42 @@
+table.tabela {
+	border-collapse: collapse;
+}
+
+table.tabela caption {
+	font-size: 16pt
+}
+
+table.tabela th, td {
+	border: 2px solid Gray;
+	padding: 5px;
+}
+
+table.tabela td.broj {
+	text-align: right;
+}
+
+table.tabela th {
+	color: white;
+	background-color: orange;
+}
+
+table.tabela tr:nth-child(even) {
+	background-color: white;
+}
+
+table.tabela input[type="search"] {
+	width: 100%;
+}
+tr{
+    transition: all .3s ease-in;
+    cursor: pointer;
+}
+tr:hover{
+    transform: scale(1.01);
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.2), -1px -1px 8px rgba(0,0,0,0.2);
+}
+.Udesno{
+	position:relative;
+	align:center;
+	padding-left:50px;
+}

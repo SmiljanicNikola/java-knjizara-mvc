@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<base href="/KnjizaraProjekat/">
+<link rel="stylesheet" type="text/css" href="static/css/TabelaKnjiga.css"/>
+<title th:text="#{login.prijava}"></title>
+</head>
+<body>
+	<!--  <div style="float:right">
+			<h4 th:text="#{lang.change}"></h4>
+		<ul>
+			<li><a href="Komentari/menjajLokalizacijuNaSrpski" th:text="#{lang.sr}"></a></li>
+			<li><a href="Komentari/menjajLokalizacijuNaEngleski" th:text="#{lang.eng}"></a></li>
+		</ul>
+	</div>-->
+	<form method="post" action="Korisnici/Login">
+		<table border="1" class="tabela">
+			<caption>Login</caption>
+			<tr>
+				<th>Username</th><td><input type="text" value="" name="korisnickoIme" required/></td>
+			</tr>
+			<tr>
+				<th>Password</th><td><input type="password" value="" name="lozinka" required/></td>
+			</tr>
+			<tr>
+				<th></th><td><input type="submit" th:value="Login"/>
+			</td>
+		</table>
+	</form>
+	
+	<br>
+	<p class="greska" th:text="${poruka}"></p>
+	<a href="index.html">Povratak na pocetnu stranicu</a><br>
+	<a href="registracija.html">Registruj se</a>
+</body>
+</html>

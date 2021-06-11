@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Pojedinacnai komentar</title>
+	<link rel="stylesheet" type="text/css" href="css/StiloviForma.css"/>
+</head>
+<body>
+	<form method="post" action="Edit" th:if="${session.prijavljeniKorisnik != null}">
+		<table border="1">
+			<caption>Komentar</caption>
+			<tr><th>Id:</th><td><input type="number" th:value="${komentar.id}" name="id"/></td></tr>
+			<tr><th>Tekst Komentara:</th><td><input type="text" th:value="${komentar.tekstKomentara}" name="tekstKomentara"/></td></tr>
+			<tr><th>Ocena:</th><td><input type="number" th:value="${komentar.ocena}" name="ocena"></td></tr>
+			<tr><th>Datum Postavljanja:</th><td><input type="date" th:value="${#temporals.format(komentar.datumPostavljanja, 'yyyy-MM-dd')}" name="datumPostavljanja"/></td></tr>
+			<tr><th>Autor Oznaka:</th><td><input type="text" th:value="${komentar.autor.korisnickoIme}" name="autorOznaka"/></td></tr>		
+			<tr><th>KnjigaId:</th><td><input type="text" th:value="${komentar.knjiga.Id}" name="knjigaId"/></td></tr>
+			<tr><th>Status:</th><td>
+						<select name="status">
+							<option value="">Odobri/Odbij</option>
+							<option value="Odobren" th:selected="${#strings.equals(param.status, 'odobren')}">Odobri</option>
+							<option value="Nije odobren" th:selected="${#strings.equals(param.status, 'nije odobren')}">Odbij</option>
+							<option value="Na cekanju" th:selected="${#strings.equals(param.status, 'na cekanju')}">Ostavi na cekanju</option>
+							
+						</select>
+			</td></tr>
+			
+			<tr><th></th><td><input type="submit" value="Izmeni"/></td></tr>
+			<br>
+		</table>
+		</form>
+			
+			<form method="post" action="Delete">
+			<input type="hidden" name="id" th:value="${komentar.id}"/>
+			<table>
+				<tr><th></th><td><input type="submit" value="Obriši komentar"/></td></tr>
+			</table>
+		</form>			
+		</body>
+</html>

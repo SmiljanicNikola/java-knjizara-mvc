@@ -1,0 +1,53 @@
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<base href="/KnjizaraProjekat/">
+<meta charset="UTF-8">
+<title>Pocetna</title>
+</head>
+<body>
+	<h2>Dobrodosli u aplikacijuuuuuuu</h2>
+	<br>
+	
+	
+	<table th:if="${session.prijavljeniKorisnik != null}">
+		<tr><th>Prijavljeni ste kao</th><td><a th:href="|Korisnici/Details?korisnickoIme=${session.prijavljeniKorisnik.korisnickoIme}|" th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.</td></tr>
+		<tr>
+			<td colspan="2">
+				<ul>
+					<li><a href="Korisnici/Logout">Odjavite se</a></li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+	
+	<table th:if="${session.prijavljeniKorisnik == null}">
+		<tr><th>Niste prijavljeni</th></tr>
+		<tr>
+			<td>
+				<ul>
+					<li><a href="registracija.html">registracija</a></li>
+					<li><a href="login.html">prijava</a></li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<table th:if="${session.prijavljeniKorisnik != null}">
+		<tr><th>Prijavljen si</th></tr>
+		<tr>
+			<td>
+				<ul>
+					<li><a href="Knjige">Knjige</a></li>
+					<li><a href="Korisnici">Korisnici</a></li>
+					
+				
+				</ul>
+			</td>
+		</tr>
+	</table>
+	
+
+
+</body>
+</html>

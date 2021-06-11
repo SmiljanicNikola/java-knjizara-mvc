@@ -1,0 +1,34 @@
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+<title>Registracija</title>
+</head>
+<body>
+	<div style="float:right">
+			<h4 th:text="#{lang.change}"></h4>
+		<ul>
+			<li><a href="Komentari/menjajLokalizacijuNaSrpski" th:text="#{lang.sr}"></a></li>
+			<li><a href="Komentari/menjajLokalizacijuNaEngleski" th:text="#{lang.eng}"></a></li>
+		</ul>
+	</div>
+<form method="post" action="Korisnici/Register">
+	<table border="1" class="tabela">
+	<caption>Registracija korisnika</caption>
+				<tr><th>Ime:</th><td><input type="text" value=""  name="ime"/></td></tr>
+				<tr><th>Prezime:</th><td><input type="text" value=""  name="prezime"/></td></tr>
+				<tr><th>Email:</th><td><input type="text" value="" name="email"/></td></tr>
+				<tr><th>Adresa:</th><td><input type="text" name="adresa"/></td></tr>
+				<tr><th>Broj telefona:</th><td><input type="text" name="telefon"/></td></tr>
+				<tr><th>korisničko ime:</th><td><input type="text" value="" name="korisnickoIme"/></td></tr>
+				<tr><th>Lozinka:</th><td><input type="password" value="" name="lozinka"/></td></tr>
+				<tr><th>Ponovljena Lozinka:</th><td><input type="password" value="" name="ponovljenaLozinka"/></td></tr>
+				<tr><th>Datum Rodjenja:</th><td><input type="date" name="datumRodjenja"/></td></tr>
+				<tr><th>Datum Registracije:</th><td><input value="2021-02-14T18:00:00" name="datumRegistracije"/></td></tr>
+				<tr><th>Uloga: </th><td><input type="text" value="kupac" name="uloga"/></td></tr>
+				<tr><th></th><td><input type="submit" value="Registruj se"/></td>
+	</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{komentari.pageHeader}"></title>
+<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+
+</head>
+<body>
+	<div style="float:right">
+			<h4 th:text="#{lang.change}"></h4>
+		<ul>
+			<li><a href="Komentari/menjajLokalizacijuNaSrpski" th:text="#{lang.sr}"></a></li>
+			<li><a href="Komentari/menjajLokalizacijuNaEngleski" th:text="#{lang.eng}"></a></li>
+		</ul>
+	</div>
+<br>
+	<table th:if="${session.prijavljeniKorisnik != null}">
+		<tr><th th:text="#{knjige.loggedIn}"></th><td><a th:href="|Korisnici/Details?korisnickoIme=${session.prijavljeniKorisnik.korisnickoIme}|" th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.</td></tr>
+		<tr>
+			<td colspan="2">
+				<ul>
+					<li><a href="Korisnici/Logout" th:text="#{knjige.logOut}">Odjavite se</a></li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+	
+	<br><br>
+	<form method="get">
+		<table class="tabela">
+			<caption th:text="#{komentari.naslov}"><b></b></caption>
+			<tr>
+			<th >Id</th>
+			<th th:text="#{komentari.tekstKomentara}"></th>
+			<th th:text="#{komentari.ocena}"></th>
+			<th th:text="#{komentari.datumPostavljanja}">
+			<th th:text="#{komentari.autor}"></th>
+			<th th:text="#{komentari.knjiga}"></th>
+			<th>Status</th>
+			</tr>
+			<tr th:each="komentar, status: ${komentari}" th:if="${komentar.status != 'Nije odobren'}">
+					<td><a th:href="|Komentari/Details?id=${komentar.id}|"th:text="${komentar.id}"></a></td>
+					<td th:text="${komentar.tekstKomentara}"></td>
+					<td class="broj" th:text="${komentar.ocena}"></td>
+					<td th:text="${komentar.datumPostavljanja}"></td>
+					<td th:text="${komentar.autor}"></td>
+					<td th:text="${komentar.knjiga.naziv}"></td>
+					<td th:text="${komentar.status}"></td>
+			</tr>
+			
+			
+		</table>
+	</form>
+	<br>
+	
+</body>
+</html>

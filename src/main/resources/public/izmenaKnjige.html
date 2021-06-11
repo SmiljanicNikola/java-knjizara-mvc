@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<htmlxmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Pojedinacna knjiga</title>
+	<link rel="stylesheet" type="text/css" href="css/StiloviForma.css"/>
+</head>
+<body>
+	<form method="post" action="Knjiga/Edit" th:if="${session.prijavljeniKorisnik != null}">
+		<table border="1">
+			<caption>Knjiga</caption>
+			<tr><th>Naziv:</th><td><input type="text" th:value="${knjiga.naziv}" name="naziv"/></td></tr>
+			<tr><th>Isbn:</th><td><input type="number" th:value="${knjiga.isbn}" name="isbn"></td></tr>
+			<tr><th>Izdavacka kuca:</th><td><input type="text" th:value="${knjiga.izdavackaKuca}" name="izdavackaKuca"/></td></tr>
+			<tr><th>Autor:</th><td><input type="text" th:value="${knjiga.autor}" name="autor"/></td></tr>
+			<tr><th>Godina izdavanja:</th><td><input type="date" th:value="${#temporals.format(knjiga.godinaIzdavanja, 'yyyy-MM-dd')}" name="godinaIzdavanja"/></td></tr>		
+			<tr><th>Kratak Opis:</th><td><input type="text" th:value="${knjiga.kratakOpis}" name="kratakOpis"/></td></tr>
+			<tr><th>Cena:</th><td><input type="number" th:value="${knjiga.cena}" name="cena"/></td></tr>
+			<tr><th>Broj Stranica:</th><td><input type="number" th:value="${knjiga.brojStranica}" name="brojStranica"/></td></tr>
+			<tr><th>Tip Poveza:</th><td><input type="text" th:value="${knjiga.tipPoveza}" name="tipPoveza"/></td></tr>
+			<tr><th>Pismo:</th><td><input type="text" th:value="${knjiga.pismo}" name="pismo"/></td></tr>
+			<tr><th>Jezik:</th><td><input type="text" th:value="${knjiga.jezik}" name="jezik"/></td></tr>
+			
+			<tr><th></th><td><input type="submit" value="Izmeni"/></td></tr>
+			<br>
+			<tr><th></th><td><input type="submit" value="Obriši knjigu"/></td></tr>
+			
+		</table>
+	</form>
+</body>
+</html>

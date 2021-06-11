@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<base href="/KnjizaraProjekat/">
+	<meta charset="UTF-8">
+	<title>Pojedinacni korisnik</title>
+	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+</head>
+<body>
+	<form method="post" action="Korisnici/Edit" th:if="${session.prijavljeniKorisnik != null}">
+		<table border="1">
+		
+			<caption>Korisnik</caption>
+			
+			<tr><th>Ime:</th><td><input type="text" th:value="${korisnik.ime}" name="ime"/></td></tr>
+			<tr><th>Prezime:</th><td><input type="text" th:value="${korisnik.prezime}" name="prezime"/></td></tr>
+			<tr><th>Email:</th><td><input type="text" th:value="${korisnik.email}" name="email"/></td></tr>
+			<tr><th>Adresa:</th><td><input type="text" th:value="${korisnik.adresa}" name="adresa"></td></tr>
+			<tr><th>Telefon:</th><td><input type="text" th:value="${korisnik.telefon}" name="telefon"/></td></tr>	
+			<tr><th>Korisnicko Ime:</th><td><input type="text" th:value="${korisnik.korisnickoIme}" name="korisnickoIme"/></td></tr>
+			<tr><th>Lozinka:</th><td><input type="text" th:value="${korisnik.lozinka}" name="lozinka"/></td></tr>
+			<tr><th>Datum Rodjenja:</th><td><input type="date" th:value="${#temporals.format(korisnik.datumRodjenja, 'yyyy-MM-dd')}" name="datumRodjenja"/></td></tr>
+			<tr><th>Datum Registracije:</th><td><input th:value="${#temporals.format(korisnik.datumRegistracije, 'yy-MM-dd  HH:mm')}" name="datumRegistracije"/></td></tr>			
+			<!-- <tr><th>Uloga:</th><td><input type="text" th:value="${korisnik.uloga}" name="uloga"/></td></tr>		-->	
+			<tr><th>Uloga:</th><td>
+					<select name="uloga">
+							<option th:value="${korisnik.uloga}" th:selected="${#strings.equals(param.uloga, 'kupac')}">.</option>
+							<option value="administrator" th:selected="${#strings.equals(param.uloga, 'administrator')}">administrator</option>
+							<option value="kupac" th:selected="${#strings.equals(param.uloga, 'kupac')}">kupac</option>
+					</select></td></tr>
+			<tr th:if="${session.prijavljeniKorisnik.uloga == 'administrator' and korisnik.uloga == 'kupac'}"><th>Blokiran:</th><td><input type="checkbox" name="blokiran" th:checked="${korisnik.blokiran}"/></td></tr>
+			<tr><th></th><td><input type="submit" value="Izmeni" th:if="${session.prijavljeniKorisnik.uloga == 'administrator'}"/></td></tr>
+		
+		</table>
+	</form>
+	
+	
+	<form method="post" action="Delete">
+			
+	</form>
+	
+	<br><hr width="100%"><br>
+	<form method="post" action="ListaZelja/Delete">
+			<table class="tabela" border="1" >
+			<caption>Lista zelja korisnika</caption>
+			<tr>
+			<th>Id</th>
+			<th>Knjiga</th>
+			<th>Vlasnik</th>
+			<th></th>
+			</tr>
+			<tr th:each="zelja, status: ${listaZelja}" th:if="${zelja.vlasnikListe.korisnickoIme == korisnik.korisnickoIme}" >
+					<td th:text="${zelja.id}"></td>
+					<td th:text="${zelja.knjiga}"></td>
+					<td th:text="${zelja.vlasnikListe.korisnickoIme}"></td>
+					<td>
+						<!-- <a th:href="|ListaZelja/Delete?id=${zelja.id}|"th:text="Delete"></a> -->
+						<button th:value="${zelja.id}" name="id" type="submit">Delete</button>
+					</td>
+			</tr>
+		</table>
+	</form>	
+		
+	<br><hr width="100%"><br>
+	<form method="post" action="">
+			<table class="tabela" border="1" >
+			<caption>Dosadasnje kupovine</caption>
+			
+			<tr>
+			<th>Ukupna cena</th>
+			<th>Datum i vreme kupovine</th>
+			</tr>
+			<tr th:each="k, status: ${kupovine}" th:if="${k.musterija.korisnickoIme == korisnik.korisnickoIme OR session.prijavljeniKorisnik.uloga == 'administrator'}" >
+					<td th:text="${k.ukupnaCena}"></td>
+					<td><a th:href="|Kupovine/Details?datumKupovine=${k.datumKupovine}|"th:text="${k.datumKupovine}" type="date"></a></td>
+			</tr>
+		</table>
+	</form>	
+			
+		<ul>	
+			<li><a href="/KnjizaraProjekat">Pocetna</a></li>
+			<li><a href="/KnjizaraProjekat/Korisnici">Nazad na listu svih korisnika</a></li>
+		</ul>
+			
+</body>
+</html>

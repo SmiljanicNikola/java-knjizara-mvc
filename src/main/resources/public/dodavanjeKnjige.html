@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Dodavanje knjige</title>
+</head>
+<body>
+<form method="post" action="Knjige/Create">
+	<table border="1">
+	<caption>Dodavanje Knjige</caption>
+				<tr><th>Naziv:</th><td><input type="text" value=""  name="naziv" required/></td></tr>
+				<tr><th>Isbn:</th><td><input type="number" maxlength="13" value="" name="isbn" required title="Isbn mora da ima 13 cifara!" required/></td></tr>
+				<tr><th>Izdavacka Kuca:</th><td><input type="text" name="izdavackaKuca" required/></td></tr>
+				<tr><th>autor:</th><td><input type="text" name="autor" required/></td></tr>
+				<tr><th>Datum Izdavanja:</th><td><input type="date" name="godinaIzdavanja" required/></td></tr>
+				<tr><th>Kratak Opis:</th><td><input type="text" value="" name="kratakOpis" required/></td></tr>
+				<tr><th>Cena:</th><td><input type="number" value="" name="cena" required/></td></tr>
+				<tr><th>Broj stranica:</th><td><input type="number" value="" name="brojStranica" required/></td></tr>
+				<tr><th>Tip poveza:</th><td>
+					<select name="tipPoveza">
+							<option value="tvrdi" th:selected="${#strings.equals(param.tipPoveza, 'tvrdi')}">tvrdi</option>
+							<option value="meki" th:selected="${#strings.equals(param.tipPoveza, 'meki')}">meki</option>
+					</select></td></tr>
+				<tr><th>Pismo:</th><td>
+					<select name="pismo">
+							<option value="latinica" th:selected="${#strings.equals(param.pismo, 'latinica')}">latinica</option>
+							<option value="cirilica" th:selected="${#strings.equals(param.pismo, 'cirilica')}">cirilica</option>
+					</select></td></tr>
+				<tr><th>Jezik:</th><td><input type="text" value="" name="jezik" required/></td></tr>
+				<tr><th>Prosecna Ocena:</th><td><input value=0 step="0.1" type="number" min="0" max="5" value="" name="prosecnaOcena"/></td></tr>
+				<tr><th></th><td><input type="submit" value="Kreiraj knjigu"/></td>
+	</table>
+</form>
+<p class="greska" th:text="${poruka}"></p>
+</body>
+</html>
