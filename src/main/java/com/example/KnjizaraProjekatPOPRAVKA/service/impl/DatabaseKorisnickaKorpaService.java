@@ -43,8 +43,8 @@ public class DatabaseKorisnickaKorpaService implements KorisnickaKorpaService {
 
 	@Override
 	public KorisnickaKorpa update(KorisnickaKorpa korisnickaKorpa) {
-		// TODO Auto-generated method stub
-		return null;
+		korisnickaKorpaDAO.update(korisnickaKorpa);
+		return korisnickaKorpa;
 	}
 
 	@Override

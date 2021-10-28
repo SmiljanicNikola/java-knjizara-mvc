@@ -67,7 +67,7 @@ public class LoyaltyKarticaController implements ServletContextAware {
 	@GetMapping
 	public ModelAndView index(
 			@RequestParam(required=false) Integer id,
-			@RequestParam(required=false) String popust,
+			@RequestParam(required=false) Integer popust,
 			@RequestParam(required=false) Integer brPoena,
 			@RequestParam(required=false) String vlasnikOznaka,
 			@RequestParam(required=false) String status,
@@ -102,7 +102,7 @@ public class LoyaltyKarticaController implements ServletContextAware {
 	
 	@PostMapping(value="/Create")
 	public void create(@RequestParam(required=false) Integer id,
-			@RequestParam (required=false) String popust,
+			@RequestParam (required=false) Integer popust,
 			@RequestParam (required=false) Integer brPoena,
 			@RequestParam String vlasnikOznaka,
 			//(defaultValue="Na cekanju")
@@ -176,7 +176,7 @@ public class LoyaltyKarticaController implements ServletContextAware {
 	
 	@PostMapping(value="/Edit")
 	public void edit(@RequestParam(required=false) Integer id,
-					@RequestParam(required=false) String popust,
+					@RequestParam(required=false) Integer popust,
 					@RequestParam(required=false) Integer brPoena,
 					@RequestParam(required=false) String vlasnikOznaka,
 					@RequestParam(required=false) String status,

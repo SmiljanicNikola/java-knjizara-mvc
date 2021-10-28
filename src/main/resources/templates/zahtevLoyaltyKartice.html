@@ -1,6 +1,7 @@
 <!DOCTYPE>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<base href="/KnjizaraProjekat/">
 <meta charset="UTF-8">
 <title>Zahtev za kreiranje loyalty kartice</title>
 <link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
@@ -10,12 +11,16 @@
 		<table border="1" class="tabela">
 		<caption>Zahtev za kreiranje loyalty kartice</caption>
 					<tr><th>Vase korisnicko ime:</th><td><input type="text" name="vlasnikOznaka" th:if="${session.prijavljeniKorisnik} != null" th:value="${session.prijavljeniKorisnik.korisnickoIme}" readonly/></td>
-					<td><input type="hidden" value="20%" name="popust"/></td>
+					<td><input type="hidden" value="20" name="popust"/></td>
 					<td><input type="hidden" value="4" name="brPoena"/></td>
 					<td><input type="hidden" value="Na cekanju" name="status"/></td></tr>
 					<tr><th></th><td><input type="submit" value="Potvrdi kredencijale i podnesi zahtev"/></td></tr>
 		</table>
 	</form>
 	<p class="greska" th:text="${poruka}"></p>
+	
+	<ul>	
+		<li><a href="/KnjizaraProjekat">Pocetna</a></li>
+	</ul>
 </body>
 </html>

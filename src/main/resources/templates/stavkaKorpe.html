@@ -11,13 +11,13 @@
 	<form method="post" action="Kupovine/Create" th:if="${session.prijavljeniKorisnik != null}">
 		<table border="1" class="tabela">
 			<caption th:text="#{stavkakorpe.stavka}"></caption>
-			<tr><th th:text="#{stavkakorpe.knjigaId}"></th><td><input type="number" th:value="${stavkaKorpe.knjiga.id}" name="knjigaId"/></td></tr>
-			<tr><th th:text="#{stavkakorpe.nazivKnjige}"></th><td><input type="text" th:value="${stavkaKorpe.knjiga.naziv}" name="naziv"/></td></tr>
-			<tr><th th:text="#{stavkakorpe.autorKnjige}"></th><td><input type="text" th:value="${stavkaKorpe.knjiga.autor}" name="autor"></td></tr>
+			<tr><th th:text="#{stavkakorpe.knjigaId}"></th><td><input type="number" th:value="${stavkaKorpe.knjiga.id}" name="knjigaId" readonly/></td></tr>
+			<tr><th th:text="#{stavkakorpe.nazivKnjige}"></th><td><input type="text" th:value="${stavkaKorpe.knjiga.naziv}" name="naziv" readonly/></td></tr>
+			<tr><th th:text="#{stavkakorpe.autorKnjige}"></th><td><input type="text" th:value="${stavkaKorpe.knjiga.autor}" name="autor" readonly/></td></tr>
 			<tr><th th:text="#{stavkakorpe.kolicina}"></th><td><input type="number" th:value="${stavkaKorpe.kolicina}" name="brojKupljenihKnjiga"/></td></tr>
-			<tr><th th:text="#{stavkakorpe.cenaPojedinacno}"></th><td><input type="number" th:value="${stavkaKorpe.knjiga.cena}" name="cenaPojedinacno"/></td></tr>
-			<tr><th th:text="#{stavkakorpe.ukupnaCena}"></th><td><input type="number" th:value="${stavkaKorpe.knjiga.cena * stavkaKorpe.kolicina}" name="ukupnaCena"/></td></tr>
-			<tr><th th:text="#{stavkakorpe.musterijaOznaka}"></th><td><input type="text" th:value="${session.prijavljeniKorisnik.korisnickoIme}" name="musterijaOznaka"/></td></tr>
+			<tr><th th:text="#{stavkakorpe.cenaPojedinacno}"></th><td><input type="number" th:value="${stavkaKorpe.knjiga.cena}" name="cenaPojedinacno" readonly/></td></tr>
+			<tr><th th:text="#{stavkakorpe.ukupnaCena}"></th><td><input type="number" th:value="${stavkaKorpe.knjiga.cena * stavkaKorpe.kolicina}" name="ukupnaCena" readonly/></td></tr>
+			<tr><th th:text="#{stavkakorpe.musterijaOznaka}"></th><td><input type="text" th:value="${session.prijavljeniKorisnik.korisnickoIme}" name="musterijaOznaka" readonly/></td></tr>
 			<!-- <tr><th></th><td><input type="text" name="datumKupovine" value="2021-11-06"/></td></tr> -->
 			<tr><th th:text="#{stavkakorpe.datumKupovine}"></th><td><input type="date" name="datumKupovine"/></td></tr>
 			

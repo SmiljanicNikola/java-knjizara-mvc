@@ -3,7 +3,7 @@ package com.example.KnjizaraProjekatPOPRAVKA.model;
 public class LoyaltyKartica {
 	
 	private int id;
-	private String popust;
+	private int popust;
 	private int brPoena;
 	private Korisnik vlasnik;
 	private String Status;
@@ -11,8 +11,21 @@ public class LoyaltyKartica {
 	
 	public LoyaltyKartica() {}
 
-	
-	public LoyaltyKartica(int id, String popust, int brPoena, Korisnik vlasnik, String status) {
+
+
+	public LoyaltyKartica(int popust, int brPoena, Korisnik vlasnik, String status) {
+		super();
+		this.popust = popust;
+		this.brPoena = brPoena;
+		this.vlasnik = vlasnik;
+		Status = status;
+	}
+
+
+
+
+
+	public LoyaltyKartica(int id, int popust, int brPoena, Korisnik vlasnik, String status) {
 		super();
 		this.id = id;
 		this.popust = popust;
@@ -20,16 +33,6 @@ public class LoyaltyKartica {
 		this.vlasnik = vlasnik;
 		Status = status;
 	}
-
-
-	public LoyaltyKartica(String popust, int brPoena, Korisnik vlasnik, String status) {
-		super();
-		this.popust = popust;
-		this.brPoena = brPoena;
-		this.vlasnik = vlasnik;
-		Status = status;
-	}
-
 
 	public int getId() {
 		return id;
@@ -39,11 +42,11 @@ public class LoyaltyKartica {
 		this.id = id;
 	}
 
-	public String getPopust() {
+	public int getPopust() {
 		return popust;
 	}
 
-	public void setPopust(String popust) {
+	public void setPopust(int popust) {
 		this.popust = popust;
 	}
 

@@ -104,7 +104,7 @@
 					<th><input type="submit" value="Pretraži"/></th>
 			</tr>
 		</form>
-			<tr th:each="itKnjiga, status: ${knjige}">
+			<tr th:each="itKnjiga, status: ${knjige}" th:if="${itKnjiga.brojPrimeraka != 0}">
 					<!--<td><a th:href="|Knjige/Details?id=${itKnjiga.id}|"th:text="${itKnjiga.id}" type="hidden"></a></td>  -->
 					<td><a th:href="|Knjige/Details?naziv=${itKnjiga.naziv}|"th:text="${itKnjiga.naziv}"></a></td>
 					<td th:text="${itKnjiga.isbn}"></td>

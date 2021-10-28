@@ -14,7 +14,7 @@
 				<tr><th></th><td><input type="hidden" name="datumPostavljanja" value="2021-02-14" required/></td></tr>
 				<!-- <tr><th>Autor:</th><td><input type="text" name="autorOznaka" th:value=${prijavljeniKorisnik.korisnickoIme}/></td></tr> -->
 				<tr><th th:text="#{komentari.autor}"></th><td><input type="text" name="autorOznaka" th:value="${session.prijavljeniKorisnik.korisnickoIme}"/></td></tr>
-				<tr><th  th:text="#{dodavanjeKomentara.knjigaId}"></th><td><input type="number" name="knjigaId" value="" required/></td></tr>
+				<tr><th  th:text="#{dodavanjeKomentara.knjigaId}"></th><td><input type="number" name="knjigaId" value="izabranaKnjiga.id" required/></td></tr>
 				<tr><th></th><td><input type="hidden" value="Na cekanju" name="status"/></td></tr>
 				<tr><th></th><td><input type="submit" th:value="#{dodavanjeKomentara.kreirajKomentar}"/></td>
 	</table>

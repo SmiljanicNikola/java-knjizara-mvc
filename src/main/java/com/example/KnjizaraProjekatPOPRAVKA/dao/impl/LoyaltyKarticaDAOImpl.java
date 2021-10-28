@@ -34,7 +34,7 @@ public class LoyaltyKarticaDAOImpl implements LoyaltyKarticaDAO {
 		public LoyaltyKartica mapRow(ResultSet rs, int rowNum) throws SQLException {
 			int index = 1;
 			int id=rs.getInt(index++);
-			String popust = rs.getString(index++);
+			Integer popust = rs.getInt(index++);
 			int brPoena = rs.getInt(index++);
 			String vlasnikOznaka = rs.getString(index++);
 			Korisnik vlasnik = korisnikDAO.findOne(vlasnikOznaka);

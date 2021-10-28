@@ -294,7 +294,7 @@ public class KorisnikController {
 
 						//@RequestParam(required=false) @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate datumRodjenja,
 						//@RequestParam(required=false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDateTime datumRegistracije,
-						@RequestParam String uloga,
+						@RequestParam(required=false) String uloga,
 					HttpSession session, HttpServletResponse response) throws IOException{
 		
 					Korisnik prijavljeniKorisnik = (Korisnik) session.getAttribute(KorisnikController.KORISNIK_KEY);

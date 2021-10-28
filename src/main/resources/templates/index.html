@@ -3,9 +3,28 @@
 <head>
 <base href="/KnjizaraProjekat/">
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 <title th:text="#{index.pageTitle}">Pocetna</title>
 </head>
 <body>
+<nav>
+	<input class="invisible" type="checkbox" id="check">
+	<label for="check" class="checkBtn">
+		<i class="fas fa-bars"></i>
+	</label>
+	<label class="logo">LOGO</label>
+	<ul>
+		<li><a href="login.html">Prijava</a></li>
+		<li><a href="registracija.html">Registracija</a></li>
+		<li><a href="#">O Nama</a></li>
+		<li><a href="#">Kontakt</a></li>
+		
+	</ul>
+</nav>
 
 	<div style="float:right">
 			<h4 th:text="#{lang.change}"></h4>
@@ -38,7 +57,7 @@
 		<tr>
 			<td>
 				<ul>
-					<li><a href="registracija.html">registracija</a></li>
+					<li class="boja"><a href="registracija.html">registracija</a></li>
 					<li><a href="login.html">prijava</a></li>
 				</ul>
 			</td>
@@ -50,8 +69,9 @@
 		<tr>
 			<td>
 				<ul>
-					<li><a href="Knjige">Knjige</a></li>
-					<li>--------------------</li>
+					<li><a href="Knjige">Knjige</a>
+					<hr width="100%"/>
+					<br>
 					<li><a href="KorisnickaKorpa">Prikazi korisnicku korpu</a>
 					<li><a href="ZahtevLoyaltyKartice">Zahtev za loyalty karticu</a>
 				</ul>
@@ -66,17 +86,94 @@
 				<ul>
 					<li><a href="Knjige">Knjige</a></li>
 					<li><a href="Korisnici">Korisnici</a></li>
-					<li><a href="Komentari">Komentari</a></li>
+					<li><a href="Komentari">Komentari</a>
+					<hr width="100%"/>
+					<br>
 					<li><a href="LoyaltyKartice">Loyalty Kartice</a></li>
 					<li><a href="Izvestaj">Izvestavanje</a>
-					<hr width="50%"/>
-					<br><br>
+					<hr width="100%"/>
+					<br>
 					<li><a href="#">Tabelarni prikaz godine i datumi</a>
 					<li><a href="KnjigeIsbn">Pretraga po ISBN-u</a>
 				</ul>
 			</td>
 		</tr>
 	</table>
+
+
+<footer>
+        <div class="footer_adress">
+        
+            <h1 class="footer_logo">Logo</h1>
+            <h2>Contact: </h2>
+            <address>
+            Miloska 3, Novi Sad
+            <a class="email_btn" href="mailto:example@gmail.com">Email Us</a>
+            <adress>
+        
+        </div>
+    
+        <ul class="footer_nav">
+            <li class="nav_item">
+                <h2 class="nav_title">Media</h2>
+                <ul class="nav_ul">
+                    <li>
+                        <a href="#">Online</a>
+                    </li>
+                    <li>
+                        <a href="#">Print</a>
+                    </li>
+                    <li>
+                        <a href="#">Alternative Ads</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav_item nav_item--extra">
+                <h2 class="nav_title">Usluge</h2>
+                <ul class="nav_ul nav_ul--extra">
+                    <li>
+                        <a href="#">Kupujte kod nas</a>
+                    </li>
+                    <li>
+                        <a href="#">Iznajmljujte</a>
+                    </li>
+                    <li>
+                        <a href="#">Narucujte</a>
+                    </li>
+                    <li>
+                        <a href="#">Sedite</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav_item">
+                <h2 class="nav_title">Legal</h2>
+
+                <ul class="nav_ul">
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#">Terms of Use</a>
+                    </li>
+                    <li>
+                        <a href="#">Security</a>
+                    </li>
+                </ul>
+            </li>
+            
+        </ul>
+        
+        <div class="legal">
+            <span>&copy; 2019 Barcode. All rights reserved for owner.</span>
+            
+            <div class="legal_links">
+                <span>Made by owner of everything</span>
+            </div>
+        </div>
+        
+    </footer>
 
 </body>
 </html>

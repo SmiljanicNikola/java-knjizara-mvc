@@ -153,15 +153,23 @@ public class KupovinaController implements ServletContextAware {
 		Kupovina kupovina = new Kupovina(knjiga,ukupnaCena,datumKupovine,musterija,brojKupljenihKnjiga);
 		
 		LoyaltyKartica kartica = LoyaltyKarticaService.findOne(musterijaOznaka);
-		Integer brojBodova = (int)(ukupnaCena/1000);
-		Integer stariBrojBodova = kartica.getBrPoena();
-		kartica.setBrPoena(brojBodova+stariBrojBodova);
-		LoyaltyKarticaService.update(kartica);
+		if(kartica != null) {
+			Integer brojBodova = (int)(ukupnaCena/1000);
+			Integer stariBrojBodova = kartica.getBrPoena();
+			kartica.setBrPoena(brojBodova+stariBrojBodova);
+			
+			
+			Integer dobijeniPopust = brojBodova *5;
+			Integer stariPopust = kartica.getPopust();
+			kartica.setPopust(dobijeniPopust+stariPopust);
+			LoyaltyKarticaService.update(kartica);
+		}
 		
 		knjiga.setBrojPrimeraka(knjiga.getBrojPrimeraka()-brojKupljenihKnjiga);
 		knjigaService.update2(knjiga);
 		
 		kupovinaService.save(kupovina);
+		korisnickaKorpaService.delete(knjigaId);
 		
 		response.sendRedirect(baseURL + "KorisnickaKorpa");
 	}

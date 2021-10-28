@@ -92,7 +92,8 @@ public class KorisnickaKorpaDAOImpl implements KorisnickaKorpaDAO {
 
 	@Override
 	public void update(KorisnickaKorpa korisnickaKorpa) {
-		// TODO Auto-generated method stub
+		String sql = "UPDATE korisnickakorpa SET id, knjigaId=?, kolicina=? WHERE id=?";
+		jdbcTemplate.update(sql, korisnickaKorpa.getKnjiga().getId(),korisnickaKorpa.getKolicina(), korisnickaKorpa.getId());
 		
 	}
 

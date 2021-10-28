@@ -54,7 +54,7 @@ public class ZahtevZaLoyaltyKarticuController implements ServletContextAware {
 	@GetMapping
 	public ModelAndView index(
 			@RequestParam(required=false) Integer id,
-			@RequestParam(required=false) String popust,
+			@RequestParam(required=false) Integer popust,
 			@RequestParam(required=false) Integer brPoena,
 			@RequestParam(required=false) String vlasnikOznaka,
 			@RequestParam(required=false) String status,
@@ -83,8 +83,8 @@ public class ZahtevZaLoyaltyKarticuController implements ServletContextAware {
 	
 	
 	@PostMapping(value="/Create")
-	public void create(@RequestParam(required=false) Integer id,
-			@RequestParam (required=false) String popust,
+	public ModelAndView create(@RequestParam(required=false) Integer id,
+			@RequestParam (required=false) Integer popust,
 			@RequestParam (required=false) Integer brPoena,
 			@RequestParam String vlasnikOznaka,
 			//(defaultValue="Na cekanju")
@@ -109,19 +109,48 @@ public class ZahtevZaLoyaltyKarticuController implements ServletContextAware {
 			}
 			
 		session.setAttribute(KorisnikController.KORISNIK_KEY, prijavljeniKorisnik);	*/
-		
-		
 		Korisnik vlasnik = korisnikService.findOne(vlasnikOznaka);
-		if(vlasnik == null) {
+		LoyaltyKartica kartica = loyaltyKarticaService.findOne(vlasnikOznaka);
+		if(kartica == null) {
+			LoyaltyKartica loyaltyKartica = new LoyaltyKartica(popust, brPoena, vlasnik, status);
+			loyaltyKarticaService.save(loyaltyKartica);
 			response.sendRedirect(baseURL);
+		}
+		try {
+			
+		
+		
+		if(kartica.getStatus().equalsIgnoreCase("Odobrena")) {
+			throw new Exception("Vec imate odobrenu loyalty karticu!");
+		}
+		if(kartica.getStatus().equalsIgnoreCase("Na cekanju")) {
+			throw new Exception("Vec ste podneli zahtev!");
 			
 		}
+		//Korisnik vlasnik = korisnikService.findOne(vlasnikOznaka);
+		/*if(vlasnik == null) {
+			response.sendRedirect(baseURL);
+			
+		}*/
 		
 		LoyaltyKartica loyaltyKartica = new LoyaltyKartica(popust, brPoena, vlasnik, status);
 		loyaltyKarticaService.save(loyaltyKartica);
-		
 		response.sendRedirect(baseURL);
-		
+		return null;
 
+		
+		}catch(Exception ex) {
+			String poruka = ex.getMessage();
+			if(poruka=="") {
+				poruka = "Neuspesno!";
+			}
+			ModelAndView rezultat = new ModelAndView("zahtevLoyaltyKartice");
+			rezultat.addObject("poruka", poruka);
+			
+			return rezultat;
 		}
+		
+		
+	}
+	
 }

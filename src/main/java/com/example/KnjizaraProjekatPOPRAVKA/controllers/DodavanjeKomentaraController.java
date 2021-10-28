@@ -31,7 +31,7 @@ import com.example.KnjizaraProjekatPOPRAVKA.service.KorisnikService;
 @RequestMapping(value="/DodavanjeKomentara")
 public class DodavanjeKomentaraController implements ServletContextAware {
 
-	public static final String KOMENTAR_KEY = "komentar";
+	public static final String KOMENTAR_KEY = "komentar";//Test
 
 	@Autowired
 	private KomentarService komentarService;
@@ -65,7 +65,7 @@ public class DodavanjeKomentaraController implements ServletContextAware {
 		
 			
 			Korisnik prijavljeniKorisnik = (Korisnik) session.getAttribute(KorisnikController.KORISNIK_KEY);
-			//Knjiga izabranaKnjiga = (Knjiga) ((ServletContext) response).getAttribute(KnjigaController.KNJIGA_KEY);
+			//Knjiga izabranaKnjiga = knjigaService.findOne(knjigaId);
 			
 			ModelAndView rezultat = new ModelAndView("dodavanjeKomentara");
 			rezultat.addObject("prijavljeniKorisnik", prijavljeniKorisnik);
@@ -76,13 +76,14 @@ public class DodavanjeKomentaraController implements ServletContextAware {
 			}
 	
 	@GetMapping(value="/Create")
-	public ModelAndView create(HttpSession session, HttpServletResponse response) throws IOException{
+	public String create(HttpSession session, HttpServletResponse response) throws IOException{
 		Korisnik prijavljeniKorisnik = (Korisnik) session.getAttribute(KorisnikController.KORISNIK_KEY);
 		if(prijavljeniKorisnik == null) {
 			response.sendRedirect(baseURL + "index");
 			return null;
 		}
 		
+		response.sendRedirect("baseURL");
 		return null;
 	}
 	
@@ -114,7 +115,7 @@ public class DodavanjeKomentaraController implements ServletContextAware {
 		Komentar komentar = new Komentar(tekstKomentara, ocena, datumPostavljanja, autor, knjiga, status);
 		komentarService.save(komentar);
 		
-		response.sendRedirect(baseURL);
+		response.sendRedirect("baseURL");
 		
 	}
 	

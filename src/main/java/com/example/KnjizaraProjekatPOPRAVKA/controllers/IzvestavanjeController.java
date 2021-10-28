@@ -30,11 +30,13 @@ public class IzvestavanjeController implements ServletContextAware{
 	
 	/*public static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM.dd.yyyy. HH:mm");
 	public static final String minDate = LocalDate.MIN.format(DateTimeFormatter.ofPattern("MM.dd.yyyy."));
-	public static final String maxDate = LocalDate.MAX.format(DateTimeFormatter.ofPattern("MM.dd.yyyy."));*/
+	public static final String maxDate = LocdadaalDate.MAX.format(DateTimeFormatter.ofPattern("MM.dd.yyyy."));*/
 
 	@Override
 	public void setServletContext(ServletContext servletContext) {
 		this.servletContext = servletContext;
+		
+		
 		
 	}
 	
