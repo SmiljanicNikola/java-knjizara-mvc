@@ -3,7 +3,7 @@
 <head>
 <base href="/KnjizaraProjekat/">
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 <link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -12,9 +12,9 @@
 </head>
 <body>
 <nav>
-	<input class="invisible" type="checkbox" id="check">
+	<input type="checkbox" id="check">
 	<label for="check" class="checkBtn">
-		<i class="fas fa-bars"></i>
+		<i class="fas fa-bars" id="activeBars"></i>
 	</label>
 	<label class="logo">LOGO</label>
 	<ul>
@@ -25,17 +25,24 @@
 		
 	</ul>
 </nav>
-
-	<div style="float:right">
+	<div>
 			<h4 th:text="#{lang.change}"></h4>
 		<ul>
 			<li><a href="Index/menjajLokalizacijuNaSrpski" th:text="#{lang.sr}"></a></li>
 			<li><a href="Index/menjajLokalizacijuNaEngleski" th:text="#{lang.eng}"></a></li>
 		</ul>
 	</div>
-	
-	<h2 th:text="#{index.naslov}">Dobrodosli u aplikaciju</h2>
-	<br>
+	<table th:if="${session.prijavljeniKorisnik == null}" class="position-center">
+		<tr><th th:text="#{knjige.notLoggedIn}"></th></tr>
+		<tr>
+			<td>
+				<ul>
+					<li><a href="registracija.html">Registracija</a></li>
+					<li><a href="login.html">Prijava</a></li>
+				</ul>
+			</td>
+		</tr>
+	</table>
 	
 	
 	
@@ -52,17 +59,6 @@
 		
 	<br>
 	
-	<table th:if="${session.prijavljeniKorisnik == null}">
-		<tr><th th:text="#{knjige.notLoggedIn}"></th></tr>
-		<tr>
-			<td>
-				<ul>
-					<li class="boja"><a href="registracija.html">registracija</a></li>
-					<li><a href="login.html">prijava</a></li>
-				</ul>
-			</td>
-		</tr>
-	</table>
 	<br>
 	<table th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga != 'administrator'}">
 		<tr><th th:text="#{log.loggedIn}"></th></tr>
@@ -88,11 +84,9 @@
 					<li><a href="Korisnici">Korisnici</a></li>
 					<li><a href="Komentari">Komentari</a>
 					<hr width="100%"/>
-					<br>
 					<li><a href="LoyaltyKartice">Loyalty Kartice</a></li>
 					<li><a href="Izvestaj">Izvestavanje</a>
 					<hr width="100%"/>
-					<br>
 					<li><a href="#">Tabelarni prikaz godine i datumi</a>
 					<li><a href="KnjigeIsbn">Pretraga po ISBN-u</a>
 				</ul>
@@ -108,6 +102,7 @@
             <h2>Contact: </h2>
             <address>
             Miloska 3, Novi Sad
+            <br>
             <a class="email_btn" href="mailto:example@gmail.com">Email Us</a>
             <adress>
         
@@ -125,6 +120,9 @@
                     </li>
                     <li>
                         <a href="#">Alternative Ads</a>
+                    </li>
+                    <li>
+                        <a href="#">Become sponsor</a>
                     </li>
                 </ul>
             </li>
@@ -144,6 +142,12 @@
                     <li>
                         <a href="#">Sedite</a>
                     </li>
+                    <li>
+                        <a href="#">Ocenjujte</a>
+                    </li>
+                    <li>
+                        <a href="#">Uzivajte</a>
+                    </li>
                 </ul>
             </li>
 
@@ -159,6 +163,9 @@
                     </li>
                     <li>
                         <a href="#">Security</a>
+                    </li>
+                    <li>
+                        <a href="#">Report</a>
                     </li>
                 </ul>
             </li>

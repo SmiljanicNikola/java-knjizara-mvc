@@ -45,10 +45,19 @@ nav ul li a{
 	visibility: hidden;
 }
 
-a.active, a:hover{
-    background: #2c3e50;
+nav a.active, a:hover{
+   
     transition: .5s;
 }
+
+#check{
+	visibility:hidden;
+}
+
+i{
+    display:none;
+    visibility: hidden;
+    }
 
 @media(max-width:950x){
 label.logo{
@@ -58,6 +67,10 @@ label.logo{
     nav ul li a{
         font-size: 16px;
     }
+    i{
+    visibility:visible;
+     }
+    
 }
 @media(max-width:890px){
     .checkBtn{
@@ -80,19 +93,28 @@ label.logo{
     nav ul li a{
         font-size: 20px;
     }
-    a:hover, a.active{
+    
+   	nav a:hover, a.active{
         background:none;
         color:#2c3e50;
     }
     #check:checked ~ ul{
         left: 0;
     }
+    i{
+    visibility:visible;
+     }
+    
+    .checkBtn{
+	font-size:0;
+	color:-webkit-linear-gradient(right,#08233e, #719bc6, #086acc);
+	float:right;
+	line-height:0;
+	margin-right:0;
+	cursor:pointer;
+	margin-top:0;
 }
-
-i.fas fa-bars{
-	width:75px;
-	height:75px;
-	color:white;
+    
 }
 
 
@@ -106,11 +128,6 @@ i.fas fa-bars{
 	margin-top:27px;
 }
 
-
-
-
-
-/*Footer*/
 
 
 
