@@ -2,12 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<base href="/KnjizaraProjekat/">
 <link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <title>Registracija</title>
 </head>
 <body>
+<nav>
+	<input type="checkbox" id="check">
+	<label for="check" class="checkBtn">
+		<i class="fas fa-bars" id="activeBars"></i>
+	</label>
+	<label class="logo">LOGO</label>
+	<ul>
+		<li><a href="login.html">Prijava</a></li>
+		<li><a href="registracija.html">Registracija</a></li>
+		<li><a href="#">O Nama</a></li>
+		<li><a href="#">Kontakt</a></li>
+		
+	</ul>
+</nav>
 	<div style="float:right">
 			<h4 th:text="#{lang.change}"></h4>
 		<ul>
@@ -18,20 +33,108 @@
 <form method="post" action="Korisnici/Register">
 	<table border="1" class="tabela">
 	<caption>Registracija korisnika</caption>
-				<tr><th>Imee:</th><td><input type="text" value=""  name="ime" /></td></tr>
-				<tr><th>Prezime:</th><td><input type="text" value=""  name="prezime" /></td></tr>
-				<tr><th>Email:</th><td><input type="text" value="" name="email" /></td></tr>
+				<tr><th>Imee:</th><td><input type="text" value=""  name="ime"/></td></tr>
+				<tr><th>Prezime:</th><td><input type="text" value=""  name="prezime"/></td></tr>
+				<tr><th>Email:</th><td><input type="text" value="" name="email"/></td></tr>
 				<tr><th>Adresa:</th><td><input type="text" name="adresa"/></td></tr>
 				<tr><th>Broj telefona:</th><td><input type="text" name="telefon"/></td></tr>
 				<tr><th>korisničko ime:</th><td><input type="text" value="" name="korisnickoIme"/></td></tr>
 				<tr><th>Lozinka:</th><td><input type="password" value="" name="lozinka"/></td></tr>
 				<tr><th>Ponovljena Lozinka:</th><td><input type="password" value="" name="ponovljenaLozinka"/></td></tr>
-				<tr><th>Datum rodjenja:</th><td><input type="date" name="datumRodjenja"/></td></tr>
+				<tr><th>Datum Rodjenja:</th><td><input type="date" name="datumRodjenja"/></td></tr>
 				<tr><th>Datum Registracije:</th><td><input value="2021-02-14T18:00:00" name="datumRegistracije"/></td></tr>
-				<tr><th>Uloga: </th><td><input type="text" value="Kupac" name="uloga" readonly /></td></tr>
+				<tr><th>Uloga: </th><td><input type="text" value="kupac" name="uloga"/></td></tr>
 				<tr><th></th><td><input type="submit" value="Registruj se"/></td>
 	</table>
 </form>
-<p class="greska" th:text="${poruka}"></p>
+
+
+
+<footer>
+        <div class="footer_adress">
+        
+            <h1 class="footer_logo">Logo</h1>
+            <h2>Contact: </h2>
+            <address>
+            Miloska 3, Novi Sad
+            <br>
+            <a class="email_btn" href="mailto:example@gmail.com">Email Us</a>
+            <adress>
+        
+        </div>
+    
+        <ul class="footer_nav">
+            <li class="nav_item">
+                <h2 class="nav_title">Media</h2>
+                <ul class="nav_ul">
+                    <li>
+                        <a href="#">Online</a>
+                    </li>
+                    <li>
+                        <a href="#">Print</a>
+                    </li>
+                    <li>
+                        <a href="#">Alternative Ads</a>
+                    </li>
+                    <li>
+                        <a href="#">Become sponsor</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav_item nav_item--extra">
+                <h2 class="nav_title">Usluge</h2>
+                <ul class="nav_ul nav_ul--extra">
+                    <li>
+                        <a href="#">Kupujte kod nas</a>
+                    </li>
+                    <li>
+                        <a href="#">Iznajmljujte</a>
+                    </li>
+                    <li>
+                        <a href="#">Narucujte</a>
+                    </li>
+                    <li>
+                        <a href="#">Sedite</a>
+                    </li>
+                    <li>
+                        <a href="#">Ocenjujte</a>
+                    </li>
+                    <li>
+                        <a href="#">Uzivajte</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav_item">
+                <h2 class="nav_title">Legal</h2>
+
+                <ul class="nav_ul">
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#">Terms of Use</a>
+                    </li>
+                    <li>
+                        <a href="#">Security</a>
+                    </li>
+                    <li>
+                        <a href="#">Report</a>
+                    </li>
+                </ul>
+            </li>
+            
+        </ul>
+        
+        <div class="legal">
+            <span>&copy; 2019 Barcode. All rights reserved for owner.</span>
+            
+            <div class="legal_links">
+                <span>Made by owner of everything</span>
+            </div>
+        </div>
+        
+    </footer>
 </body>
 </html>

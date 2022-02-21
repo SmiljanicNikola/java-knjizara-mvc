@@ -221,6 +221,7 @@ public class KorisnikController {
 			}
 			if(email.equals("")) {
 				throw new Exception("Email polje ne sme biti prazno!");
+				
 			}
 			if(adresa.equals("")) {
 				throw new Exception("Adresa polje ne sme biti prazno!");
@@ -234,6 +235,9 @@ public class KorisnikController {
 			//if(uloga != "Kupac") {
 			//	throw new Exception("Uloga mora biti kupac!");
 			//}
+			
+			
+			
 			Korisnik korisnik = new Korisnik(ime, prezime, email, adresa, telefon, korisnickoIme, lozinka, datumRodjenja,datumRegistracije,uloga,false,false);
 			korisnikService.save(korisnik);
 			
