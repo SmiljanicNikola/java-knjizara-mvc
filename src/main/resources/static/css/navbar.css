@@ -5,15 +5,13 @@
 	list-style:none;
 	box-sizing:border-box;	
 }
+
 nav{
-    background: -webkit-linear-gradient(right,#08233e, #719bc6, #086acc);
-    /*background-color: #05386B;*/
+    background-color:#865439;
     height: 80px;
     width: 100%;
-    
-    
-
 }
+
 label.logo{
     color:white;
     font-size: 35px;
@@ -60,18 +58,19 @@ i{
     }
 
 @media(max-width:950x){
-label.logo{
-    font-size: 30px;
-    padding-left: 50px;
+	label.logo{
+	    font-size: 30px;
+	    padding-left: 50px;
+	}
+	    nav ul li a{
+	        font-size: 16px;
+	    }
+	    i{
+	    visibility:visible;
+	    }
+	    
 }
-    nav ul li a{
-        font-size: 16px;
-    }
-    i{
-    visibility:visible;
-     }
-    
-}
+
 @media(max-width:890px){
     .checkBtn{
         display: block;
@@ -103,7 +102,7 @@ label.logo{
     }
     i{
     visibility:visible;
-     }
+    }
     
     .checkBtn{
 	font-size:0;
@@ -113,10 +112,8 @@ label.logo{
 	margin-right:0;
 	cursor:pointer;
 	margin-top:0;
+	}  
 }
-    
-}
-
 
 .checkBtn{
 	font-size:30px;

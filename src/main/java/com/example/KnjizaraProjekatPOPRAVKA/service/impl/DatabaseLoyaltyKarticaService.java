@@ -22,7 +22,6 @@ public class DatabaseLoyaltyKarticaService implements LoyaltyKarticaService {
 		return loyaltyKarticaDAO.findOne(id);
 	}
 
-
 	@Override
 	public List<LoyaltyKartica> findAll() {
 		return loyaltyKarticaDAO.findAll();

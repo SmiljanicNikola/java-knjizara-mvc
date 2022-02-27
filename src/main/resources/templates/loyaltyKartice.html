@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title th:text="#{loyaltykartice.pageHeader}"></title>
-<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
-
+	<meta charset="UTF-8">
+	<title th:text="#{loyaltykartice.pageHeader}"></title>
+	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 </head>
 <body>
+	<div th:insert="navbar :: navbar">...</div>
+
 	<div style="float:right">
 			<h4 th:text="#{lang.change}"></h4>
 		<ul>
@@ -15,7 +18,9 @@
 		</ul>
 	</div>
 	<table th:if="${session.prijavljeniKorisnik != null}">
-		<tr><th th:text="#{knjige.loggedIn}"></th><td><a th:href="|Korisnici/Details?korisnickoIme=${session.prijavljeniKorisnik.korisnickoIme}|" th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.</td></tr>
+		<tr>
+			<th th:text="#{knjige.loggedIn}"></th><td><a th:href="|Korisnici/Details?korisnickoIme=${session.prijavljeniKorisnik.korisnickoIme}|" th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.</td>
+		</tr>
 		<tr>
 			<td colspan="2">
 				<ul>
@@ -28,23 +33,25 @@
 	<br><br>
 	<form method="get">
 		<table class="tabela">
-			<caption th:text="#{loyaltykartice.pageHeader}"><b></b></caption>
+			<caption th:text="#{loyaltykartice.pageHeader}">
+				<b>
+					Loyalty kartice
+				</b>
+			</caption>
 			<tr>
-			<th>Id</th>
-			<th th:text="#{loyaltykartice.popust}"></th>
-			<th th:text="#{loyaltykartice.brojPoena}"></th>
-			<th th:text="#{loyaltykartice.vlasnik}"></th>
-			<th >Status</th>
+				<th>Id</th>
+				<th th:text="#{loyaltykartice.popust}"></th>
+				<th th:text="#{loyaltykartice.brojPoena}"></th>
+				<th th:text="#{loyaltykartice.vlasnik}"></th>
+				<th >Status</th>
 			</tr>
 			<tr th:each="loyaltyKartica, status: ${loyaltyKartice}" th:if="${loyaltyKartica.status != 'Nije odobrena'}">
-					<td><a th:href="|LoyaltyKartice/Details?id=${loyaltyKartica.id}|"th:text="${loyaltyKartica.id}"></a></td>
-					<td th:text="${loyaltyKartica.popust}"></td>
-					<td class="broj" th:text="${loyaltyKartica.brPoena}"></td>
-					<td th:text="${loyaltyKartica.vlasnik}"></td>
-					<td th:text="${loyaltyKartica.status}"></td>
+				<td><a th:href="|LoyaltyKartice/Details?id=${loyaltyKartica.id}|"th:text="${loyaltyKartica.id}"></a></td>
+				<td th:text="${loyaltyKartica.popust}"></td>
+				<td class="broj" th:text="${loyaltyKartica.brPoena}"></td>
+				<td th:text="${loyaltyKartica.vlasnik}"></td>
+				<td th:text="${loyaltyKartica.status}"></td>
 			</tr>
-			
-			
 		</table>
 	</form>
 	<br>
@@ -52,6 +59,8 @@
 		<ul>	
 			<li><a href="/KnjizaraProjekat">Pocetna</a></li>
 		</ul>
+		
+	<div th:insert="footer :: footer">...</div>
 	
 </body>
 </html>

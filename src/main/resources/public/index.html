@@ -1,25 +1,27 @@
 <!DOCTYPE>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<base href="/KnjizaraProjekat/">
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
-<title>Pocetna</title>
+	<base href="/KnjizaraProjekat/">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<title>Pocetna</title>
 </head>
 <body>
 
-<nav>
-	<ul>
-		<li href="login.html">Prijava</li>
-		<li href="registracija.html">Registracija</li>
-	</ul>
-</nav>
-	<h2>Dobrodosli u aplikacijuuuuuuu</h2>
+	<nav>
+		<ul>
+			<li href="login.html">Prijava</li>
+			<li href="registracija.html">Registracija</li>
+		</ul>
+	</nav>
+	
+	<h2>Dobrodosli u aplikacijuu</h2>
 	<br>
 	
-	
 	<table th:if="${session.prijavljeniKorisnik != null}">
-		<tr><th>Prijavljeni ste kao</th><td><a th:href="|Korisnici/Details?korisnickoIme=${session.prijavljeniKorisnik.korisnickoIme}|" th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.</td></tr>
+		<tr>
+			<th>Prijavljeni ste kao</th><td><a th:href="|Korisnici/Details?korisnickoIme=${session.prijavljeniKorisnik.korisnickoIme}|" th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.</td>
+		</tr>
 		<tr>
 			<td colspan="2">
 				<ul>
@@ -30,7 +32,9 @@
 	</table>
 	
 	<table th:if="${session.prijavljeniKorisnik == null}">
-		<tr><th>Niste prijavljeni</th></tr>
+		<tr>
+			<th>Niste prijavljeni</th>
+		</tr>
 		<tr>
 			<td>
 				<ul>
@@ -40,22 +44,23 @@
 			</td>
 		</tr>
 	</table>
+	
 	<br>
 	<table th:if="${session.prijavljeniKorisnik != null}">
-		<tr><th>Prijavljen si</th></tr>
+		<tr>
+			<th>Prijavljen si</th>
+		</tr>
 		<tr>
 			<td>
 				<ul>
 					<li><a href="Knjige">Knjige</a></li>
 					<li><a href="Korisnici">Korisnici</a></li>
-					
-				
 				</ul>
 			</td>
 		</tr>
 	</table>
 	
-
+	
 
 </body>
 </html>

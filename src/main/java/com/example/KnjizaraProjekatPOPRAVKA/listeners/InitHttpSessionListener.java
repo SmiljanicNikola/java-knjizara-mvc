@@ -1,8 +1,6 @@
 package com.example.KnjizaraProjekatPOPRAVKA.listeners;
 
-
 import java.util.ArrayList;
-
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;

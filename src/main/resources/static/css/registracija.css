@@ -1,0 +1,82 @@
+.center{
+	max-width:750px;
+	width:100%;
+	padding:25px 30px;
+	border-radius:5px;
+	background: #C68B59;
+}
+
+.center form .skupina{
+	display:flex;
+	flex-wrap:wrap;
+	justify-content: space-between;
+}
+
+form .skupina .txt_field{
+	margin:20px 0 12px 0;
+	width:calc(100%/2-20px);
+}
+
+.skupina .txt_field input{
+	width:100%;
+	padding-left:15px;
+	height:40px;
+	border-radius:5px;
+	outline:none;
+	font-size:16px;
+	border: 1px solid #ccc;
+	font-size:16px;
+	border-bottom-width:2px;
+	transition:all 0.3s ease;
+}
+
+.skupina .txt_field input : focus,
+.skupina .txt_field input : valid{
+	border-color:#9b59b6;
+}
+
+.pass{
+	margin: -5px 0 20px 5px;
+	color:#a6a6a6;
+	cursor:pointer;
+}
+.pass:hover{
+	text-decoration:underline;
+}
+
+.signup_link{
+	margin:30px 0;
+	text-align:center;
+	font-size:16px;
+	color:#666666;
+}
+.signup_link a{
+	color:#2691d9;
+	text-decoration:none;
+}
+.signup_link a:hover{
+	text-decoration: underline;
+}
+.skupina .txt_field .details{
+	font-weight:500;
+	margin-bottom:5px;
+}
+form .button{
+	height:45px;
+	margin:45px 0;
+}
+form .button input{
+	
+	height:100%;
+	width:100%;
+	outline:none;
+	color:#fff;
+	font-size:18px;
+	font-weight:500;
+	border-radius:5px;
+	letter-spacing:1px;
+	background:brown;
+}
+.form .button input:hover{
+	background:yellow;
+}

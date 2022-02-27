@@ -5,8 +5,12 @@
 	<meta charset="UTF-8">
 	<title th:text="#{loyaltykartice.kartica}"></title>
 	<link rel="stylesheet" type="text/css" href="css/StiloviForma.css"/>
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+	<link rel="stylesheet" type="text/css" href="css/footer.css"/>	
 </head>
 <body>
+	<div th:insert="navbar :: navbar">...</div>
+
 	<form method="post" action="LoyaltyKartice/Edit" th:if="${session.prijavljeniKorisnik != null}">
 		<table border="1">
 			<caption th:text="#{loyaltykartice.kartica}"></caption>
@@ -14,23 +18,30 @@
 			<tr><th th:text="#{loyaltykartice.popust}"></th><td><input type="number" th:value="${kartica.popust}" name="popust"/></td></tr>
 			<tr><th th:text="#{loyaltykartice.brojPoena}"></th><td><input type="number" th:value="${kartica.brPoena}" name="brPoena"></td></tr>
 			<tr><th th:text="#{loyaltykartice.vlasnik}"></th><td><input type="text" th:value="${kartica.vlasnik.korisnickoIme}" name="vlasnikOznaka"/></td></tr>
-			<tr><th>Status:</th><td>
-						<select name="status">
-							<option value="">Odobri/Odbij</option>
-							<option value="Odobrena" th:selected="${#strings.equals(param.status, 'odobren')}">Odobri</option>
-							<option value="Nije odobrena" th:selected="${#strings.equals(param.status, 'nije odobren')}">Odbij</option>
-							<option value="Na cekanju" th:selected="${#strings.equals(param.status, 'na cekanjuu')}">Ostavi na cekanju</option>
-							
-						</select>
-			</td></tr>
+			<tr>
+				<th>Status:</th>
+				<td>
+					<select name="status">
+						<option value="">Odobri/Odbij</option>
+						<option value="Odobrena" th:selected="${#strings.equals(param.status, 'odobren')}">Odobri</option>
+						<option value="Nije odobrena" th:selected="${#strings.equals(param.status, 'nije odobren')}">Odbij</option>
+						<option value="Na cekanju" th:selected="${#strings.equals(param.status, 'na cekanjuu')}">Ostavi na cekanju</option>	
+					</select>
+				</td>
+			</tr>
 			
-			<tr><th></th><td><input type="submit" value="Izmeni"/></td></tr>
+			<tr>
+				<th></th><td><input type="submit" value="Izmeni"/></td>
+			</tr>
 		</table>
 	</form>
 			
-		<ul>	
-			<li><a href="/KnjizaraProjekat">Pocetna</a></li>
-			<li><a href="/LoyaltyKartice">Nazad na zahteve loyalty kartica</a></li>
-		</ul>	
+	<ul>	
+		<li><a href="/KnjizaraProjekat">Pocetna</a></li>
+		<li><a href="/LoyaltyKartice">Nazad na zahteve loyalty kartica</a></li>
+	</ul>
+		
+	<div th:insert="footer :: footer">...</div>
+	
 </body>
 </html>

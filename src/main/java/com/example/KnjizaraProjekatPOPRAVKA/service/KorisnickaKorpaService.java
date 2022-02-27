@@ -6,7 +6,6 @@ import java.util.List;
 import com.example.KnjizaraProjekatPOPRAVKA.model.Komentar;
 import com.example.KnjizaraProjekatPOPRAVKA.model.KorisnickaKorpa;
 
-
 public interface KorisnickaKorpaService {
 
 	KorisnickaKorpa findOne(int id);

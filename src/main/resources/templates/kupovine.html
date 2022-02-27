@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title></title>
-<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
-
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 </head>
 <body>
-<br>
+	<div th:insert="navbar :: navbar">...</div>
+
+	<br>
 	<table th:if="${session.prijavljeniKorisnik != null}">
-		<tr><th th:text="#{knjige.loggedIn}"></th><td><a th:href="|Korisnici/Details?korisnickoIme=${session.prijavljeniKorisnik.korisnickoIme}|" th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.</td></tr>
+		<tr>
+			<th th:text="#{knjige.loggedIn}"></th><td><a th:href="|Korisnici/Details?korisnickoIme=${session.prijavljeniKorisnik.korisnickoIme}|" th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.</td>
+		</tr>
 		<tr>
 			<td colspan="2">
 				<ul>
@@ -19,34 +24,33 @@
 		</tr>
 	</table>
 	
-	<br><br>
+	<br>
 	<form method="get">
 		<table class="tabela">
 			<caption>Kupovine</caption>
 			<tr>
-			<th>Id</th>
-			<th>Naziv knjiga</th>
-			<th>Autor</th>
-			<th>Kolicina primeraka</th>
-			<th>Cena Knjige</th>
-			<th>Ukupna cena</th>
+				<th>Id</th>
+				<th>Naziv knjiga</th>
+				<th>Autor</th>
+				<th>Kolicina primeraka</th>
+				<th>Cena Knjige</th>
+				<th>Ukupna cena</th>
 			</tr>
 			<tr th:each="stavka, status: ${stavke}">
-					<td th:text="${stavka.id}"></td>
-					<td th:text="${stavka.knjiga.naziv}"></td>
-					<td th:text="${stavka.knjiga.autor}"></td>
-					<td th:text="1"></td>
-					<td th:text="${stavka.knjiga.cena}"></td>
-					<td th:text = "${stavka.knjiga.cena}"></td>
-					<td>
-						<a th:href="|KorisnickaKorpa/Delete?id=${stavka.id}|"th:text="Delete"></a>
-					</td>
+				<td th:text="${stavka.id}"></td>
+				<td th:text="${stavka.knjiga.naziv}"></td>
+				<td th:text="${stavka.knjiga.autor}"></td>
+				<td th:text="1"></td>
+				<td th:text="${stavka.knjiga.cena}"></td>
+				<td th:text = "${stavka.knjiga.cena}"></td>
+				<td>
+					<a th:href="|KorisnickaKorpa/Delete?id=${stavka.id}|"th:text="Delete"></a>
+				</td>
 			</tr>
-			
-			
 		</table>
 	</form>
 	
+	<div th:insert="footer :: footer">...</div>
 	
 </body>
 </html>

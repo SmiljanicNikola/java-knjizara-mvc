@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Lazy;
 
 import com.example.KnjizaraProjekatPOPRAVKA.model.Kupovina;
 
-
 @Lazy
 public interface KupovinaService {
 
@@ -16,7 +15,6 @@ public interface KupovinaService {
 	
 	Kupovina findOne(LocalDate datumKupovine);
 
-	
 	List<Kupovina> findAll();
 	
 	Kupovina deleteAll();

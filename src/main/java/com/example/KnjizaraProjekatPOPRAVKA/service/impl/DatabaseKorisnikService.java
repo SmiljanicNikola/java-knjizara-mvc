@@ -11,13 +11,11 @@ import com.example.KnjizaraProjekatPOPRAVKA.dao.KorisnikDAO;
 import com.example.KnjizaraProjekatPOPRAVKA.model.Korisnik;
 import com.example.KnjizaraProjekatPOPRAVKA.service.KorisnikService;
 
-
 @Service
 public class DatabaseKorisnikService implements KorisnikService {
 
 	@Autowired
 	private KorisnikDAO korisnikDAO;
-	
 	
 	
 	@Override
@@ -67,16 +65,8 @@ public class DatabaseKorisnikService implements KorisnikService {
 
 	@Override
 	public void delete(List<String> korisnickoIme) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
-
-	//@Override
-	/*public List<Korisnik> find(String ime, String prezime, String email, String adresa, String telefon,
-			String korisnickoIme, LocalDate datumRodjenja, LocalDateTime datumRegistracije, String uloga) {
-		return korisnikDAO.find(ime, prezime, email, adresa,telefon,korisnickoIme,
-				datumRodjenja, datumRegistracije, uloga);
-	}*/
 
 	@Override
 	public List<Korisnik> findByKorisnickoIme(String korisnickoIme) {

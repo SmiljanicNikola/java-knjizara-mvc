@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title th:text="#{komentari.pageHeader}"></title>
-<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
-
+	<meta charset="UTF-8">
+	<title th:text="#{komentari.pageHeader}"></title>
+	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
 </head>
 <body>
+	<div th:insert="navbar :: navbar">...</div>
+
 	<div style="float:right">
 			<h4 th:text="#{lang.change}"></h4>
 		<ul>
@@ -52,7 +53,9 @@
 			
 		</table>
 	</form>
-	<br>
+	
+	<div th:insert="footer :: footer">...</div>
+	
 	
 </body>
 </html>

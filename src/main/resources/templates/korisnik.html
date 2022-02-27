@@ -6,28 +6,15 @@
 	<title>Pojedinacni korisnik</title>
 	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
 	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 </head>
 <body>
-<nav>
-	<input type="checkbox" id="check">
-	<label for="check" class="checkBtn">
-		<i class="fas fa-bars" id="activeBars"></i>
-	</label>
-	<label class="logo">LOGO</label>
-	<ul>
-		<li><a href="login.html">Prijava</a></li>
-		<li><a href="registracija.html">Registracija</a></li>
-		<li><a href="#">O Nama</a></li>
-		<li><a href="#">Kontakt</a></li>
-		
-	</ul>
-</nav>
+	<div th:insert="navbar :: navbar">...</div>
+
 	<form method="post" action="Korisnici/Edit" th:if="${session.prijavljeniKorisnik != null}">
 		<table border="1">
 		
 			<caption>Korisnik</caption>
-			
 			<tr><th>Ime:</th><td><input type="text" th:value="${korisnik.ime}" name="ime"/></td></tr>
 			<tr><th>Prezime:</th><td><input type="text" th:value="${korisnik.prezime}" name="prezime"/></td></tr>
 			<tr><th>Email:</th><td><input type="text" th:value="${korisnik.email}" name="email"/></td></tr>
@@ -37,19 +24,20 @@
 			<tr><th>Lozinka:</th><td><input type="text" th:value="${korisnik.lozinka}" name="lozinka"/></td></tr>
 			<tr><th>Datum Rodjenja:</th><td><input type="date" th:value="${#temporals.format(korisnik.datumRodjenja, 'yyyy-MM-dd')}" name="datumRodjenja"/></td></tr>
 			<tr><th>Datum Registracije:</th><td><input th:value="${#temporals.format(korisnik.datumRegistracije, 'yy-MM-dd  HH:mm')}" name="datumRegistracije"/></td></tr>			
-			<!-- <tr><th>Uloga:</th><td><input type="text" th:value="${korisnik.uloga}" name="uloga"/></td></tr>		-->	
-			<tr><th>Uloga:</th><td>
-					<select name="uloga">
-							<option th:value="${korisnik.uloga}" th:selected="${#strings.equals(param.uloga, 'kupac')}">.</option>
-							<option value="administrator" th:selected="${#strings.equals(param.uloga, 'administrator')}">administrator</option>
-							<option value="kupac" th:selected="${#strings.equals(param.uloga, 'kupac')}">kupac</option>
-					</select></td></tr>
+			<tr>
+				<th>Uloga:</th><td>
+						<select name="uloga">
+								<option th:value="${korisnik.uloga}" th:selected="${#strings.equals(param.uloga, 'kupac')}">.</option>
+								<option value="administrator" th:selected="${#strings.equals(param.uloga, 'administrator')}">administrator</option>
+								<option value="kupac" th:selected="${#strings.equals(param.uloga, 'kupac')}">kupac</option>
+						</select></td>
+			</tr>
 			<tr th:if="${session.prijavljeniKorisnik.uloga == 'administrator' and korisnik.uloga == 'kupac'}"><th>Blokiran:</th><td><input type="checkbox" name="blokiran" th:checked="${korisnik.blokiran}"/></td></tr>
-			<tr><th></th><td><input type="submit" value="Izmeni" th:if="${session.prijavljeniKorisnik.uloga == 'administrator'}"/></td></tr>
-		
+			<tr>
+				<th></th><td><input type="submit" value="Izmeni" th:if="${session.prijavljeniKorisnik.uloga == 'administrator'}"/></td>
+			</tr>
 		</table>
 	</form>
-	
 	
 	<form method="post" action="Delete">
 			
@@ -60,19 +48,18 @@
 			<table class="tabela" border="1" >
 			<caption>Lista zelja korisnika</caption>
 			<tr>
-			<th>Id</th>
-			<th>Knjiga</th>
-			<th>Vlasnik</th>
-			<th></th>
+				<th>Id</th>
+				<th>Knjiga</th>
+				<th>Vlasnik</th>
+				<th></th>
 			</tr>
-			<tr th:each="zelja, status: ${listaZelja}" th:if="${zelja.vlasnikListe.korisnickoIme == korisnik.korisnickoIme}" >
-					<td th:text="${zelja.id}"></td>
-					<td th:text="${zelja.knjiga}"></td>
-					<td th:text="${zelja.vlasnikListe.korisnickoIme}"></td>
-					<td>
-						<!-- <a th:href="|ListaZelja/Delete?id=${zelja.id}|"th:text="Delete"></a> -->
-						<button th:value="${zelja.id}" name="id" type="submit">Delete</button>
-					</td>
+			<tr th:each="zelja, status: ${listaZelja}" th:if="${zelja.vlasnikListe.korisnickoIme == korisnik.korisnickoIme}">
+				<td th:text="${zelja.id}"></td>
+				<td th:text="${zelja.knjiga}"></td>
+				<td th:text="${zelja.vlasnikListe.korisnickoIme}"></td>
+				<td>
+					<button th:value="${zelja.id}" name="id" type="submit">Delete</button>
+				</td>
 			</tr>
 		</table>
 	</form>	
@@ -97,91 +84,8 @@
 			<li><a href="/KnjizaraProjekat">Pocetna</a></li>
 			<li><a href="/KnjizaraProjekat/Korisnici">Nazad na listu svih korisnika</a></li>
 		</ul>
-		<footer>
-        <div class="footer_adress">
-        
-            <h1 class="footer_logo">Logo</h1>
-            <h2>Contact: </h2>
-            <address>
-            Miloska 3, Novi Sad
-            <br>
-            <a class="email_btn" href="mailto:example@gmail.com">Email Us</a>
-            <adress>
-        
-        </div>
-    
-        <ul class="footer_nav">
-            <li class="nav_item">
-                <h2 class="nav_title">Media</h2>
-                <ul class="nav_ul">
-                    <li>
-                        <a href="#">Online</a>
-                    </li>
-                    <li>
-                        <a href="#">Print</a>
-                    </li>
-                    <li>
-                        <a href="#">Alternative Ads</a>
-                    </li>
-                    <li>
-                        <a href="#">Become sponsor</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="nav_item nav_item--extra">
-                <h2 class="nav_title">Usluge</h2>
-                <ul class="nav_ul nav_ul--extra">
-                    <li>
-                        <a href="#">Kupujte kod nas</a>
-                    </li>
-                    <li>
-                        <a href="#">Iznajmljujte</a>
-                    </li>
-                    <li>
-                        <a href="#">Narucujte</a>
-                    </li>
-                    <li>
-                        <a href="#">Sedite</a>
-                    </li>
-                    <li>
-                        <a href="#">Ocenjujte</a>
-                    </li>
-                    <li>
-                        <a href="#">Uzivajte</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="nav_item">
-                <h2 class="nav_title">Legal</h2>
-
-                <ul class="nav_ul">
-                    <li>
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#">Terms of Use</a>
-                    </li>
-                    <li>
-                        <a href="#">Security</a>
-                    </li>
-                    <li>
-                        <a href="#">Report</a>
-                    </li>
-                </ul>
-            </li>
-            
-        </ul>
-        
-        <div class="legal">
-            <span>&copy; 2019 Barcode. All rights reserved for owner.</span>
-            
-            <div class="legal_links">
-                <span>Made by owner of everything</span>
-            </div>
-        </div>
-        
-    </footer>	
+		
+		<div th:insert="footer :: footer">...</div>
+			
 </body>
 </html>

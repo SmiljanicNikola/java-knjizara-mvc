@@ -1,0 +1,23 @@
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+	<title>Navbar</title>
+</head>
+<body>
+	<nav th:fragment="navbar">
+		<input type="checkbox" id="check">
+		<label for="check" class="checkBtn">
+			<i class="fas fa-bars" id="activeBars"></i>
+		</label>
+		<label class="logo">LOGO</label>
+		<ul>
+			<li><a href="login.html">Prijava</a></li>
+			<li><a href="registracija.html">Registracija</a></li>
+			<li><a href="#">O Nama</a></li>
+			<li><a href="#">Kontakt</a></li>
+		</ul>
+	</nav>
+</body>
+</html>

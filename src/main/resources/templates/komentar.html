@@ -6,6 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="css/StiloviForma.css"/>
 </head>
 <body>
+	<div th:insert="navbar :: navbar">...</div>
+
 	<form method="post" action="Edit" th:if="${session.prijavljeniKorisnik != null}">
 		<table border="1">
 			<caption>Komentar</caption>

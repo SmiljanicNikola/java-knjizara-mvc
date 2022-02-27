@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<base href="/KnjizaraProjekat/">
-<meta charset="UTF-8">
-<title>Pojedinacna knjiga</title>
-<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+	<base href="/KnjizaraProjekat/">
+	<meta charset="UTF-8">
+	<title>Pojedinacna knjiga</title>
+	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
 </head>
 
 <body>
+
+	<div th:insert="navbar :: navbar">...</div>
+
 	<form method="post" action="Knjige/Edit" th:if="${session.prijavljeniKorisnik != null}">
 		<table border="1">
 			<caption th:text="#{knjiga.pageTitle}"></caption>
@@ -28,20 +31,16 @@
 			<tr th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}"><th></th><td><input type="submit" value="Izmeni"/></td></tr>
 		</table>
 	</form>
-	
 			<table th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}">
 				<tr>
 					<td>
 						<ul>
 							<li>
-								Broj preostalih primeraka:<input type="number" th:value="${knjiga.brojPrimeraka}" name="brojPrimeraka"/><br>
-								
-								<h3 th:text="#{knjiga.naruciKnjige}"></h3>
-								
+								Broj preostalih primeraka:<input type="number" th:value="${knjiga.brojPrimeraka}" name="brojPrimeraka"/><br>		
+								<h3 th:text="#{knjiga.naruciKnjige}"></h3>	
 								<form method="post" action="Knjige/Poruci"> 
 									<input type="hidden" th:value="${knjiga.id}" name="id"/>
-									<input type="number" name="brojPrimeraka">
-									
+									<input type="number" name="brojPrimeraka">		
 									<button type="submit" th:text="#{knjiga.naruci}"></button>
 								</form>
 							</li>
@@ -66,10 +65,9 @@
 			<form method="post" action="KorisnickaKorpa/Create">
 				<input type="hidden" name="knjigaId" th:value="${knjiga.id}"/>
 				<div class="Udesno">
-				<table>
-					<tr><th>Unesite zeljenu kolicinu</th><td><input type="number" name="kolicina"/><input type="submit" value="Dodaj u korpu"/></td></tr>
-					
-				</table>
+					<table>
+						<tr><th>Unesite zeljenu kolicinu</th><td><input type="number" name="kolicina"/><input type="submit" value="Dodaj u korpu"/></td></tr>	
+					</table>
 				</div>
 			</form>
 			
@@ -78,33 +76,31 @@
 				<table>
 					<tr><td><input type="submit" value="Dodaj u listu zelja"/></td></tr>
 				</table>
-			</form>	
-				
-			
-			
+			</form>		
 			
 	<form method="get">
 			<table class="tabela" border="1" >
 			<caption>Komentari</caption>
 			<tr>
-			<th>Id</th>
-			<th>Tekst Komentara</th>
-			<th>Ocena</th>
-			<th>Datum Postavljanja</th>
-			<th>Autor</th>
-			<th>Knjiga za koju je vezan</th>
-			<th>Status</th>
+				<th>Id</th>
+				<th>Tekst Komentara</th>
+				<th>Ocena</th>
+				<th>Datum Postavljanja</th>
+				<th>Autor</th>
+				<th>Knjiga za koju je vezan</th>
+				<th>Status</th>
 			</tr>
 			<tr th:each="komentar, status: ${komentari}" th:if="${komentar.status == 'Odobren' and komentar.knjiga.naziv == knjiga.naziv}">
-					<td><a th:href="|Komentari/Details?id=${komentar.id}|"th:text="${komentar.id}"></a></td>
-					<td th:text="${komentar.tekstKomentara}"></td>
-					<td class="broj" th:text="${komentar.ocena}"></td>
-					<td th:text="${komentar.datumPostavljanja}"></td>
-					<td th:text="${komentar.autor.korisnickoIme}"></td>
-					<td th:text="${komentar.knjiga.naziv}"></td>
-					<td th:text="${komentar.status}"></td>
+				<td>
+					<a th:href="|Komentari/Details?id=${komentar.id}|"th:text="${komentar.id}"></a>
+				</td>
+				<td th:text="${komentar.tekstKomentara}"></td>
+				<td class="broj" th:text="${komentar.ocena}"></td>
+				<td th:text="${komentar.datumPostavljanja}"></td>
+				<td th:text="${komentar.autor.korisnickoIme}"></td>
+				<td th:text="${komentar.knjiga.naziv}"></td>
+				<td th:text="${komentar.status}"></td>
 			</tr>
-			
 			
 		</table>
 	</form>

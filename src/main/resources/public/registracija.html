@@ -1,28 +1,27 @@
 <!DOCTYPE>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
-<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
-
-<title>Registracija</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	<link rel="stylesheet" type="text/css" href="css/registracija.css"/>
+	
+	<title>Registracija</title>
 </head>
 <body>
-<nav>
-	<input type="checkbox" id="check">
-	<label for="check" class="checkBtn">
-		<i class="fas fa-bars" id="activeBars"></i>
-	</label>
-	<label class="logo">LOGO</label>
-	<ul>
-		<li><a href="login.html">Prijava</a></li>
-		<li><a href="registracija.html">Registracija</a></li>
-		<li><a href="#">O Nama</a></li>
-		<li><a href="#">Kontakt</a></li>
-		
-	</ul>
-</nav>
+	<nav>
+		<input type="checkbox" id="check">
+		<label for="check" class="checkBtn">
+			<i class="fas fa-bars" id="activeBars"></i>
+		</label>
+		<label class="logo">LOGO</label>
+		<ul>
+			<li th:if="${session.prijavljeniKorisnik == null}"><a href="login.html">Prijava</a></li>
+			<li th:if="${session.prijavljeniKorisnik == null}"><a href="registracija.html">Registracija</a></li>		
+		</ul>
+	</nav>
+
 	<div style="float:right">
 			<h4 th:text="#{lang.change}"></h4>
 		<ul>
@@ -30,42 +29,84 @@
 			<li><a href="Komentari/menjajLokalizacijuNaEngleski" th:text="#{lang.eng}"></a></li>
 		</ul>
 	</div>
-<form method="post" action="Korisnici/Register">
-	<table border="1" class="tabela">
-	<caption>Registracija korisnika</caption>
-				<tr><th>Imee:</th><td><input type="text" value=""  name="ime"/></td></tr>
-				<tr><th>Prezime:</th><td><input type="text" value=""  name="prezime"/></td></tr>
-				<tr><th>Email:</th><td><input type="text" value="" name="email"/></td></tr>
-				<tr><th>Adresa:</th><td><input type="text" name="adresa"/></td></tr>
-				<tr><th>Broj telefona:</th><td><input type="text" name="telefon"/></td></tr>
-				<tr><th>korisničko ime:</th><td><input type="text" value="" name="korisnickoIme"/></td></tr>
-				<tr><th>Lozinka:</th><td><input type="password" value="" name="lozinka"/></td></tr>
-				<tr><th>Ponovljena Lozinka:</th><td><input type="password" value="" name="ponovljenaLozinka"/></td></tr>
-				<tr><th>Datum Rodjenja:</th><td><input type="date" name="datumRodjenja"/></td></tr>
-				<tr><th>Datum Registracije:</th><td><input value="2021-02-14T18:00:00" name="datumRegistracije"/></td></tr>
-				<tr><th>Uloga: </th><td><input type="text" value="kupac" name="uloga"/></td></tr>
-				<tr><th></th><td><input type="submit" value="Registruj se"/></td>
-	</table>
-</form>
+	
 
-
-
-<footer>
-        <div class="footer_adress">
-        
-            <h1 class="footer_logo">Logo</h1>
-            <h2>Contact: </h2>
+	<div class="center">
+		<div class="title">Registracija</div>
+		<form method="post" action="Korisnici/Register">
+		<div class="skupina">
+			<div class="txt_field">
+				<span class="details">Ime</span>				
+				<input type="text" name="ime" placeholder="Unesite ime" required/>
+			</div>
+			<div class="txt_field">
+				<span class="details">Prezime</span>							
+				<input type="text" name="prezime" placeholder="Unesite prezime" required/>
+			</div>
+			<div class="txt_field">
+				<span class="details">Email</span>
+				<input type="text" name="email" placeholder="Unesite email" required/>
+			</div>
+			<div class="txt_field">	
+				<span class="details">Adresa</span>
+				<input type="text" name="adresa" placeholder="Unesite adresu" required/>
+			</div>
+			<div class="txt_field">
+				<span class="details">Telefon</span>
+				<input type="text" name="telefon" placeholder="Unesite telefon" required/>
+			</div>
+			<div class="txt_field">
+				<span class="details">Korisnicko Ime</span>
+				<input type="text" name="korisnickoIme" placeholder="Unesite korisnicko Ime" required/>
+			</div>
+			<div class="txt_field">
+				<span class="details">Lozinka</span>
+				<input type="password" name="lozinka" placeholder="Unesite lozinku" required/>
+			</div>
+			<div class="txt_field">
+				<span class="details">Ponovljena Lozinka</span>
+				<input type="password" name="ponovljenaLozinka" placeholder="Potvrdite lozinku" required />
+			</div>
+			<div class="txt_field">
+				<span class="details">Datum Rodjenja</span>
+				<input type="date" name="datumRodjenja" required>
+			</div>
+			<div class="txt_field">
+				<span class="details">Datum Registracije</span>
+				<input value="2021-02-14T18:00:00" name="datumRegistracije" />
+			</div>
+			<div class="txt_field">
+				<span class="details">Uloga</span>
+				<input type="text" value="kupac" name="uloga" readonly="readonly" />
+			</div>
+			<div class="button">
+				<input type="submit" value="Registruj se">
+			</div>
+			<div class="signup_link">
+				Vec imate nalog?<a href="login.html">Login</a>
+			</div>
+		</div>
+			
+		</form>
+	</div>
+	
+	
+	
+	<footer>
+		 <div class="footer_adress" style="margin: 15px 50px">
+            <h1> Logo </h1>
+            <h2>Contact: 065/333-9208</h2>
             <address>
-            Miloska 3, Novi Sad
+            	Miloska ulica 3, Novi Sad
             <br>
-            <a class="email_btn" href="mailto:example@gmail.com">Email Us</a>
-            <adress>
-        
+            </address>
+            <a class="email_btn" href="mailto:example@gmail.com" style="color:white; margin-top:15px; background:none">Email Us</a>
+            
         </div>
-    
+        
         <ul class="footer_nav">
             <li class="nav_item">
-                <h2 class="nav_title">Media</h2>
+                <h2 class="nav_title" style="margin-top:15px">Media</h2>
                 <ul class="nav_ul">
                     <li>
                         <a href="#">Online</a>
@@ -83,7 +124,7 @@
             </li>
 
             <li class="nav_item nav_item--extra">
-                <h2 class="nav_title">Usluge</h2>
+                <h2 class="nav_title" style="margin-top:15px">Usluge</h2>
                 <ul class="nav_ul nav_ul--extra">
                     <li>
                         <a href="#">Kupujte kod nas</a>
@@ -107,7 +148,7 @@
             </li>
 
             <li class="nav_item">
-                <h2 class="nav_title">Legal</h2>
+                <h2 class="nav_title" style="margin-top:15px">Legal</h2>
 
                 <ul class="nav_ul">
                     <li>
@@ -126,15 +167,18 @@
             </li>
             
         </ul>
-        
-        <div class="legal">
-            <span>&copy; 2019 Barcode. All rights reserved for owner.</span>
-            
+	    <hr style="margin-top:15px;">
+        <div class="legal" style="margin-top:25px; margin-bottom:15px">
+            <span>
+            	&copy; 2019 Barcode. All rights reserved for owner.
+            </span>
             <div class="legal_links">
-                <span>Made by owner of everything</span>
+                <span>
+                	Made by owner of everything
+                </span>
             </div>
         </div>
-        
-    </footer>
+	         
+	</footer>
 </body>
 </html>

@@ -21,7 +21,6 @@ public interface KomentarDAO {
 	public List<Komentar> find(int knjigaId);
 	
 	public List<Komentar> findVerzija2(HashMap<String, Object> mapaArgumenata);
-
 	
 	public void save(Komentar komentar);
 	

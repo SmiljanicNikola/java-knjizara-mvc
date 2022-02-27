@@ -1,51 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
-	<base href="/KnjizaraProjekat/">
-	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
-	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
-	<link rel="stylesheet" type="text/css" href="css/login.css"/>
-	
-	<title>Prijava korisnika</title>
+	<title>Footer</title>
 </head>
 <body>
-	<nav th:fragment="navbar">
-		<input type="checkbox" id="check">
-		<label for="check" class="checkBtn">
-			<i class="fas fa-bars" id="activeBars"></i>
-		</label>
-		<label class="logo">LOGO</label>
-		<ul>
-			<li th:if="${session.prijavljeniKorisnik == null}"><a href="login.html">Prijava</a></li>
-			<li th:if="${session.prijavljeniKorisnik == null}"><a href="registracija.html">Registracija</a></li>
-		</ul>
-	</nav>
-	
-	<div class="center">
-		<h1>Login</h1>
-		<form method="post" action="Korisnici/Login">
-			<div class="txt_field">
-				<input type="text" name="korisnickoIme" required>
-				<span></span>				
-				<label>Username</label>
-			</div>
-			<div class="txt_field">
-				<input type="password" name="lozinka" required>
-				<span></span>
-				<label>Password</label>
-			</div>
-			<div class="pass">Forgot password?</div>
-			<input type="submit" value="Login">
-			<div class="signup_link">
-				Nemate nalog?<a href="registracija.html">Registracija</a>
-			</div>
-		</form>
-	</div>
-	
-	<p class="greska"></p>	
-	
 	<footer th:fragment="footer">
 		 <div class="footer_adress" style="margin: 15px 50px">
             <h1> Logo </h1>
@@ -134,6 +94,5 @@
         </div>
 	         
 	</footer>
-	
 </body>
 </html>

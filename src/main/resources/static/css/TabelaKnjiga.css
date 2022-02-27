@@ -15,9 +15,9 @@ table.tabela td.broj {
 	text-align: right;
 }
 
-table.tabela th {
+table.tabela tr th {
 	color: white;
-	background-color: orange;
+	background: #9c6644;
 }
 
 table.tabela tr:nth-child(even) {
@@ -39,4 +39,13 @@ tr:hover{
 	position:relative;
 	align:center;
 	padding-left:50px;
+}
+
+body form{
+	align:center;
+}
+
+table tr th{
+	color: white;
+	background: #9c6644;
 }

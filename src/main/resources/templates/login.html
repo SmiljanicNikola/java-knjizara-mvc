@@ -1,140 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<base href="/KnjizaraProjekat/">
-<link rel="stylesheet" type="text/css" href="static/css/TabelaKnjiga.css"/>
-<title th:text="#{login.prijava}"></title>
-<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	<meta charset="UTF-8">
+	<base href="/KnjizaraProjekat/">
+	<link rel="stylesheet" type="text/css" href="static/css/TabelaKnjiga.css"/>
+	<title th:text="#{login.prijava}"></title>
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	<link rel="stylesheet" type="text/css" href="css/login.css"/>
 </head>
 <body>
-<nav>
-	<input type="checkbox" id="check">
-	<label for="check" class="checkBtn">
-		<i class="fas fa-bars" id="activeBars"></i>
-	</label>
-	<label class="logo">LOGO</label>
-	<ul>
-		<li><a href="login.html">Prijava</a></li>
-		<li><a href="registracija.html">Registracija</a></li>
-		<li><a href="#">O Nama</a></li>
-		<li><a href="#">Kontakt</a></li>
-		
-	</ul>
-</nav>
-	<!--  <div style="float:right">
-			<h4 th:text="#{lang.change}"></h4>
-		<ul>
-			<li><a href="Komentari/menjajLokalizacijuNaSrpski" th:text="#{lang.sr}"></a></li>
-			<li><a href="Komentari/menjajLokalizacijuNaEngleski" th:text="#{lang.eng}"></a></li>
-		</ul>
-	</div>-->
-	<form method="post" action="Korisnici/Login">
-		<table border="1" class="tabela">
-			<caption>Login</caption>
-			<tr>
-				<th>Username</th><td><input type="text" value="" name="korisnickoIme" required/></td>
-			</tr>
-			<tr>
-				<th>Password</th><td><input type="password" value="" name="lozinka" required/></td>
-			</tr>
-			<tr>
-				<th></th><td><input type="submit" th:value="Login"/>
-			</td>
-		</table>
-	</form>
+	<div th:insert="navbar :: navbar">...</div>
+	
+	<div class="center">
+		<h1>Login</h1>
+		<form method="post" action="Korisnici/Login">
+			<div class="txt_field">
+				<input type="text" name="korisnickoIme" required>
+				<span></span>				
+				<label>Username</label>
+			</div>
+			<div class="txt_field">
+				<input type="password" name="lozinka" required>
+				<span></span>
+				<label>Password</label>
+			</div>
+			<div class="pass">Forgot password?</div>
+			<input type="submit" value="Login">
+			<div class="signup_link">
+				Nemate nalog?<a href="registracija.html">Registracija</a>
+			</div>
+		</form>
+	</div>
 	
 	<br>
 	<p class="greska" th:text="${poruka}"></p>
-	<a href="index.html">Povratak na pocetnu stranicu</a><br>
-	<a href="registracija.html">Registruj se</a>
 	
-	<footer>
-        <div class="footer_adress">
-        
-            <h1 class="footer_logo">Logo</h1>
-            <h2>Contact: </h2>
-            <address>
-            Miloska 3, Novi Sad
-            <br>
-            <a class="email_btn" href="mailto:example@gmail.com">Email Us</a>
-            <adress>
-        
-        </div>
-    
-        <ul class="footer_nav">
-            <li class="nav_item">
-                <h2 class="nav_title">Media</h2>
-                <ul class="nav_ul">
-                    <li>
-                        <a href="#">Online</a>
-                    </li>
-                    <li>
-                        <a href="#">Print</a>
-                    </li>
-                    <li>
-                        <a href="#">Alternative Ads</a>
-                    </li>
-                    <li>
-                        <a href="#">Become sponsor</a>
-                    </li>
-                </ul>
-            </li>
+	<div th:insert="footer :: footer">...</div>
 
-            <li class="nav_item nav_item--extra">
-                <h2 class="nav_title">Usluge</h2>
-                <ul class="nav_ul nav_ul--extra">
-                    <li>
-                        <a href="#">Kupujte kod nas</a>
-                    </li>
-                    <li>
-                        <a href="#">Iznajmljujte</a>
-                    </li>
-                    <li>
-                        <a href="#">Narucujte</a>
-                    </li>
-                    <li>
-                        <a href="#">Sedite</a>
-                    </li>
-                    <li>
-                        <a href="#">Ocenjujte</a>
-                    </li>
-                    <li>
-                        <a href="#">Uzivajte</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="nav_item">
-                <h2 class="nav_title">Legal</h2>
-
-                <ul class="nav_ul">
-                    <li>
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#">Terms of Use</a>
-                    </li>
-                    <li>
-                        <a href="#">Security</a>
-                    </li>
-                    <li>
-                        <a href="#">Report</a>
-                    </li>
-                </ul>
-            </li>
-            
-        </ul>
-        
-        <div class="legal">
-            <span>&copy; 2019 Barcode. All rights reserved for owner.</span>
-            
-            <div class="legal_links">
-                <span>Made by owner of everything</span>
-            </div>
-        </div>
-        
-    </footer>
 </body>
 </html>

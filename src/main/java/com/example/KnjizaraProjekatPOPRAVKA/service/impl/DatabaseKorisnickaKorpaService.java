@@ -10,7 +10,6 @@ import com.example.KnjizaraProjekatPOPRAVKA.model.Komentar;
 import com.example.KnjizaraProjekatPOPRAVKA.model.KorisnickaKorpa;
 import com.example.KnjizaraProjekatPOPRAVKA.service.KorisnickaKorpaService;
 
-
 @Service
 public class DatabaseKorisnickaKorpaService implements KorisnickaKorpaService {
 
@@ -26,8 +25,6 @@ public class DatabaseKorisnickaKorpaService implements KorisnickaKorpaService {
 	public List<KorisnickaKorpa> findAll() {
 		return korisnickaKorpaDAO.findAll();
 	}
-
-	
 	
 	@Override
 	public KorisnickaKorpa save(KorisnickaKorpa korisnickaKorpa) {
@@ -37,7 +34,6 @@ public class DatabaseKorisnickaKorpaService implements KorisnickaKorpaService {
 
 	@Override
 	public List<KorisnickaKorpa> save(List<KorisnickaKorpa> korisnickeKorpe) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -49,7 +45,6 @@ public class DatabaseKorisnickaKorpaService implements KorisnickaKorpaService {
 
 	@Override
 	public List<KorisnickaKorpa> update(List<KorisnickaKorpa> korisnickeKorpe) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -79,8 +74,5 @@ public class DatabaseKorisnickaKorpaService implements KorisnickaKorpaService {
 		return korisnickaKorpaDAO.deleteAll();
 	}
 
-	
-
-	
 
 }

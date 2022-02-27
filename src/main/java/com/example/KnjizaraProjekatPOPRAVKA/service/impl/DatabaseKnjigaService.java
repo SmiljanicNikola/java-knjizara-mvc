@@ -13,9 +13,6 @@ import com.example.KnjizaraProjekatPOPRAVKA.model.Knjiga;
 import com.example.KnjizaraProjekatPOPRAVKA.model.Zanr;
 import com.example.KnjizaraProjekatPOPRAVKA.service.KnjigaService;
 
-
-
-
 @Service
 public class DatabaseKnjigaService implements KnjigaService {
 
@@ -31,7 +28,6 @@ public class DatabaseKnjigaService implements KnjigaService {
 
 	@Override
 	public Knjiga findOne(long isbn) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -60,7 +56,6 @@ public class DatabaseKnjigaService implements KnjigaService {
 
 	@Override
 	public List<Knjiga> update(List<Knjiga> knjige) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -76,7 +71,6 @@ public class DatabaseKnjigaService implements KnjigaService {
 	@Override
 	public void delete(List<String> id) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -225,57 +219,7 @@ public class DatabaseKnjigaService implements KnjigaService {
 			mapaArgumenata.put("jezik", jezik);
 		}
 		return knjigaDAO.find(mapaArgumenata);
-		
-		
-		/*List<Knjiga> knjige = knjigaDAO.findAll();
-		
-		if(naziv == null) {
-			naziv = "";
-		}
-		if(cena == null) {
-			cena = (float) 0;
-		}
-		if(autor == null) {
-			autor = "";
-		}
-		if(jezik == null) {
-			jezik = "";
-		}
-		
-		List<Knjiga> rezultat = new ArrayList<>();
-		for (Knjiga itKnjiga: knjige) {
-			// kriterijum pretrage
-			if (!itKnjiga.getNaziv().toLowerCase().contains(naziv.toLowerCase())) {
-				continue;
-			}
-			if (cena > 0) { // ako je žanr odabran
-				boolean pronadjen = false;
-				for (Zanr itZanr: itFilm.getZanrovi()) {
-					if (itZanr.getId() == zanrId) {
-						pronadjen = true;
-						break;
-					}
-				}
-				if (!pronadjen) {
-					continue;
-				}
-			}
-			if (!(itKnjiga.getCena() >= cena && itKnjiga.getCena() <= cena)) {
-				continue;
-			}
-			if (!itKnjiga.getJezik().toLowerCase().contains(jezik.toLowerCase())) {
-				continue;
-			}
-			if (!itKnjiga.getAutor().toLowerCase().contains(autor.toLowerCase())) {
-				continue;
-			}
-
-			rezultat.add(itKnjiga);
-		}*/
-
-		
-		
-		
+				
 	}
 
 	@Override
@@ -346,10 +290,7 @@ public class DatabaseKnjigaService implements KnjigaService {
 			if (!itKnjiga.getKratakOpis().toLowerCase().contains(kratakOpis.toLowerCase())) {
 				continue;
 			}
-			/*String stringIsbn=String.valueOf(itKnjiga.getIsbn());
-			if (!stringIsbn.toLowerCase().contains(isbn.toString())) {
-				continue;
-			}*/
+			
 			if (zanrId > 0) { // ako je žanr odabran
 				boolean pronadjen = false;
 				for (Zanr itZanr: itKnjiga.getZanrovi()) {
@@ -362,13 +303,12 @@ public class DatabaseKnjigaService implements KnjigaService {
 					continue;
 				}
 			}
+			
 			if (!(itKnjiga.getCena() >= cenaOd && itKnjiga.getCena() <= cenaDo)) {
 				continue;
 			}
 			
 			rezultat.add(itKnjiga);
-			
-			
 			
 		}
 
@@ -397,7 +337,7 @@ public class DatabaseKnjigaService implements KnjigaService {
 	public List<Knjiga> find3(String naziv, Long isbn, String izdavackaKuca, String autor, String kratakOpis,
 			Float cena, Integer brojStranica, String tipPoveza, String pismo, String jezik, Float prosecnaOcena,
 			Integer brojPrimeraka, Integer zanrId) {
-List<Knjiga> knjige = knjigaDAO.findAll();
+		List<Knjiga> knjige = knjigaDAO.findAll();
 		
 		if(naziv == null) {
 			naziv = "";
@@ -479,15 +419,10 @@ List<Knjiga> knjige = knjigaDAO.findAll();
 				}
 			}*/
 		
-			rezultat.add(itKnjiga);
-			
-			
-			
+			rezultat.add(itKnjiga);	
 		}
 
 		return rezultat;
 	}
-
-	
 
 }

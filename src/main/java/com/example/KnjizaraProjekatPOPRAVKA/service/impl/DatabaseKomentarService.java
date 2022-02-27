@@ -11,8 +11,6 @@ import com.example.KnjizaraProjekatPOPRAVKA.dao.KomentarDAO;
 import com.example.KnjizaraProjekatPOPRAVKA.model.Komentar;
 import com.example.KnjizaraProjekatPOPRAVKA.service.KomentarService;
 
-
-
 @Service
 public class DatabaseKomentarService implements KomentarService {
 

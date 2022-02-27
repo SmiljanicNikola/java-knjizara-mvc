@@ -1,42 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title th:text="#{knjige.pageTitle}"></title>
-<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
-<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
-
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-<script src="js/lokacijaJS.js"></script>
+	<meta charset="UTF-8">
+	<title th:text="#{knjige.pageTitle}"></title>
+	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<script src="js/lokacijaJS.js"></script>
 </head>
 <body>
-<nav>
-	<input type="checkbox" id="check">
-	<label for="check" class="checkBtn">
-		<i class="fas fa-bars" id="activeBars"></i>
-	</label>
-	<label class="logo">LOGO</label>
-	<ul>
-		<li><a href="login.html">Prijava</a></li>
-		<li><a href="registracija.html">Registracija</a></li>
-		<li><a href="#">O Nama</a></li>
-		<li><a href="#">Kontakt</a></li>
-		
-	</ul>
-</nav>
+	<div th:insert="navbar :: navbar">...</div>
+
 <br>
 	<div style="float:right">
-		<!--  <span style="color: white; background-color: DodgerBlue"></span>
-		<span th:text="${#locale}"></span>
-		<span th:text="#{lang.change}"></span>:
-		<select id="locales" name="locales" th:with="jezik=${#locale.language}">
-		    <option value=""></option>
-		    <option value="en" th:text="#{lang.eng}" th:selected="${#strings.equals(jezik,'en')}" ></option>
-		    <option value="sr" th:text="#{lang.sr}" th:selected="${#strings.equals(jezik,'sr')}"></option>
-		</select>  -->
-		
 			<h4 th:text="#{lang.change}"></h4>
 		<ul>
 			<li><a href="Knjige/menjajLokalizacijuNaSrpski" th:text="#{lang.sr}"></a></li>
@@ -57,123 +34,77 @@
 	</table>
 	
 	<br><br>
-	<form method="get" name="formaPretraga" >
+	<form method="get" name="formaPretraga">
 		<table class="tabela">
 			<caption th:text="#{knige.naslov}"><b></b></caption>
 			<tr>
-			<!--  <th>Id</th> -->
-			<th th:text="#{knjige.naziv}"></th>
-			<th>Isbn</th>
-			<!-- <th>izdavackaKuca</th> -->
-			<th th:text="#{knjige.autor}"></th>
-			<!-- <th>Godina Izdavanja</th>
-			<th>Kratak Opis</th>-->
-			<th th:text="#{knjige.cena}"></th>
-			<!--<th>Broj stranica</th>
-			<th>Tip Poveza</th>
-			<th>Pismo</th> -->
-			<th th:text="#{knjige.jezik}"></th>
-			<th th:text="#{knjige.prosecnaOcena}"></th>
-			<th th:text="#{knjige.zanr}"></th>
-			<th th:text="#{knjige.pretraga}"></th>
-			
+				<th th:text="#{knjige.naziv}"></th>
+				<th>Isbn</th>
+				<th th:text="#{knjige.autor}"></th>
+				<th th:text="#{knjige.cena}"></th>
+				<th th:text="#{knjige.jezik}"></th>
+				<th th:text="#{knjige.prosecnaOcena}"></th>
+				<th th:text="#{knjige.zanr}"></th>
+				<th th:text="#{knjige.pretraga}"></th>
 			</tr>
 			<tr>
-					
-					<th><input type="search" name="naziv" th:value="${param.naziv?: null}"/></th>
-					<th th:if="${session.prijavljeniKorisnik.uloga == 'administrator'}" ><input type="search" name="isbn" th:value="${param.isbn}?: null"/></th>
-					<th th:if="${session.prijavljeniKorisnik.uloga == 'kupac'}" ></th>
-					<!-- <th>  <input type="search" name="izdavackaKuca" th:value="${param.izdavackaKuca}?: null"/> </th>  -->
-					<th><input type="search" name="autor" th:value="${param.autor}?: null"/></th>
-					<!--	<th>
-						od:<input type="date" th:value="${param.godinaIzdavanja}?:null" name="godinaIzdavanja"/>
-					</th>
-					<th>
-					<!--  <input type="search" name="kratakOpis" th:value="${param.kratakOpis}?: null"/>
-					</th> -->
-					<th>
-					<!-- <input type="search" name="cena" th:value="${param.cena}?: '0' "/> -->
-					od:<input type="number" th:value="${param.cenaOd?: '0.0'}" min="0" step="0.1" name="cenaOd"/><br/>
-						do:<input type="number" th:value="${param.cenaDo?: '5000.0'}" min="0" step="0.1" name="cenaDo"/>
-					</th>
-					<!-- <th>
-					<input type="search" name="brojStranica" th:value="${param.brojStranica}?: '0' "/>
-					</th>
-					<th>
-						<!-- <select name="tipPoveza">
-							<option value="">Odaberi povez</option>
-							<option value="tvrdi" th:selected="${#strings.equals(param.tipPoveza, 'tvrdi')}">tvrdi</option>
-							<option value="meki" th:selected="${#strings.equals(param.tipPoveza, 'meki')}">meki</option>
-						</select>
-					</th>
-					<th>
-						<select name="pismo">
-							<option value="">Odaberi pismo</option>
-							<option value="latinica" th:selected="${#strings.equals(param.pismo, 'latinica')}">latinica</option>
-							<option value="cirilica" th:selected="${#strings.equals(param.pismo, 'cirilica')}">cirilica</option>
-						</select> 
-					</th> -->
-					<th><input type="search" name="jezik" th:value="${param.jezik}?: null"/></th>
-					<th><input type="search" name="prosecnaOcena" th:value="${param.prosecnaOcena}?: null"/></th>
-					<th>
-						<select name="zanrId">
-							<option value="">Odaberi zanr</option>
-							<option th:each="itZanr: ${zanrovi}" th:value="${itZanr.id}" th:text="${itZanr.ime}" th:selected="${#strings.equals(itZanr.id, param.zanrId)}"></option>
-						</select>
-					</th>
-					<th><input type="submit" value="Pretraži"/></th>
+				<th><input type="search" name="naziv" th:value="${param.naziv?: null}"/></th>
+				<th th:if="${session.prijavljeniKorisnik.uloga == 'administrator'}" ><input type="search" name="isbn" th:value="${param.isbn}?: null"/></th>
+				<th th:if="${session.prijavljeniKorisnik.uloga == 'kupac'}" ></th>
+				<th><input type="search" name="autor" th:value="${param.autor}?: null"/></th>
+				<th>
+					od:<input type="number" th:value="${param.cenaOd?: '0.0'}" min="0" step="0.1" name="cenaOd"/>
+					<br/>
+					do:<input type="number" th:value="${param.cenaDo?: '5000.0'}" min="0" step="0.1" name="cenaDo"/>
+				</th>
+				<th><input type="search" name="jezik" th:value="${param.jezik}?: null"/></th>
+				<th><input type="search" name="prosecnaOcena" th:value="${param.prosecnaOcena}?: null"/></th>
+				<th>
+					<select name="zanrId">
+						<option value="">Odaberi zanr</option>
+						<option th:each="itZanr: ${zanrovi}" th:value="${itZanr.id}" th:text="${itZanr.ime}" th:selected="${#strings.equals(itZanr.id, param.zanrId)}"></option>
+					</select>
+				</th>
+				<th><input type="submit" value="Pretraži"/></th>
 			</tr>
 		</form>
+		
 			<tr th:each="itKnjiga, status: ${knjige}" th:if="${itKnjiga.brojPrimeraka != 0}">
-					<!--<td><a th:href="|Knjige/Details?id=${itKnjiga.id}|"th:text="${itKnjiga.id}" type="hidden"></a></td>  -->
-					<td><a th:href="|Knjige/Details?naziv=${itKnjiga.naziv}|"th:text="${itKnjiga.naziv}"></a></td>
-					<td th:text="${itKnjiga.isbn}"></td>
-					<!-- <td th:text="${itKnjiga.izdavackaKuca}"></td> -->
-					<td th:text="${itKnjiga.autor}"></td>
-					<!--<td th:text="${itKnjiga.godinaIzdavanja}"></td>
-					<td th:text="${itKnjiga.kratakOpis}"></td> -->
-					<td class="broj" th:text="${itKnjiga.cena}"></td>
-					<!-- <td class="broj" th:text="${itKnjiga.brojStranica}"></td>
-					<td th:text="${itKnjiga.tipPoveza}"></td>
-					<td th:text="${itKnjiga.pismo}"></td> -->
-					<td th:text="${itKnjiga.jezik}"></td>
-					<td th:text="${itKnjiga.prosecnaOcena}"></td>
-					<td>
-						<ul>
-							<li th:each="itZanr: ${itKnjiga.zanrovi}" th:text="${itZanr.ime}"></li>
-						</ul>
-					</td>
-					
-					
+				<td><a th:href="|Knjige/Details?naziv=${itKnjiga.naziv}|"th:text="${itKnjiga.naziv}"></a></td>
+				<td th:text="${itKnjiga.isbn}"></td>
+				<td th:text="${itKnjiga.autor}"></td>
+				<td class="broj" th:text="${itKnjiga.cena}"></td>
+				<td th:text="${itKnjiga.jezik}"></td>
+				<td th:text="${itKnjiga.prosecnaOcena}"></td>
+				<td>
+					<ul>
+						<li th:each="itZanr: ${itKnjiga.zanrovi}" th:text="${itZanr.ime}"></li>
+					</ul>
+				</td>
 			</tr>
-			
-			
 		</table>
-	
+		
 	<br>
 	<ul>
-	<li><a href="Knjige/Create" th:text="#{knjige.dodaj}"></a></li>
-	<li><a href="KorisnickaKorpa" th:text="#{Pregledaj korisnicku korpu}" ></a></li>
+		<li><a href="Knjige/Create" th:text="#{knjige.dodaj}"></a></li>
+		<li><a href="KorisnickaKorpa" th:text="#{Pregledaj korisnicku korpu}" ></a></li>
 	</ul>
 	
-	
-	
 	<footer>
-        <div class="footer_adress">
-        
-            <h1 class="footer_logo">Logo</h1>
-            <h2>Contact: </h2>
+		 <div class="footer_adress" style="margin: 15px 50px">
+            <h1> Logo </h1>
+            <h2>Contact: 065/333-9208</h2>
             <address>
-            Miloska 3, Novi Sad
+            	Miloska ulica 3, Novi Sad
             <br>
-            <a class="email_btn" href="mailto:example@gmail.com">Email Us</a>
-            <adress>
-        
+            </address>
+            <a class="email_btn" href="mailto:example@gmail.com" style="color:white; margin-top:15px; background:none">Email Us</a>
+            
         </div>
-    
+        
         <ul class="footer_nav">
             <li class="nav_item">
-                <h2 class="nav_title">Media</h2>
+                <h2 class="nav_title" style="margin-top:15px">Media</h2>
                 <ul class="nav_ul">
                     <li>
                         <a href="#">Online</a>
@@ -191,7 +122,7 @@
             </li>
 
             <li class="nav_item nav_item--extra">
-                <h2 class="nav_title">Usluge</h2>
+                <h2 class="nav_title" style="margin-top:15px">Usluge</h2>
                 <ul class="nav_ul nav_ul--extra">
                     <li>
                         <a href="#">Kupujte kod nas</a>
@@ -215,7 +146,7 @@
             </li>
 
             <li class="nav_item">
-                <h2 class="nav_title">Legal</h2>
+                <h2 class="nav_title" style="margin-top:15px">Legal</h2>
 
                 <ul class="nav_ul">
                     <li>
@@ -234,15 +165,18 @@
             </li>
             
         </ul>
-        <br>
-        <div class="legal">
-            <span>&copy; 2019 Barcode. All rights reserved for owner.</span>
-            
+	    <hr style="margin-top:15px;">
+        <div class="legal" style="margin-top:25px; margin-bottom:15px">
+            <span>
+            	&copy; 2019 Barcode. All rights reserved for owner.
+            </span>
             <div class="legal_links">
-                <span>Made by owner of everything</span>
+                <span>
+                	Made by owner of everything
+                </span>
             </div>
         </div>
-        
-    </footer>
+	         
+	</footer>
 </body>
 </html>

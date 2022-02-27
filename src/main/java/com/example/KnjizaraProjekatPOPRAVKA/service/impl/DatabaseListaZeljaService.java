@@ -10,7 +10,6 @@ import com.example.KnjizaraProjekatPOPRAVKA.model.KorisnickaKorpa;
 import com.example.KnjizaraProjekatPOPRAVKA.model.ListaZelja;
 import com.example.KnjizaraProjekatPOPRAVKA.service.ListaZeljaService;
 
-
 @Service
 public class DatabaseListaZeljaService implements ListaZeljaService {
 

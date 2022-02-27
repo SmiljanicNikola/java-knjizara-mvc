@@ -1,12 +1,16 @@
 <!DOCTYPE>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<base href="/KnjizaraProjekat/">
-<meta charset="UTF-8">
-<title>Zahtev za kreiranje loyalty kartice</title>
-<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+	<base href="/KnjizaraProjekat/">
+	<meta charset="UTF-8">
+	<title>Zahtev za kreiranje loyalty kartice</title>
+	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 </head>
 <body>
+	<div th:insert="navbar :: navbar">...</div>
+	
 	<form method="post" action="ZahtevLoyaltyKartice/Create">
 		<table border="1" class="tabela">
 		<caption>Zahtev za kreiranje loyalty kartice</caption>
@@ -22,5 +26,7 @@
 	<ul>	
 		<li><a href="/KnjizaraProjekat">Pocetna</a></li>
 	</ul>
+	<div th:insert="footer :: footer">...</div>
+	
 </body>
 </html>

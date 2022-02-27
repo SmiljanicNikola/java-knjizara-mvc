@@ -1,39 +1,43 @@
 <!DOCTYPE>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<base href="/KnjizaraProjekat/">
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
-
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-<title th:text="#{index.pageTitle}">Pocetna</title>
+	<base href="/KnjizaraProjekat/">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<title th:text="#{index.pageTitle}">Pocetna</title>
 </head>
 <body>
-<nav>
-	<input type="checkbox" id="check">
-	<label for="check" class="checkBtn">
-		<i class="fas fa-bars" id="activeBars"></i>
-	</label>
-	<label class="logo">LOGO</label>
-	<ul>
-		<li><a href="login.html">Prijava</a></li>
-		<li><a href="registracija.html">Registracija</a></li>
-		<li><a href="#">O Nama</a></li>
-		<li><a href="#">Kontakt</a></li>
-		
-	</ul>
-</nav>
+	<nav>
+		<input type="checkbox" id="check">
+		<label for="check" class="checkBtn">
+			<i class="fas fa-bars" id="activeBars"></i>
+		</label>
+		<label class="logo">LOGO</label>
+		<ul>
+			<li><a href="login.html">Prijava</a></li>
+			<li><a href="registracija.html">Registracija</a></li>
+			<li><a href="Knjige">Knjige</a></li>
+			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'kupac'}"><a href="KorisnickaKorpa">Moja korpa</a></li>
+			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}"><a href="Korisnici">Korisnici</a></li>
+			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}"><a th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.Admin</li>
+			
+		</ul>
+	</nav>
+	
 	<div>
-			<h4 th:text="#{lang.change}"></h4>
+		<h4 th:text="#{lang.change}"></h4>
 		<ul>
 			<li><a href="Index/menjajLokalizacijuNaSrpski" th:text="#{lang.sr}"></a></li>
 			<li><a href="Index/menjajLokalizacijuNaEngleski" th:text="#{lang.eng}"></a></li>
 		</ul>
 	</div>
+	
 	<table th:if="${session.prijavljeniKorisnik == null}" class="position-center">
-		<tr><th th:text="#{knjige.notLoggedIn}"></th></tr>
+		<tr>
+			<th th:text="#{knjige.notLoggedIn}"></th>
+		</tr>
 		<tr>
 			<td>
 				<ul>
@@ -47,7 +51,9 @@
 	
 	
 	<table th:if="${session.prijavljeniKorisnik != null}">
-		<tr><th th:text="#{knjige.loggedIn}"></th><td><a th:href="|Korisnici/Details?korisnickoIme=${session.prijavljeniKorisnik.korisnickoIme}|" th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.</td></tr>
+		<tr>
+			<th th:text="#{knjige.loggedIn}"></th><td><a th:href="|Korisnici/Details?korisnickoIme=${session.prijavljeniKorisnik.korisnickoIme}|" th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.</td>
+		</tr>
 		<tr>
 			<td colspan="2">
 				<ul>
@@ -61,13 +67,13 @@
 	
 	<br>
 	<table th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga != 'administrator'}">
-		<tr><th th:text="#{log.loggedIn}"></th></tr>
+		<tr>
+			<th th:text="#{log.loggedIn}"></th>
+		</tr>
 		<tr>
 			<td>
 				<ul>
 					<li><a href="Knjige">Knjige</a>
-					<hr width="100%"/>
-					<br>
 					<li><a href="KorisnickaKorpa">Prikazi korisnicku korpu</a>
 					<li><a href="ZahtevLoyaltyKartice">Zahtev za loyalty karticu</a>
 				</ul>
@@ -76,7 +82,9 @@
 	</table>
 	
 	<table th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}">
-		<tr><th>Prijavljen si</th></tr>
+		<tr>
+			<th>Prijavljen si</th>
+		</tr>
 		<tr>
 			<td>
 				<ul>
@@ -95,92 +103,8 @@
 	</table>
 
 
-<footer>
-        <div class="footer_adress">
-        
-            <h1 class="footer_logo">Logo</h1>
-            <h2>Contact: </h2>
-            <address>
-            Miloska 3, Novi Sad
-            <br>
-            <a class="email_btn" href="mailto:example@gmail.com">Email Us</a>
-            <adress>
-        
-        </div>
-    
-        <ul class="footer_nav">
-            <li class="nav_item">
-                <h2 class="nav_title">Media</h2>
-                <ul class="nav_ul">
-                    <li>
-                        <a href="#">Online</a>
-                    </li>
-                    <li>
-                        <a href="#">Print</a>
-                    </li>
-                    <li>
-                        <a href="#">Alternative Ads</a>
-                    </li>
-                    <li>
-                        <a href="#">Become sponsor</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="nav_item nav_item--extra">
-                <h2 class="nav_title">Usluge</h2>
-                <ul class="nav_ul nav_ul--extra">
-                    <li>
-                        <a href="#">Kupujte kod nas</a>
-                    </li>
-                    <li>
-                        <a href="#">Iznajmljujte</a>
-                    </li>
-                    <li>
-                        <a href="#">Narucujte</a>
-                    </li>
-                    <li>
-                        <a href="#">Sedite</a>
-                    </li>
-                    <li>
-                        <a href="#">Ocenjujte</a>
-                    </li>
-                    <li>
-                        <a href="#">Uzivajte</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="nav_item">
-                <h2 class="nav_title">Legal</h2>
-
-                <ul class="nav_ul">
-                    <li>
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#">Terms of Use</a>
-                    </li>
-                    <li>
-                        <a href="#">Security</a>
-                    </li>
-                    <li>
-                        <a href="#">Report</a>
-                    </li>
-                </ul>
-            </li>
-            
-        </ul>
-        
-        <div class="legal">
-            <span>&copy; 2019 Barcode. All rights reserved for owner.</span>
-            
-            <div class="legal_links">
-                <span>Made by owner of everything</span>
-            </div>
-        </div>
-        
-    </footer>
+	<div th:insert="footer :: footer">...</div>
+	
 
 </body>
 </html>

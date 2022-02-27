@@ -1,55 +1,83 @@
 <!DOCTYPE>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<base href="/KnjizaraProjekat/">
-<title>Dodavanje knjige</title>
+	<meta charset="UTF-8">
+	<base href="/KnjizaraProjekat/">
+	<title>Dodavanje knjige</title>
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	
 </head>
 <body>
-<form method="post" action="Knjige/Create">
-	<table border="1">
-	<caption>Dodavanje Knjige</caption>
-				<!-- <tr><th>Id</th><td><input type="number" value=""  name="id"/></td></tr> -->
-				<tr><th>Naziv:</th><td><input type="text" value=""  name="naziv" required/></td></tr>
-				<tr><th>Isbn:</th><td><input type="number" value="" name="isbn" required/></td></tr>
-				<tr><th>Izdavacka Kuca:</th><td><input type="text" name="izdavackaKuca" required/></td></tr>
-				<tr><th>autor:</th><td><input type="text" name="autor" required/></td></tr>
-				<tr><th>Datum Izdavanja:</th><td><input type="date" name="godinaIzdavanja" required/></td></tr>
-				<tr><th>Kratak Opis:</th><td><input type="text" value="" name="kratakOpis" required/></td></tr>
-				<tr><th>Cena:</th><td><input type="number" value="" name="cena" required/></td></tr>
-				<tr><th>Broj stranica:</th><td><input type="number" value="" name="brojStranica" required/></td></tr>
-				<!-- <tr><td><select name="tipPoveza">
-							<option value="tvrdi" th:selected="${#strings.equals(param.tipPoveza, 'tvrdi')}">tvrdi</option>
-							<option value="meki" th:selected="${#strings.equals(param.tipPoveza, 'meki')}">meki</option>
-						</select></td></tr>
-				<tr><td>Tip Poveza: </th><td><input type="text" value="" name="tipPoveza" required/></td></tr> 
-				
-				<tr><td>Pismo:</th><td><input type="text" value="" name="pismo" required/></td></tr>-->
-				<tr><th>Tip poveza:</th><td>
-					<select name="tipPoveza">
-							<option value="tvrdi" th:selected="${#strings.equals(param.tipPoveza, 'tvrdi')}">tvrdi</option>
-							<option value="meki" th:selected="${#strings.equals(param.tipPoveza, 'meki')}">meki</option>
-					</select></td></tr>
-				<tr><th>Pismo:</th><td>
-					<select name="pismo">
-							<option value="latinica" th:selected="${#strings.equals(param.pismo, 'latinica')}">latinica</option>
-							<option value="cirilica" th:selected="${#strings.equals(param.pismo, 'cirilica')}">cirilica</option>
-					</select></td></tr>
-				<tr><th>Jezik:</th><td><input type="text" value="" name="jezik" required/></td></tr>
-				<tr><th>Prosecna Ocena:</th><td><input step="0.1" type="number" min="0" max="5" value="" name="prosecnaOcena"/></td></tr>
-				<tr><th>Zanr:</th><td>
-						<!--  <select name="zanrId">
-							<option value="">Odaberi zanr</option>
-							<option th:each="itZanr: ${zanrovi}" th:value="${itZanr.id}" th:text="${itZanr.ime}" th:selected="${#strings.equals(itZanr.id, param.zanrId)}"></option>
-						</select> -->
-						<th:block th:each="itZanr: ${zanrovi}">
-							<input type="checkbox" name="zanrId" th:value="${itZanr.id}"/><span th:text="${itZanr.ime}"></span><br>
-						</th:block>
-						</td></tr>
-				
-				<tr><th></th><td><input type="submit" value="Kreiraj knjigu"/></td></tr>
-	</table>
-</form>
-<p class="greska" th:text="${poruka}"></p>
+	<div th:insert="navbar :: navbar">...</div>
+
+	<form method="post" action="Knjige/Create">
+		<table border="1">
+			<caption>Dodavanje Knjige</caption>
+					<tr>
+						<th>Naziv:</th><td><input type="text" value=""  name="naziv" required/></td>
+					</tr>
+					<tr>
+						<th>Isbn:</th><td><input type="number" value="" name="isbn" required/></td>
+					</tr>
+					<tr>
+						<th>Izdavacka Kuca:</th><td><input type="text" name="izdavackaKuca" required/></td>
+					</tr>
+					<tr>
+						<th>autor:</th><td><input type="text" name="autor" required/></td>
+					</tr>
+					<tr>
+						<th>Datum Izdavanja:</th><td><input type="date" name="godinaIzdavanja" required/></td>
+					</tr>
+					<tr>
+						<th>Kratak Opis:</th><td><input type="text" value="" name="kratakOpis" required/></td>
+					</tr>
+					<tr>
+						<th>Cena:</th><td><input type="number" value="" name="cena" required/></td>
+					</tr>
+					<tr>
+						<th>Broj stranica:</th><td><input type="number" value="" name="brojStranica" required/></td>
+					</tr>
+					<tr>
+						<th>Tip poveza:</th>
+						<td>
+						<select name="tipPoveza">
+								<option value="tvrdi" th:selected="${#strings.equals(param.tipPoveza, 'tvrdi')}">tvrdi</option>
+								<option value="meki" th:selected="${#strings.equals(param.tipPoveza, 'meki')}">meki</option>
+						</select>
+						</td>
+					</tr>
+					<tr>
+						<th>Pismo:</th><td>
+						<select name="pismo">
+								<option value="latinica" th:selected="${#strings.equals(param.pismo, 'latinica')}">latinica</option>
+								<option value="cirilica" th:selected="${#strings.equals(param.pismo, 'cirilica')}">cirilica</option>
+						</select></td>
+					</tr>
+					<tr>
+						<th>Jezik:</th>
+						<td>
+							<input type="text" value="" name="jezik" required/>
+						</td>
+					</tr>
+					<tr><th>Prosecna Ocena:</th><td><input step="0.1" type="number" min="0" max="5" value="" name="prosecnaOcena"/></td></tr>
+					<tr>
+						<th>Zanr:</th>
+						<td>
+							<th:block th:each="itZanr: ${zanrovi}">
+								<input type="checkbox" name="zanrId" th:value="${itZanr.id}"/><span th:text="${itZanr.ime}"></span><br>
+							</th:block>
+						</td>
+					</tr>
+					<tr>
+						<th></th><td><input type="submit" value="Kreiraj knjigu"/></td>
+					</tr>
+		</table>
+	</form>
+	<p class="greska" th:text="${poruka}"></p>
+	
+	<div th:insert="footer :: footer">...</div>
+	
+	
 </body>
 </html>

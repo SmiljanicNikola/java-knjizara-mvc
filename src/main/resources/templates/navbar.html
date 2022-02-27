@@ -1,0 +1,27 @@
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+	<title>Navbar</title>
+</head>
+<body>
+	<nav th:fragment="navbar">
+		<input type="checkbox" id="check">
+		<label for="check" class="checkBtn">
+			<i class="fas fa-bars" id="activeBars"></i>
+		</label>
+		<label class="logo">LOGO</label>
+		<ul>
+			<li th:if="${session.prijavljeniKorisnik == null}"><a href="login.html">Prijava</a></li>
+			<li th:if="${session.prijavljeniKorisnik == null}"><a href="registracija.html">Registracija</a></li>
+			<li><a href="Knjige">Knjige</a></li>
+			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'kupac'}"><a href="KorisnickaKorpa">Moja korpa</a></li>
+			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}"><a href="Korisnici">Korisnici</a></li>
+			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}"><a th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>Admin</li>
+			<li th:if="${session.prijavljeniKorisnik != null}"><a href="Korisnici/Logout" th:text="#{knjige.logOut}"><button>Odjavite se</button></a></li>	
+			
+		</ul>
+	</nav>
+</body>
+</html>
