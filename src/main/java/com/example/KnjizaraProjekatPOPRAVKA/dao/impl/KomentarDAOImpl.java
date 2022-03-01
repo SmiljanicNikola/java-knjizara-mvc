@@ -25,13 +25,14 @@ public class KomentarDAOImpl implements KomentarDAO {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	
+		
 	@Autowired
 	private KorisnikDAO korisnikDAO;
-
+	
 	@Autowired
 	private KnjigaDAO knjigaDAO;
 
+	
 	private class KomentariRowMapper implements RowMapper<Komentar>{
 
 		@Override
@@ -72,13 +73,11 @@ public class KomentarDAOImpl implements KomentarDAO {
 	@Override
 	public List<Komentar> find(int id, String tekstKomentara, int ocena, LocalDate datumPostavljanja, String autorOznaka,
 			int knjigaId, String status) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<Komentar> findVerzija2(HashMap<String, Object> mapaArgumenata) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

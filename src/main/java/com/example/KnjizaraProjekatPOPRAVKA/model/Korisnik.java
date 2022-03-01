@@ -1,5 +1,4 @@
 package com.example.KnjizaraProjekatPOPRAVKA.model;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -7,22 +6,31 @@ import java.time.LocalDateTime;
 public class Korisnik {
 	
 	private String ime;
+	
 	private String prezime;
+	
 	private String email;
+	
 	private String adresa;
+	
 	private String telefon;
+	
 	private String korisnickoIme;
+	
 	private String lozinka;
+	
 	private LocalDate datumRodjenja;
+	
 	private LocalDateTime datumRegistracije;
+	
 	private String uloga="kupac";
+	
 	private boolean prijavljen = false;
+	
 	private boolean blokiran = false;
 
 	
 	public Korisnik() {}
-
-	
 
 
 	public Korisnik(String ime, String prezime, String email, String adresa, String telefon, String korisnickoIme,
@@ -42,6 +50,7 @@ public class Korisnik {
 		this.prijavljen = prijavljen;
 	}
 	
+	
 	public Korisnik(String ime, String prezime, String email, String adresa, String telefon, String korisnickoIme,
 			String lozinka, LocalDate datumRodjenja, String uloga,
 			boolean prijavljen) {
@@ -58,15 +67,6 @@ public class Korisnik {
 		this.prijavljen = prijavljen;
 	}
 	
-	
-	
-	
-	
-	
-
-
-
-
 
 	public Korisnik(String ime, String prezime, String email, String adresa, String telefon, String korisnickoIme,
 			String lozinka, LocalDate datumRodjenja, LocalDateTime datumRegistracije, String uloga, boolean prijavljen,
@@ -87,8 +87,6 @@ public class Korisnik {
 	}
 
 
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -96,6 +94,7 @@ public class Korisnik {
 		result = prime*result + ((korisnickoIme == null) ? 0 : korisnickoIme.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -128,8 +127,6 @@ public class Korisnik {
 		this.datumRegistracije = datumRegistracije;
 		this.uloga = uloga;
 	}
-
-
 
 
 	public String getIme() {
@@ -205,9 +202,6 @@ public class Korisnik {
 		this.blokiran = blokiran;
 	}
 
-
-
-
 	@Override
 	public String toString() {
 		return "Korisnik [ime=" + ime + ", prezime=" + prezime + ", email=" + email + ", adresa=" + adresa
@@ -216,7 +210,5 @@ public class Korisnik {
 				+ "]";
 	}
 
-	
-	
 	
 }

@@ -1,4 +1,5 @@
 package com.example.KnjizaraProjekatPOPRAVKA.controllers;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -44,9 +45,6 @@ public class KorisnikController {
 	@Autowired
 	private KorisnikService korisnikService;
 	
-	//@Autowired
-	//private KorisnikDAO korisnikdao;
-	
 	@Autowired
 	private KorisnickaKorpaService korisnickaKorpaService;
 	
@@ -80,7 +78,7 @@ public class KorisnikController {
 			@RequestParam(required=false) Boolean blokiran,
 
 			HttpSession session, HttpServletResponse response) throws IOException{
-			//Prva faza
+		
 			Korisnik prijavljeniKorisnik = (Korisnik) session.getAttribute(KorisnikController.KORISNIK_KEY);
 			if(prijavljeniKorisnik == null ) {
 				response.sendRedirect(baseURL);
@@ -114,13 +112,13 @@ public class KorisnikController {
 				uloga=null;
 			
 			List<Korisnik> korisnici = korisnikService.findAll();
-			//List<Korisnik> korisnici = korisnikService.find(ime, prezime, email, adresa, telefon, korisnickoIme, datumRodjenja, datumRegistracije, uloga);
 			
 			ModelAndView rezultat = new ModelAndView("korisnici");
 			rezultat.addObject("korisnici", korisnici);
 			
 			return rezultat;
 	}
+	
 	
 	@PostMapping(value="/Login")
 	public ModelAndView postLogin(@RequestParam String korisnickoIme, @RequestParam String lozinka, @RequestParam(required=false) Boolean blokiran,
@@ -136,27 +134,20 @@ public class KorisnikController {
 						response.sendRedirect(baseURL);
 					}
 					if(korisnik.isBlokiran() == true) {
-						//response.sendRedirect(baseURL);
 						throw new Exception("Blokirani ste usled neprimerenog ponasanja!");
 					}
 					
-					/*if(korisnik.getLozinka() == "") {
-						response.sendRedirect(baseURL+"login.html");
-					}*/
 					if(lozinka==null || lozinka.trim().equals("")) {
 						response.sendRedirect(baseURL);
 						return null;
 					}
-					
-					
 					
 			
 					korisnik.setPrijavljen(true);
 					session.setAttribute(KorisnikController.KORISNIK_KEY, korisnik);	
 					response.sendRedirect(baseURL);
 					return null;
-					
-					
+						
 				} catch(Exception ex) {
 					String poruka = ex.getMessage();
 					if(poruka=="") {
@@ -177,7 +168,8 @@ public class KorisnikController {
 		localeResolver.setLocale(request, response, Locale.forLanguageTag("sr"));
 		
 		response.sendRedirect(baseURL+"Korisnici");
-	}	
+	}
+	
 	
 	@GetMapping("menjajLokalizacijuNaEngleski")
 	public void index3(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -232,11 +224,7 @@ public class KorisnikController {
 			if(datumRodjenja.equals("")) {
 				throw new Exception("Datum rodjenja polje ne sme biti prazno!");
 			}
-			//if(uloga != "Kupac") {
-			//	throw new Exception("Uloga mora biti kupac!");
-			//}
-			
-			
+		
 			
 			Korisnik korisnik = new Korisnik(ime, prezime, email, adresa, telefon, korisnickoIme, lozinka, datumRodjenja,datumRegistracije,uloga,false,false);
 			korisnikService.save(korisnik);
@@ -244,10 +232,10 @@ public class KorisnikController {
 			response.sendRedirect(baseURL+"login.html");
 			return null;
 			
-		}catch(Exception ex) {
-			String poruka = ex.getMessage();
-			if(poruka == "") {
-				poruka = "Neuspesna registracija!";
+			}catch(Exception ex) {
+				String poruka = ex.getMessage();
+				if(poruka == "") {
+					poruka = "Neuspesna registracija!";
 			}
 			
 			ModelAndView rezultat = new ModelAndView("registracija");
@@ -255,14 +243,10 @@ public class KorisnikController {
 			
 			return rezultat;
 			
-		}
-		
-		
-		
-		
-		
+		}	
 		
 	}
+	
 	
 	@GetMapping(value="/Details")
 	public ModelAndView details(@RequestParam String korisnickoIme, HttpSession session, HttpServletRequest request,
@@ -277,14 +261,10 @@ public class KorisnikController {
 					rezultat.addObject("korisnik", korisnik);
 					rezultat.addObject("listaZelja", listaZelja);
 					rezultat.addObject("kupovine", kupovine);
-
-
-					
+		
 					return rezultat;
 				}
 				
-	
-	
 	
 	@PostMapping(value="/Edit")
 	public void edit(	@RequestParam(required=false) String ime,
@@ -295,7 +275,6 @@ public class KorisnikController {
 						@RequestParam(required=false) String korisnickoIme, 
 						@RequestParam(required=false) String lozinka,
 						@RequestParam(required=false) Boolean blokiran,
-
 						//@RequestParam(required=false) @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate datumRodjenja,
 						//@RequestParam(required=false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDateTime datumRegistracije,
 						@RequestParam(required=false) String uloga,
@@ -322,7 +301,6 @@ public class KorisnikController {
 					response.sendRedirect(baseURL+"Korisnici");
 					
 					}
-	
 	
 	
 	@PostMapping("/Loginn")
@@ -361,11 +339,10 @@ public class KorisnikController {
 		
 	}
 	
+	
 	@GetMapping(value="/Logout")
 	public void logout(HttpSession session, HttpServletResponse response) throws IOException {
-		
-		//korisnickaKorpaService.deleteAll();
-			
+					
 		session.invalidate();
 		
 		response.sendRedirect(baseURL);
@@ -373,14 +350,4 @@ public class KorisnikController {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//INSERT INTO `projekat`.`korisnici` (`ime`, `prezime`, `email`, `adresa`, `telefon`, `korisnickoIme`, `lozinka`, `datumRodjenja`, `datumRegistracije`, `uloga`) VALUES ('milan', 'qffq', 'fqf', 'fqfqf', 'fqfq', 'fqfqfq', '123', '04-02-2020', '2020-02-02 17:50:00', 'kupac');
 }

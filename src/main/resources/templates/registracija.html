@@ -5,23 +5,13 @@
 	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
 	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	<link rel="stylesheet" type="text/css" href="css/registracija.css"/>
 	<title>Registracija</title>
 </head>
 <body>
-<nav>
-	<input type="checkbox" id="check">
-	<label for="check" class="checkBtn">
-		<i class="fas fa-bars" id="activeBars"></i>
-	</label>
-	<label class="logo">LOGO</label>
-	<ul>
-		<li><a href="login.html">Prijava</a></li>
-		<li><a href="registracija.html">Registracija</a></li>
-		<li><a href="#">O Nama</a></li>
-		<li><a href="#">Kontakt</a></li>
-		
-	</ul>
-</nav>
+
+	<div th:insert="navbar :: navbar">...</div>
+	
 	<div style="float:right">
 			<h4 th:text="#{lang.change}"></h4>
 		<ul>
@@ -29,9 +19,10 @@
 			<li><a href="Komentari/menjajLokalizacijuNaEngleski" th:text="#{lang.eng}"></a></li>
 		</ul>
 	</div>
-<form method="post" action="Korisnici/Register">
-	<table border="1" class="tabela">
-	<caption>Registracija korisnika</caption>
+	
+	<form method="post" action="Korisnici/Register">
+		<table border="1" class="tabela">
+			<caption>Registracija korisnika</caption>
 				<tr><th>Imee:</th><td><input type="text" value=""  name="ime"/></td></tr>
 				<tr><th>Prezime:</th><td><input type="text" value=""  name="prezime"/></td></tr>
 				<tr><th>Email:</th><td><input type="text" value="" name="email"/></td></tr>
@@ -44,100 +35,10 @@
 				<tr><th>Datum Registracije:</th><td><input value="2021-02-14T18:00:00" name="datumRegistracije"/></td></tr>
 				<tr><th>Uloga: </th><td><input type="text" value="kupac" name="uloga"/></td></tr>
 				<tr><th></th><td><input type="submit" value="Registruj se"/></td>
-	</table>
-</form>
+		</table>
+	</form>
 
-
-
-	<footer>
-		<div class="footer_adress">
-            <h1 class="footer_logo">Logo </h1>
-            <h2>Contact:</h2>
-            <p>
-            	Miloska 3, Novi Sad
-            <br>
-            <a class="email_btn" href="mailto:example@gmail.com">
-            	Email Us
-            </a>
-            <p>
-        </div>
-        
-        <ul class="footer_nav">
-            <li class="nav_item">
-                <h2 class="nav_title">Media</h2>
-                <ul class="nav_ul">
-                    <li>
-                        <a href="#">Online</a>
-                    </li>
-                    <li>
-                        <a href="#">Print</a>
-                    </li>
-                    <li>
-                        <a href="#">Alternative Ads</a>
-                    </li>
-                    <li>
-                        <a href="#">Become sponsor</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="nav_item nav_item--extra">
-                <h2 class="nav_title">Usluge</h2>
-                <ul class="nav_ul nav_ul--extra">
-                    <li>
-                        <a href="#">Kupujte kod nas</a>
-                    </li>
-                    <li>
-                        <a href="#">Iznajmljujte</a>
-                    </li>
-                    <li>
-                        <a href="#">Narucujte</a>
-                    </li>
-                    <li>
-                        <a href="#">Sedite</a>
-                    </li>
-                    <li>
-                        <a href="#">Ocenjujte</a>
-                    </li>
-                    <li>
-                        <a href="#">Uzivajte</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="nav_item">
-                <h2 class="nav_title">Legal</h2>
-
-                <ul class="nav_ul">
-                    <li>
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#">Terms of Use</a>
-                    </li>
-                    <li>
-                        <a href="#">Security</a>
-                    </li>
-                    <li>
-                        <a href="#">Report</a>
-                    </li>
-                </ul>
-            </li>
-            
-        </ul>
-	        
-        <div class="legal">
-            <span>
-            	&copy; 2019 Barcode. All rights reserved for owner.
-            </span>
-            
-            <div class="legal_links">
-                <span>
-                	Made by owner of everything
-                </span>
-            </div>
-        </div>
-	         
-	</footer>
+	<div th:insert="footer :: footer">...</div>
+	
 </body>
 </html>

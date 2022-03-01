@@ -1,5 +1,4 @@
 package com.example.KnjizaraProjekatPOPRAVKA.dao.impl;
-
 import java.sql.Date;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,19 +28,16 @@ import com.example.KnjizaraProjekatPOPRAVKA.model.Knjiga;
 import com.example.KnjizaraProjekatPOPRAVKA.model.Zanr;
 
 
-
 @Repository
 public class KnjigaDAOImpl implements KnjigaDAO {
 
+	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
 	
 	@Autowired
 	private ZanrDAO zanrDAO; 
-	
-	/*@Autowired
-	private KnjigaDAO knjigaDAO;*/
 	
 	
 	/*private class KorisnikRowMapper implements RowMapper<Knjiga>{
@@ -63,14 +59,12 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			String jezik = rs.getString(index++);
 			float prosecnaOcena = rs.getFloat(index++);
 
-
-
 			Knjiga knjiga = new Knjiga(id, naziv, isbn, izdavackaKuca, autor, godinaIzdavanja, kratakOpis, cena, brojStranica, tipPoveza, pismo, jezik, prosecnaOcena);
 			return knjiga;
 		}
 		
-		
 	}*/
+	
 	private class KnjigaRowCallBackHandler implements RowCallbackHandler {
 
 		private Map<Integer, Knjiga> knjige = new LinkedHashMap<>();
@@ -121,11 +115,6 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			jdbcTemplate.query(sql, rowCallbackHandler, id);
 
 			return rowCallbackHandler.getKnjige().get(0);
-			/*
-			return jdbcTemplate.queryForObject(sql, new KorisnikRowMapper(), id);
-		} catch(EmptyResultDataAccessException ex) {
-			return null;
-		}*/
 		}
 	
 
@@ -134,6 +123,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 
 	@Override
 	public List<Knjiga> findAll() {
@@ -208,12 +198,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 				preparedStatement.setString(index++,knjiga.getPismo());
 				preparedStatement.setString(index++,knjiga.getJezik());
 				preparedStatement.setFloat(index++,knjiga.getProsecnaOcena());
-				//preparedStatement.setInt(index++,knjiga.getZanrovi().get(index));
-
-
-
-
-
+				
 				return preparedStatement;
 			}
 
@@ -228,8 +213,6 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			}
 		}
 		return uspeh?1:0;
-		//return;
-		
 		
 	}
 
@@ -264,13 +247,6 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 		StringBuffer whereSql = new StringBuffer(" WHERE ");
 		boolean imaArgumenata = false;
 		
-		/*if(mapaArgumenata.containsKey("id")) {
-			if(imaArgumenata)
-				whereSql.append(" AND ");
-			whereSql.append("id = ?");
-			imaArgumenata = true;
-			listaArgumenata.add(mapaArgumenata.get("id"));
-		}*/
 		
 		if(mapaArgumenata.containsKey("naziv")) {
 			String naziv = "%" + mapaArgumenata.get("naziv") + "%";
@@ -288,6 +264,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			imaArgumenata = true;
 			listaArgumenata.add(mapaArgumenata.get("isbn"));
 		}
+		
 		if(mapaArgumenata.containsKey("izdavackaKuca")) {
 			if(imaArgumenata)
 				whereSql.append(" AND ");
@@ -295,6 +272,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			imaArgumenata = true;
 			listaArgumenata.add(mapaArgumenata.get("izdavackaKuca"));
 		}
+		
 		if(mapaArgumenata.containsKey("autor")) {
 			if(imaArgumenata)
 				whereSql.append(" AND ");
@@ -302,13 +280,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			imaArgumenata = true;
 			listaArgumenata.add(mapaArgumenata.get("autor"));
 		}
-		/*if(mapaArgumenata.containsKey("godinaIzdavanja")) {
-			if(imaArgumenata)
-				whereSql.append(" AND ");
-			whereSql.append("godinaIzdavanja = ?");
-			imaArgumenata = true;
-			listaArgumenata.add(mapaArgumenata.get("godinaIzdavanja"));
-		}*/
+		
 		if(mapaArgumenata.containsKey("kratakOpis")) {
 			if(imaArgumenata)
 				whereSql.append(" AND ");
@@ -316,6 +288,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			imaArgumenata = true;
 			listaArgumenata.add(mapaArgumenata.get("kratakOpis"));
 		}
+		
 		if(mapaArgumenata.containsKey("cena")) {
 			if(imaArgumenata)
 				whereSql.append(" AND ");
@@ -323,6 +296,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			imaArgumenata = true;
 			listaArgumenata.add(mapaArgumenata.get("cena"));
 		}
+		
 		if(mapaArgumenata.containsKey("brojStranica")) {
 			if(imaArgumenata)
 				whereSql.append(" AND ");
@@ -330,6 +304,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			imaArgumenata = true;
 			listaArgumenata.add(mapaArgumenata.get("brojStranica"));
 		}
+		
 		if(mapaArgumenata.containsKey("tipPoveza")) {
 			if(imaArgumenata)
 				whereSql.append(" AND ");
@@ -337,6 +312,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			imaArgumenata = true;
 			listaArgumenata.add(mapaArgumenata.get("tipPoveza"));
 		}
+		
 		if(mapaArgumenata.containsKey("pismo")) {
 			if(imaArgumenata)
 				whereSql.append(" AND ");
@@ -344,6 +320,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			imaArgumenata = true;
 			listaArgumenata.add(mapaArgumenata.get("pismo"));
 		}
+		
 		if(mapaArgumenata.containsKey("jezik")) {
 			if(imaArgumenata)
 				whereSql.append(" AND ");
@@ -351,6 +328,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			imaArgumenata = true;
 			listaArgumenata.add(mapaArgumenata.get("jezik"));
 		}
+		
 		if(mapaArgumenata.containsKey("prosecnaOcena")) {
 			if(imaArgumenata)
 				whereSql.append(" AND ");
@@ -358,12 +336,12 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			imaArgumenata = true;
 			listaArgumenata.add(mapaArgumenata.get("prosecnaOcena"));
 		}
+		
 		if(imaArgumenata)
 			sql=sql + whereSql.toString()+" ORDER BY id";
 		else
 			sql=sql + " ORDER BY id";
 		System.out.println(sql);
-		
 		
 		return jdbcTemplate.query(sql, new KnjigaRowMapper(), listaArgumenata.toArray());
 	}
@@ -379,7 +357,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 		
 	}
 
-	//Ovo
+	
 	@Override
 	public List<Knjiga> find(String naziv, Long isbn, String izdavackaKuca, String autor, LocalDate godinaIzdavanja,
 			String kratakOpis, float cena, int brojStranica, String tipPoveza, String pismo, String jezik,
@@ -491,68 +469,6 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 		return jdbcTemplate.query(sql, new KnjigaRowMapper(), listaArgumenata.toArray());
 	}
 
-			
-			/*List<Knjiga> knjige = findAll();
-
-			if (naziv == null) {
-				naziv = "";
-			}
-			if (isbn == null) {
-				isbn = (long) 0;
-			}
-			if (izdavackaKuca == null) {
-				izdavackaKuca = "";
-			}
-			if (autor == null) {
-				autor = "";
-			}
-			
-			if (kratakOpis == null) {
-				kratakOpis = "";
-			}
-			if (tipPoveza == null) {
-				tipPoveza = "";
-			}
-			if (pismo == null) {
-				pismo = "";
-			}
-			if (jezik == null) {
-				jezik = "";
-			}
-			
-			List<Knjiga> rezultat = new ArrayList<>();
-			for (Knjiga itKnjiga: knjige) {
-				// kriterijum pretrage
-				if (!itKnjiga.getNaziv().toLowerCase().contains(naziv.toLowerCase())) {
-					continue;
-				}
-				/*if (cena > 0) { // ako je žanr odabran
-					boolean pronadjen = false;
-					for (Zanr itZanr: itFilm.getZanrovi()) {
-						if (itZanr.getId() == zanrId) {
-							pronadjen = true;
-							break;
-						}
-					}
-					if (!pronadjen) {
-						continue;
-					}
-				}
-				if (!(itKnjiga.getCena() >= cena && itKnjiga.getCena() <= cena)) {
-					continue;
-				}
-				if (!itKnjiga.getJezik().toLowerCase().contains(jezik.toLowerCase())) {
-					continue;
-				}
-				if (!itKnjiga.getAutor().toLowerCase().contains(autor.toLowerCase())) {
-					continue;
-				}
-
-				rezultat.add(itKnjiga);
-			}
-
-			return rezultat;*/
-
 
 	@Override
 	public List<Knjiga> find(String naziv, Float cena, String autor, String jezik) {
@@ -589,6 +505,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			imaArgumenata = true;
 			listaArgumenata.add(cena);
 		}
+		
 		if(autor!=null) {
 			naziv = "%" + naziv + "%";
 			if(imaArgumenata)
@@ -607,60 +524,25 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			listaArgumenata.add(naziv);
 		}
 		
-		
-		
 		if(imaArgumenata)
 			sql=sql + whereSql.toString()+ " ORDER BY id";
 		else
 			sql=sql + " ORDER BY id";
 		System.out.println(sql);
-		
-		//List<Knjiga> knjige = jdbcTemplate.query(sql, listaArgumenata.toArray(), new KorisnikRowMapper());
-
-		//return jdbcTemplate.query(sql, listaArgumenata.toArray(), new KorisnikRowMapper());
-		
-		//return knjige;
-		
-		//return jdbcTemplate.query(sql, new KorisnikRowMapper());
 
 		return jdbcTemplate.query(sql, new KnjigaRowMapper(), listaArgumenata.toArray());
 		
-
-		/*List<Knjiga> knjigee = jdbcTemplate.query(sql, 
-				new KorisnikRowMapper(), new Object[] { listaArgumenata });
-		return knjigee;*/
-		
-		//return (List<Knjiga>) jdbcTemplate.queryForObject(sql, new KorisnikRowMapper(), listaArgumenata);
-
-		
-		//return jdbcTemplate.query(sql, listaArgumenata.toArray(), new KorisnikRowMapper());
 	}
 
 
 	@Override
 	public List<Knjiga> find(HashMap<String, Object> mapaArgumenata) {
-ArrayList<Object> listaArgumenata = new ArrayList<Object>();
+		ArrayList<Object> listaArgumenata = new ArrayList<Object>();
 		
 		String sql = "SELECT k.id, k.naziv, k.isbn, k.izdavackaKuca, k.autor, k.godinaIzdavanja, k.cena, k.jezik FROM knjige k ";
 		
 		StringBuffer whereSql = new StringBuffer(" WHERE ");
 		boolean imaArgumenata = false;
-		
-	/*	if(mapaArgumenata.containsKey("naziv")) {
-			if(imaArgumenata)
-				whereSql.append(" AND ");
-			whereSql.append("k.cena >= ?");
-			imaArgumenata = true;
-			listaArgumenata.add(mapaArgumenata.get("cena"));
-		}*/
-		
-		/*if(mapaArgumenata.containsKey("datumIVremeDo")) {
-			if(imaArgumenata)
-				whereSql.append(" AND ");
-			whereSql.append("p.datumIVreme <= ?");
-			imaArgumenata = true;
-			listaArgumenata.add(mapaArgumenata.get("datumIVremeDo"));
-		}*/
 		
 		if(mapaArgumenata.containsKey("naziv")) {
 			String naziv = "%" + mapaArgumenata.get("naziv") + "%";
@@ -670,7 +552,6 @@ ArrayList<Object> listaArgumenata = new ArrayList<Object>();
 			imaArgumenata = true;
 			listaArgumenata.add(mapaArgumenata.get("naziv"));
 		}
-		
 		
 		if(mapaArgumenata.containsKey("autor")) {
 			if(imaArgumenata)
@@ -688,8 +569,6 @@ ArrayList<Object> listaArgumenata = new ArrayList<Object>();
 			imaArgumenata = true;
 			listaArgumenata.add(mapaArgumenata.get("jezik"));
 		}
-		
-
 		
 		if(mapaArgumenata.containsKey("cena")) {
 			if(imaArgumenata)
@@ -726,10 +605,6 @@ ArrayList<Object> listaArgumenata = new ArrayList<Object>();
 		return null;
 	}
 
-
-	
-	
-	
 }
 
 	

@@ -67,9 +67,6 @@ public class KorisnickaKorpaDAOImpl implements KorisnickaKorpaDAO {
 		String sql = "SELECT id, knjigaId, kolicina, vlasnikKorpeOznaka from korisnickakorpa";
 		return jdbcTemplate.query(sql, new KorisnickaKorpaRowMapper());
 	}
-	
-	
-	
 
 	@Override
 	public List<KorisnickaKorpa> find(int id, int knjigaId) {
@@ -103,25 +100,14 @@ public class KorisnickaKorpaDAOImpl implements KorisnickaKorpaDAO {
 		jdbcTemplate.update(sql, id);
 	}
 
-	//@Override
-	/*public int deleteAll(Integer id) {
-		String sql = "DELETE FROM korisnickakorpa WHERE id in (1,100)";
-		return jdbcTemplate.update(sql, new KorisnickaKorpaRowMapper());	
-	}*/
 
 	@Override
 	public int deleteAll() {
-		/*String sql = "drop table korisnickakorpa;" + 
-				"create table projekat.korisnickakorpa(\r\n" + 
-				"id int auto_increment PRIMARY KEY,\r\n" + 
-				"knjigaId int\r\n" + 
-				");";*/
 		String sql="delete from korisnickakorpa";
 		return jdbcTemplate.update(sql, new KorisnickaKorpaRowMapper());
 	}
 
-	
-	}
+}
 
 	
 

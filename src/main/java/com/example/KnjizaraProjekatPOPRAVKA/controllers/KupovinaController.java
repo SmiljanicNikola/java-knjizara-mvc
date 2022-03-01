@@ -37,6 +37,7 @@ import com.example.KnjizaraProjekatPOPRAVKA.service.LoyaltyKarticaService;
 @RequestMapping(value="/Kupovine")
 public class KupovinaController implements ServletContextAware {
 
+	
 	@Override
 	public void setServletContext(ServletContext servletContext) {
 		this.servletContext = servletContext;		
@@ -105,6 +106,7 @@ public class KupovinaController implements ServletContextAware {
 
 		return rezultat;
 	}*/
+	
 	@GetMapping(value="/Create")
 	public ModelAndView create(HttpSession session, HttpServletResponse response) throws IOException {
 		Korisnik prijavljeniKorisnik  = (Korisnik) session.getAttribute(KorisnikController.KORISNIK_KEY);
@@ -115,12 +117,12 @@ public class KupovinaController implements ServletContextAware {
 		List<Knjiga> knjige = knjigaService.findAll();
 		List<KorisnickaKorpa> stavka = korisnickaKorpaService.findAll();
 
-		// prosleđivanje
 		ModelAndView rezultat = new ModelAndView("stavkaKorpe");
 		rezultat.addObject("knjige", knjige);
 
 		return rezultat;
 	}
+	
 	
 	@PostMapping(value="/Create")
 	public void create(@RequestParam(required=false) Integer id,
@@ -174,6 +176,7 @@ public class KupovinaController implements ServletContextAware {
 		response.sendRedirect(baseURL + "KorisnickaKorpa");
 	}
 	
+	
 	@GetMapping(value="/Details")
 	public ModelAndView details(@RequestParam @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate datumKupovine, HttpSession session, HttpServletRequest request,
 				HttpServletResponse response) throws IOException {
@@ -183,12 +186,9 @@ public class KupovinaController implements ServletContextAware {
 					ModelAndView rezultat = new ModelAndView("kupovina");
 					
 					rezultat.addObject("kupovina", kupovina);
-
-
 					
 					return rezultat;
 				}
-	
 	
 
 }

@@ -1,4 +1,5 @@
 package com.example.KnjizaraProjekatPOPRAVKA.controllers;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -20,7 +21,6 @@ import com.example.KnjizaraProjekatPOPRAVKA.model.Korisnik;
 import com.example.KnjizaraProjekatPOPRAVKA.model.LoyaltyKartica;
 import com.example.KnjizaraProjekatPOPRAVKA.service.KorisnikService;
 import com.example.KnjizaraProjekatPOPRAVKA.service.LoyaltyKarticaService;
-
 
 
 @Controller
@@ -76,7 +76,6 @@ public class ZahtevZaLoyaltyKarticuController implements ServletContextAware {
 			response.sendRedirect(baseURL + "index");
 			return null;
 		}
-		//ModelAndView rezultat = new ModelAndView("dodavanjeKnjige");
 		
 		return null;
 	}
@@ -90,18 +89,6 @@ public class ZahtevZaLoyaltyKarticuController implements ServletContextAware {
 			//(defaultValue="Na cekanju")
 			@RequestParam String status,
 			HttpSession session, HttpServletResponse response) throws IOException{
-		//aut
-		//Korisnik prijavljeniKorisnik = (Korisnik) session.getAttribute(KorisnikController.KORISNIK_KEY);
-		/*if(prijavljeniKorisnik == null) {
-			response.sendRedirect(baseURL+ "index");
-			return;
-			}*/
-		
-		//Korisnik prijavljeniKorisnik  = (Korisnik) session.getAttribute(KorisnikController.KORISNIK_KEY);
-		/*if(prijavljeniKorisnik == null){
-			response.sendRedirect(baseURL + "Knjige");
-			return;
-			}*/
 		
 		/*if(vlasnikOznaka != prijavljeniKorisnik.getKorisnickoIme()) {
 			response.sendRedirect(baseURL);
@@ -116,9 +103,8 @@ public class ZahtevZaLoyaltyKarticuController implements ServletContextAware {
 			loyaltyKarticaService.save(loyaltyKartica);
 			response.sendRedirect(baseURL);
 		}
-		try {
-			
 		
+		try {
 		
 		if(kartica.getStatus().equalsIgnoreCase("Odobrena")) {
 			throw new Exception("Vec imate odobrenu loyalty karticu!");
@@ -127,11 +113,6 @@ public class ZahtevZaLoyaltyKarticuController implements ServletContextAware {
 			throw new Exception("Vec ste podneli zahtev!");
 			
 		}
-		//Korisnik vlasnik = korisnikService.findOne(vlasnikOznaka);
-		/*if(vlasnik == null) {
-			response.sendRedirect(baseURL);
-			
-		}*/
 		
 		LoyaltyKartica loyaltyKartica = new LoyaltyKartica(popust, brPoena, vlasnik, status);
 		loyaltyKarticaService.save(loyaltyKartica);
@@ -149,8 +130,7 @@ public class ZahtevZaLoyaltyKarticuController implements ServletContextAware {
 			
 			return rezultat;
 		}
-		
-		
+			
 	}
 	
 }

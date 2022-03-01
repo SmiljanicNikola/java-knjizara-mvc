@@ -2,20 +2,25 @@ package com.example.KnjizaraProjekatPOPRAVKA.model;
 
 import java.time.LocalDate;
 
+
 public class Komentar {
 
 	private int id;
+	
 	private String tekstKomentara;
+	
 	private int ocena;
+	
 	private LocalDate datumPostavljanja;
+	
 	private Korisnik autor;
+	
 	private Knjiga knjiga;
+	
 	private String Status="Na cekanju";
 	
 	
 	public Komentar() {}
-	
-	
 	
 	
 	public Komentar(int id, String tekstKomentara, int ocena, LocalDate datumPostavljanja, Korisnik autor,
@@ -30,10 +35,6 @@ public class Komentar {
 		Status = status;
 	}
 	
-	
-
-
-
 
 	public Komentar(String tekstKomentara, int ocena, LocalDate datumPostavljanja, Korisnik autor, Knjiga knjiga,
 			String status) {
@@ -45,8 +46,6 @@ public class Komentar {
 		this.knjiga = knjiga;
 		Status = status;
 	}
-
-
 
 
 	public int getId() {
@@ -67,23 +66,14 @@ public class Komentar {
 	public void setOcena(int ocena) {
 		this.ocena = ocena;
 	}
-	
-	
-	
-	
+		
 	public LocalDate getDatumPostavljanja() {
 		return datumPostavljanja;
 	}
 
-
-
-
 	public void setDatumPostavljanja(LocalDate datumPostavljanja) {
 		this.datumPostavljanja = datumPostavljanja;
 	}
-
-
-
 
 	public Korisnik getAutor() {
 		return autor;
@@ -110,9 +100,5 @@ public class Komentar {
 		return "Komentar [id=" + id + ", tekstKomentara=" + tekstKomentara + ", ocena=" + ocena + ", datumPostavljanja="
 				+ datumPostavljanja + ", autor=" + autor + ", knjiga=" + knjiga + ", Status=" + Status + "]";
 	}
-	
-	
-	
-	
 	
 }

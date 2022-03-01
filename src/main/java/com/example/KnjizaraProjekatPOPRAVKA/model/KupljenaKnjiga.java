@@ -1,10 +1,14 @@
 package com.example.KnjizaraProjekatPOPRAVKA.model;
 
+
 public class KupljenaKnjiga {
 
 	private int id;
+	
 	private Knjiga knjiga;
+	
 	private int brojPrimeraka;
+	
 	private int cena;
 	
 	
@@ -27,9 +31,6 @@ public class KupljenaKnjiga {
 		this.cena = cena;
 	}
 
-	
-	
-	
 
 	public int getId() {
 		return id;
@@ -60,7 +61,7 @@ public class KupljenaKnjiga {
 		this.brojPrimeraka = brojPrimeraka;
 	}
 
-
+	
 	public int getCena() {
 		return cena;
 	}
@@ -76,8 +77,6 @@ public class KupljenaKnjiga {
 		return "KupljenaKnjiga [id=" + id + ", knjiga=" + knjiga + ", brojPrimeraka=" + brojPrimeraka + ", cena=" + cena
 				+ "]";
 	}
-	
-	
 	
 	
 }

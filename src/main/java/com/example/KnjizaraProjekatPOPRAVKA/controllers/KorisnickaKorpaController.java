@@ -1,4 +1,5 @@
 package com.example.KnjizaraProjekatPOPRAVKA.controllers;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
@@ -51,16 +52,19 @@ public class KorisnickaKorpaController implements ServletContextAware{
 	private ServletContext servletContext;
 	private String baseURL;
 	
+	
 	@Override
 	public void setServletContext(ServletContext servletContext) {
 		// TODO Auto-generated method stub
 		
 	}
 	
+	
 	@PostConstruct
 	public void init() {
 		baseURL = servletContext.getContextPath() + "/";
 	}
+	
 	
 	@GetMapping
 	public ModelAndView index(
@@ -77,6 +81,7 @@ public class KorisnickaKorpaController implements ServletContextAware{
 				return rezultat;
 		
 	}
+	
 
 	@GetMapping(value="/Create")
 	public ModelAndView create(HttpSession session, HttpServletResponse response) throws IOException{
@@ -120,6 +125,7 @@ public class KorisnickaKorpaController implements ServletContextAware{
 		
 	}
 	
+	
 	@GetMapping(value="/Delete")
 	public void delete(@RequestParam int id,
 			HttpSession session, HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -152,6 +158,7 @@ public class KorisnickaKorpaController implements ServletContextAware{
 					return rezultat;
 				}
 	
+	
 	@GetMapping("menjajLokalizacijuNaSrpski")
 	public void index2(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
@@ -160,6 +167,7 @@ public class KorisnickaKorpaController implements ServletContextAware{
 		
 		response.sendRedirect(baseURL+"KorisnickaKorpa");
 	}	
+	
 	
 	@GetMapping("menjajLokalizacijuNaEngleski")
 	public void index3(HttpServletRequest request, HttpServletResponse response) throws IOException {

@@ -41,9 +41,7 @@ public class KupovinaDAOImpl implements KupovinaDAO  {
 	
 	@Autowired
 	private KorisnikDAO korisnikDAO;
-	
-
-	
+		
 	
 	private class KupovineRowMapper implements RowMapper<Kupovina>{
 
@@ -70,9 +68,6 @@ public class KupovinaDAOImpl implements KupovinaDAO  {
 				}
 			
 		}
-	
-	
-	
 	
 	
 	@Override
@@ -110,9 +105,7 @@ public class KupovinaDAOImpl implements KupovinaDAO  {
 	}
 
 	@Override
-	public void save(Kupovina kupovina) {
-		// TODO Auto-generated method stub
-		
+	public void save(Kupovina kupovina) {		
 		/*PreparedStatementCreator preparedStatementCreator = new PreparedStatementCreator() {
 			
 			@Override
@@ -136,7 +129,6 @@ public class KupovinaDAOImpl implements KupovinaDAO  {
 		jdbcTemplate.update(sql, kupovina.getId(), kupovina.getKnjiga().getId(), kupovina.getUkupnaCena(), kupovina.getDatumKupovine() , kupovina.getMusterija().getKorisnickoIme(), kupovina.getBrojKupljenihKnjiga());
 			}
 
-	
 		
 		/*GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
 		boolean uspeh = jdbcTemplate.update(preparedStatementCreator, keyHolder) == 1;
@@ -162,7 +154,6 @@ public class KupovinaDAOImpl implements KupovinaDAO  {
 	@Override
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -201,6 +192,7 @@ public class KupovinaDAOImpl implements KupovinaDAO  {
 			
 			
 		}
+		
 		if(imaArgumenata)
 			sql=sql + whereSql.toString()+" ORDER BY id";
 		else

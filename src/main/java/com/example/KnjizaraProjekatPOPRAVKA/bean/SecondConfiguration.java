@@ -13,7 +13,6 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 
-
 @Configuration
 public class SecondConfiguration implements WebMvcConfigurer {
 
@@ -23,7 +22,8 @@ public class SecondConfiguration implements WebMvcConfigurer {
 		return new MemorijaAplikacije();
 	}
 	
-public class MemorijaAplikacije extends HashMap {
+	
+	public class MemorijaAplikacije extends HashMap {
 		
 		@Override
 		public String toString() {
@@ -33,8 +33,6 @@ public class MemorijaAplikacije extends HashMap {
 		public void init() {
 			//inicijalizacija
 			System.out.println("init method called");
-			//Korisnik korisnik1 = new Korisnik("ime", "prezime", "email", "adresa" , "telefon", "korisnickoIme" , "lozinka", "datumRodjenja", "datumRegistracije", "uloga");
-			//this.put("korisnik1",korisnik1);
 		}
 		
 		public void destroy() {
@@ -61,7 +59,7 @@ public class MemorijaAplikacije extends HashMap {
 	    return source;
 	}
 
-	//LocaleResolver određuju lokalizaciju na osnovu podataka iz HTTP zahteva
+		//LocaleResolver određuju lokalizaciju na osnovu podataka iz HTTP zahteva
 		//SessionLocaleResolver - određuje lokalizaciju i skladišti je u HttpSession klijenta
 		@Bean
 		public LocaleResolver localeResolver() {
@@ -80,6 +78,7 @@ public class MemorijaAplikacije extends HashMap {
 		    lci.setParamName("locale");
 		    return lci;
 		}
+		
 		
 		@Override
 		public void addInterceptors(InterceptorRegistry registry) {

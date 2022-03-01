@@ -69,25 +69,10 @@ public class KnjigaIsbnController implements ServletContextAware {
 
 							 HttpSession session) throws IOException{
 							
-		
-							/*List<Knjiga> knjige = knjigaService.find(naziv, cena, autor, jezik);
-							 * 
-						
-							 */
-		
-							//Ovo
-							//List<Knjiga> knjige = knjigaService.findVerzija2(naziv, isbn, izdavackaKuca, autor, godinaIzdavanja, kratakOpis, cena, brojStranica, tipPoveza, pismo, jezik, prosecnaOcena);
-							
-							
-							
-							//List<Knjiga> knjige = knjigaService.find(id, naziv, isbn, izdavackaKuca, autor, godinaIzdavanja, kratakOpis, cena, brojStranica, tipPoveza, pismo, jezik, prosecnaOcena);
-						//List<Knjiga> knjige = knjigaService.findAll();
 							List<Knjiga> knjige = knjigaService.find3(naziv, isbn, izdavackaKuca, autor, kratakOpis, cena, brojStranica, tipPoveza, pismo, jezik, prosecnaOcena,brojPrimeraka, zanrId);
 							List<Zanr> zanrovi = zanrService.findAll();
 
-							
-							//List<Knjiga> knjige = knjigaService.findVerzija2(id, naziv, isbn, izdavackaKuca, autor, godinaIzdavanja, kratakOpis, cena, brojStranica, tipPoveza, pismo, jezik, prosecnaOcena);
-							
+														
 							ModelAndView rezultat = new ModelAndView("knjigeisbn");
 							rezultat.addObject("knjige", knjige);
 							rezultat.addObject("zanrovi", zanrovi);

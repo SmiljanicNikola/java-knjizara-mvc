@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.servlet.LocaleResolver;
 
+
 @Controller
 @RequestMapping(value="/")
 public class IndexController implements ServletContextAware {
@@ -23,9 +24,9 @@ public class IndexController implements ServletContextAware {
 	private ServletContext servletContext;
 	private String baseURL;
 	
+	
 	@GetMapping
 	public String index() {
-		// prosleđivanje
 		return "index";
 	}
 	

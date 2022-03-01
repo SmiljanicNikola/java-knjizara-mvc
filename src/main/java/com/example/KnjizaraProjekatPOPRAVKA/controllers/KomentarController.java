@@ -1,4 +1,5 @@
 package com.example.KnjizaraProjekatPOPRAVKA.controllers;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
@@ -27,7 +28,6 @@ import com.example.KnjizaraProjekatPOPRAVKA.model.Korisnik;
 import com.example.KnjizaraProjekatPOPRAVKA.service.KnjigaService;
 import com.example.KnjizaraProjekatPOPRAVKA.service.KomentarService;
 import com.example.KnjizaraProjekatPOPRAVKA.service.KorisnikService;
-
 
 
 @Controller
@@ -83,6 +83,7 @@ public class KomentarController implements ServletContextAware{
 			return rezultat;
 		
 			}
+	
 			
 	@GetMapping(value="/Create")
 	public ModelAndView create(HttpSession session, HttpServletResponse response) throws IOException{
@@ -103,7 +104,8 @@ public class KomentarController implements ServletContextAware{
 		localeResolver.setLocale(request, response, Locale.forLanguageTag("sr"));
 		
 		response.sendRedirect(baseURL+"Komentari");
-	}	
+	}
+	
 	
 	@GetMapping("menjajLokalizacijuNaEngleski")
 	public void index3(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -147,6 +149,7 @@ public class KomentarController implements ServletContextAware{
 		response.sendRedirect(baseURL+ "Knjige");
 		
 	}
+	
 			
 	@GetMapping(value = "/Details")
 	public ModelAndView details(@RequestParam (required=false) Integer id, HttpSession session, HttpServletRequest request,
@@ -158,6 +161,7 @@ public class KomentarController implements ServletContextAware{
 		
 		return rezultat;
 	}
+	
 	
 	@PostMapping(value="/Edit")
 	public void edit(@RequestParam Integer id,
@@ -203,13 +207,9 @@ public class KomentarController implements ServletContextAware{
 						komentarService.update(komentar);
 						response.sendRedirect(baseURL+"Komentari");
 						
-					}
-		
-		
-		
-		
-		
-	}
+			}
+
+}
 			
 			
 			

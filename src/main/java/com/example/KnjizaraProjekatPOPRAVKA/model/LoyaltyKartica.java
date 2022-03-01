@@ -1,16 +1,20 @@
 package com.example.KnjizaraProjekatPOPRAVKA.model;
 
+
 public class LoyaltyKartica {
 	
 	private int id;
+	
 	private int popust;
+	
 	private int brPoena;
+	
 	private Korisnik vlasnik;
+	
 	private String Status;
 
 	
 	public LoyaltyKartica() {}
-
 
 
 	public LoyaltyKartica(int popust, int brPoena, Korisnik vlasnik, String status) {
@@ -22,9 +26,6 @@ public class LoyaltyKartica {
 	}
 
 
-
-
-
 	public LoyaltyKartica(int id, int popust, int brPoena, Korisnik vlasnik, String status) {
 		super();
 		this.id = id;
@@ -33,6 +34,7 @@ public class LoyaltyKartica {
 		this.vlasnik = vlasnik;
 		Status = status;
 	}
+	
 
 	public int getId() {
 		return id;
@@ -80,11 +82,6 @@ public class LoyaltyKartica {
 		return "LoyaltyKartica [id=" + id + ", popust=" + popust + ", brPoena=" + brPoena + ", vlasnik=" + vlasnik
 				+ ", Status=" + Status + "]";
 	}
-
-	
-	
-	
-	
 	
 	
 }

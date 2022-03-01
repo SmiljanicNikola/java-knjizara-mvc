@@ -1,9 +1,14 @@
 package com.example.KnjizaraProjekatPOPRAVKA.model;
+
+
 public class KorisnickaKorpa {
 
 	private int id;
+	
 	private Knjiga knjiga;
+	
 	private Integer kolicina;
+	
 	private Korisnik vlasnikKorpe;
 	
 	public KorisnickaKorpa() {
@@ -11,8 +16,6 @@ public class KorisnickaKorpa {
 	}
 
 	
-	
-
 	public KorisnickaKorpa(int id, Knjiga knjiga, Integer kolicina, Korisnik vlasnikKorpe) {
 		super();
 		this.id = id;
@@ -20,6 +23,7 @@ public class KorisnickaKorpa {
 		this.kolicina = kolicina;
 		this.vlasnikKorpe = vlasnikKorpe;
 	}
+	
 
 	public KorisnickaKorpa(Knjiga knjiga, Integer kolicina, Korisnik vlasnikKorpe) {
 		super();
@@ -33,11 +37,9 @@ public class KorisnickaKorpa {
 		return kolicina;
 	}
 
-
 	public void setKolicina(Integer kolicina) {
 		this.kolicina = kolicina;
 	}
-
 
 	public int getId() {
 		return id;
@@ -55,31 +57,18 @@ public class KorisnickaKorpa {
 		this.knjiga = knjiga;
 	}
 
-
-
-
 	public Korisnik getVlasnikKorpe() {
 		return vlasnikKorpe;
 	}
 
-
-
-
 	public void setVlasnikKorpe(Korisnik vlasnikKorpe) {
 		this.vlasnikKorpe = vlasnikKorpe;
 	}
-
-
-
 
 	@Override
 	public String toString() {
 		return "KorisnickaKorpa [id=" + id + ", knjiga=" + knjiga + ", kolicina=" + kolicina + ", vlasnikKorpe="
 				+ vlasnikKorpe + "]";
 	}
-
-	
-	
-	
 	
 }

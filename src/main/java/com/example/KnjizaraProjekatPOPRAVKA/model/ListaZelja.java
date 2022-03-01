@@ -1,15 +1,19 @@
 package com.example.KnjizaraProjekatPOPRAVKA.model;
 
+
 public class ListaZelja {
 
-	
 	private int id;
+	
 	private Knjiga knjiga;
+	
 	private Korisnik vlasnikListe;
+	
 	
 	public ListaZelja() {
 		
 	}
+	
 
 	public ListaZelja(int id, Knjiga knjiga, Korisnik vlasnikListe) {
 		super();
@@ -17,12 +21,14 @@ public class ListaZelja {
 		this.knjiga = knjiga;
 		this.vlasnikListe = vlasnikListe;
 	}
+	
 
 	public ListaZelja(Knjiga knjiga, Korisnik vlasnikListe) {
 		super();
 		this.knjiga = knjiga;
 		this.vlasnikListe = vlasnikListe;
 	}
+	
 
 	public int getId() {
 		return id;
@@ -52,9 +58,5 @@ public class ListaZelja {
 	public String toString() {
 		return "ListaZelja [id=" + id + ", knjiga=" + knjiga + ", vlasnikListe=" + vlasnikListe + "]";
 	}
-	
-	
-	
-	
-	
+		
 }

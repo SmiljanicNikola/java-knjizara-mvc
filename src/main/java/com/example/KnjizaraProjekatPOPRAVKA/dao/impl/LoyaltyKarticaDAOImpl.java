@@ -46,8 +46,6 @@ public class LoyaltyKarticaDAOImpl implements LoyaltyKarticaDAO {
 			
 		}
 		
-		
-		
 	}
 
 	@Override
@@ -59,7 +57,6 @@ public class LoyaltyKarticaDAOImpl implements LoyaltyKarticaDAO {
 			return null;
 		}
 	}
-	
 	
 
 	@Override
@@ -99,7 +96,6 @@ public class LoyaltyKarticaDAOImpl implements LoyaltyKarticaDAO {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 
 
 	@Override

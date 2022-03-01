@@ -32,40 +32,41 @@
 	
 
 	<div class="center">
-		<div class="title">Registracija</div>
+		<div class="header">Registracija</div>
 		<form method="post" action="Korisnici/Register">
 		<div class="skupina">
 			<div class="txt_field">
 				<span class="details">Ime</span>				
-				<input type="text" name="ime" placeholder="Unesite ime" required/>
+				<input type="text" name="ime" required/>
 			</div>
 			<div class="txt_field">
 				<span class="details">Prezime</span>							
-				<input type="text" name="prezime" placeholder="Unesite prezime" required/>
+				<input type="text" name="prezime" required/>
 			</div>
 			<div class="txt_field">
 				<span class="details">Email</span>
-				<input type="text" name="email" placeholder="Unesite email" required/>
+				<input type="text" name="email" required/>
 			</div>
 			<div class="txt_field">	
 				<span class="details">Adresa</span>
-				<input type="text" name="adresa" placeholder="Unesite adresu" required/>
+				<input type="text" name="adresa" required/>
 			</div>
 			<div class="txt_field">
 				<span class="details">Telefon</span>
-				<input type="text" name="telefon" placeholder="Unesite telefon" required/>
+				<input type="text" name="telefon" required/>
+			</div>
+            <div class="txt_field">
+				<span class="details">Lozinka</span>
+				<input type="password" name="lozinka" required/>
 			</div>
 			<div class="txt_field">
 				<span class="details">Korisnicko Ime</span>
-				<input type="text" name="korisnickoIme" placeholder="Unesite korisnicko Ime" required/>
+				<input type="text" name="korisnickoIme" required/>
 			</div>
-			<div class="txt_field">
-				<span class="details">Lozinka</span>
-				<input type="password" name="lozinka" placeholder="Unesite lozinku" required/>
-			</div>
+		
 			<div class="txt_field">
 				<span class="details">Ponovljena Lozinka</span>
-				<input type="password" name="ponovljenaLozinka" placeholder="Potvrdite lozinku" required />
+				<input type="password" name="ponovljenaLozinka" required />
 			</div>
 			<div class="txt_field">
 				<span class="details">Datum Rodjenja</span>
@@ -73,15 +74,13 @@
 			</div>
 			<div class="txt_field">
 				<span class="details">Datum Registracije</span>
-				<input value="2021-02-14T18:00:00" name="datumRegistracije" />
+				<input value="2021-02-14T18:00:00" name="datumRegistracije" readonly="readonly"/>
 			</div>
 			<div class="txt_field">
 				<span class="details">Uloga</span>
 				<input type="text" value="kupac" name="uloga" readonly="readonly" />
 			</div>
-			<div class="button">
 				<input type="submit" value="Registruj se">
-			</div>
 			<div class="signup_link">
 				Vec imate nalog?<a href="login.html">Login</a>
 			</div>
@@ -89,7 +88,6 @@
 			
 		</form>
 	</div>
-	
 	
 	
 	<footer>

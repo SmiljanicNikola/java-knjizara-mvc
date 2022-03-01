@@ -1,4 +1,5 @@
 package com.example.KnjizaraProjekatPOPRAVKA.controllers;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -28,15 +29,11 @@ import com.example.KnjizaraProjekatPOPRAVKA.service.KorisnikService;
 import com.example.KnjizaraProjekatPOPRAVKA.service.LoyaltyKarticaService;
 
 
-
 @Controller
 @RequestMapping(value="/LoyaltyKartice")
 public class LoyaltyKarticaController implements ServletContextAware {
 	
 	public static final String KARTICA_KEY = "loyaltyKartica";
-	
-	//public static final String KORISNIK_KEY = "prijavljeniKorisnik";
-
 	
 	@Autowired
 	private LoyaltyKarticaService loyaltyKarticaService;
@@ -63,7 +60,6 @@ public class LoyaltyKarticaController implements ServletContextAware {
 	}
 	
 	
-	
 	@GetMapping
 	public ModelAndView index(
 			@RequestParam(required=false) Integer id,
@@ -84,7 +80,6 @@ public class LoyaltyKarticaController implements ServletContextAware {
 			return rezultat;
 			
 	}
-
 
 	
 	@GetMapping(value="/Create")
@@ -139,9 +134,8 @@ public class LoyaltyKarticaController implements ServletContextAware {
 		loyaltyKarticaService.save(loyaltyKartica);
 		
 		response.sendRedirect(baseURL + "Knjige");
-		//ovo
-
-		}
+		
+	}
 	
 	
 	@GetMapping(value="/Details")
@@ -154,7 +148,8 @@ public class LoyaltyKarticaController implements ServletContextAware {
 					rezultat.addObject("kartica", kartica);
 					
 					return rezultat;
-				}
+	}
+	
 			
 	@GetMapping("menjajLokalizacijuNaSrpski")
 	public void index2(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -163,7 +158,8 @@ public class LoyaltyKarticaController implements ServletContextAware {
 		localeResolver.setLocale(request, response, Locale.forLanguageTag("sr"));
 		
 		response.sendRedirect(baseURL+"LoyaltyKartice");
-	}	
+	}
+	
 	
 	@GetMapping("menjajLokalizacijuNaEngleski")
 	public void index3(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -172,7 +168,8 @@ public class LoyaltyKarticaController implements ServletContextAware {
 		localeResolver.setLocale(request, response, Locale.forLanguageTag("en"));
 		
 		response.sendRedirect(baseURL+"LoyaltyKartice");
-	}	
+	}
+	
 	
 	@PostMapping(value="/Edit")
 	public void edit(@RequestParam(required=false) Integer id,
@@ -198,6 +195,6 @@ public class LoyaltyKarticaController implements ServletContextAware {
 						loyaltyKarticaService.update(kartica);
 						response.sendRedirect(baseURL+"LoyaltyKartice");
 						
-					}
+			}
 
 }

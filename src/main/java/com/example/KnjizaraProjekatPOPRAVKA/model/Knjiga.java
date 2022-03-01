@@ -8,24 +8,38 @@ import java.util.List;
 public class Knjiga {
 	
 	private int id;
+	
 	private String naziv;
+	
 	private long isbn;
+	
 	private String izdavackaKuca;
+	
 	private String autor;
+	
 	private LocalDate godinaIzdavanja;
+	
 	private String kratakOpis;
+	
 	private float cena;
+	
 	private int brojStranica;
+	
 	private String tipPoveza="tvrdi";
+	
 	private String pismo="latinica";
+	
 	private String jezik;
+	
 	private float prosecnaOcena;
+	
 	private int brojPrimeraka;
 	
 	private List<Zanr> zanrovi = new ArrayList<>();
 
 	
 	public Knjiga() {}
+	
 
 	public Knjiga(int id, String naziv, long isbn, String izdavackaKuca, String autor, LocalDate godinaIzdavanja,
 			String kratakOpis, float cena, int brojStranica, String tipPoveza, String pismo, String jezik,
@@ -46,6 +60,7 @@ public class Knjiga {
 		this.prosecnaOcena = prosecnaOcena;
 	}
 	
+	
 	public Knjiga(String naziv, long isbn, String izdavackaKuca, String autor, LocalDate godinaIzdavanja,
 			String kratakOpis, float cena, int brojStranica, String tipPoveza, String pismo, String jezik,
 			float prosecnaOcena) {
@@ -64,9 +79,6 @@ public class Knjiga {
 		this.prosecnaOcena = prosecnaOcena;
 	}
 
-	
-	
-	
 	
 	public Knjiga(int id, String naziv, long isbn, String izdavackaKuca, String autor, LocalDate godinaIzdavanja,
 			String kratakOpis, float cena, int brojStranica, String tipPoveza, String pismo, String jezik,
@@ -177,9 +189,6 @@ public class Knjiga {
 		this.jezik = jezik;
 	}
 
-	
-
-
 	public int getBrojPrimeraka() {
 		return brojPrimeraka;
 	}
@@ -210,7 +219,6 @@ public class Knjiga {
 	}
 
 	public void setZanrovi(List<Zanr> zanrovi) {
-		//this.zanrovi = zanrovi;
 		this.zanrovi.clear();
 		this.zanrovi.addAll(zanrovi);
 	}
@@ -222,9 +230,5 @@ public class Knjiga {
 				+ cena + ", brojStranica=" + brojStranica + ", tipPoveza=" + tipPoveza + ", pismo=" + pismo + ", jezik="
 				+ jezik + ", prosecnaOcena=" + prosecnaOcena + "]";
 	}
-	
-	
-	
-	
 	
 }

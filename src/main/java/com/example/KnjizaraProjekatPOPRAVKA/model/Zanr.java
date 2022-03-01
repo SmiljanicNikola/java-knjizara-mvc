@@ -1,18 +1,19 @@
 package com.example.KnjizaraProjekatPOPRAVKA.model;
 
+
 public class Zanr {
 
 	private int id;
-	private String ime;
-	private String opis;
 	
+	private String ime;
+	
+	private String opis;
 	
 	
 	public Zanr() {
 		
 	}
 
-	
 	
 	public Zanr(int id, String ime, String opis) {
 		super();
@@ -22,13 +23,12 @@ public class Zanr {
 	}
 	
 	
-	
-
 	public Zanr(String ime, String opis) {
 		super();
 		this.ime = ime;
 		this.opis = opis;
 	}
+	
 
 	public int getId() {
 		return id;
@@ -58,7 +58,5 @@ public class Zanr {
 	public String toString() {
 		return "Zanr [id=" + id + ", ime=" + ime + ", opis=" + opis + "]";
 	}
-	
-	
 	
 }

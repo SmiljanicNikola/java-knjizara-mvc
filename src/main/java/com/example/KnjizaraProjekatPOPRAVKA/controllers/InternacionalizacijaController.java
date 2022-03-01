@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.LocaleResolver;
 
+
 @Controller
 @RequestMapping(value="/Internacionalizacija")
 public class InternacionalizacijaController {
@@ -45,6 +46,7 @@ public class InternacionalizacijaController {
 		return "internacionalizacija";
 	}	
 	
+	
 	@GetMapping("/menjajLokalizacijuNaSrpski")
 	public String index2(HttpServletRequest request, HttpServletResponse response) {
 		
@@ -53,6 +55,7 @@ public class InternacionalizacijaController {
 		
 		return "internacionalizacija";
 	}	
+	
 	
 	@GetMapping("/menjajLokalizacijuNaEngleski")
 	public String index3(HttpServletRequest request, HttpServletResponse response) {
@@ -73,10 +76,4 @@ public class InternacionalizacijaController {
 		return "knjiga";
 	}	
 	
-	/*@GetMapping("/PromeniJezik")
-	public void promeniJezik(@RequestParam(defaultValue="sr") String jezik, HttpSession session, HttpServletResponse response) {
-		System.out.println(jezik);
-		
-		Locale lokalizacija = (Locale) session.getAttribute(LOKALIZACIJA_KEY);
-	}*/
 }

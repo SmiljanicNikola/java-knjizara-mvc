@@ -1,4 +1,5 @@
 package com.example.KnjizaraProjekatPOPRAVKA.controllers;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -109,20 +110,7 @@ public class KnjigaController implements ServletContextAware {
 							return rezultat;			
 	}
 	
-	/*List<Komentar> komentari = komentarService.findAll();
-	List<Komentar> odgovarajuci = new ArrayList<Komentar>();
-	public List<Komentar> PronadjiOdgovarajuce(){
-		for(Komentar komentar : komentari) {
-
-			if(komentar.getKnjiga().getNaziv() == Knjiga.getNaziv()){
-				odgovarajuci.add(komentar);
-				return odgovarajuci;
-
-			}
-
-		
-			}
-		}*/
+	
 	@GetMapping("menjajLokalizacijuNaSrpski")
 	public void index2(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
@@ -131,6 +119,7 @@ public class KnjigaController implements ServletContextAware {
 		
 		response.sendRedirect(baseURL+"Knjige");
 	}	
+	
 	
 	@GetMapping("menjajLokalizacijuNaEngleski")
 	public void index3(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -147,22 +136,8 @@ public class KnjigaController implements ServletContextAware {
 				HttpServletResponse response)  {
 					
 					Knjiga knjiga = knjigaService.findOne(naziv);
-					//Knjiga knjiga2 = knjigaService.findOne(naziv);
 					List<Komentar> komentari = komentarService.findAll();
-					/*if(komentari == null) {
-						komentari.set(1, new Komentar());
-					}
-					*/
-					
-					
-					/*List<Komentar> odgovarajuci = new ArrayList<Komentar>();
-					for(Komentar komentar : komentari) {
-						if(komentar.getKnjiga().getNaziv() == knjiga.getNaziv())
-							odgovarajuci.add(komentar);
-							
-						
-						}*/
-						
+				
 					ModelAndView rezultat = new ModelAndView("knjiga");
 					rezultat.addObject("knjiga", knjiga);
 					rezultat.addObject("komentari", komentari);
@@ -171,11 +146,6 @@ public class KnjigaController implements ServletContextAware {
 				}
 				
 				
-	
-	private void PronadjiOdgovarajuce() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@GetMapping(value="/Create")
 	public ModelAndView create(HttpSession session, HttpServletResponse response) throws IOException {
@@ -186,12 +156,12 @@ public class KnjigaController implements ServletContextAware {
 		}
 		List<Zanr> zanrovi = zanrService.findAll();
 
-		// prosleđivanje
 		ModelAndView rezultat = new ModelAndView("dodavanjeKnjige");
 		rezultat.addObject("zanrovi", zanrovi);
 
 		return rezultat;
 	}
+	
 	
 	@PostMapping(value="/Edit")
 	public void edit(@RequestParam Integer id,
@@ -306,6 +276,7 @@ public class KnjigaController implements ServletContextAware {
 		response.sendRedirect(baseURL + "Knjige");
 	}
 	
+	
 	@PostMapping(value="/Delete")
 	public void Delete(@RequestParam int id, 
 			HttpSession session, HttpServletResponse response) throws IOException {
@@ -321,7 +292,6 @@ public class KnjigaController implements ServletContextAware {
 		response.sendRedirect(baseURL + "Knjige");
 	}
 	
-
 }
 
 

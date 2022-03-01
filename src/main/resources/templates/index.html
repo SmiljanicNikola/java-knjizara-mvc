@@ -9,22 +9,7 @@
 	<title th:text="#{index.pageTitle}">Pocetna</title>
 </head>
 <body>
-	<nav>
-		<input type="checkbox" id="check">
-		<label for="check" class="checkBtn">
-			<i class="fas fa-bars" id="activeBars"></i>
-		</label>
-		<label class="logo">LOGO</label>
-		<ul>
-			<li><a href="login.html">Prijava</a></li>
-			<li><a href="registracija.html">Registracija</a></li>
-			<li><a href="Knjige">Knjige</a></li>
-			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'kupac'}"><a href="KorisnickaKorpa">Moja korpa</a></li>
-			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}"><a href="Korisnici">Korisnici</a></li>
-			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}"><a th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.Admin</li>
-			
-		</ul>
-	</nav>
+	<div th:insert="navbar :: navbar">...</div>
 	
 	<div>
 		<h4 th:text="#{lang.change}"></h4>

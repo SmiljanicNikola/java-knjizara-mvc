@@ -43,7 +43,6 @@ public class ListaZeljaController implements ServletContextAware {
 	
 	@Autowired
 	private ListaZeljaService listaZeljaService;
-		
 	
 	@Autowired
 	private ServletContext servletContext;
@@ -53,6 +52,7 @@ public class ListaZeljaController implements ServletContextAware {
 	public void init() {
 		baseURL = servletContext.getContextPath() + "/";
 	}
+	
 	
 	@GetMapping
 	public ModelAndView index(
@@ -69,6 +69,7 @@ public class ListaZeljaController implements ServletContextAware {
 		
 	}
 	
+	
 	@GetMapping(value="/Create")
 	public ModelAndView create(HttpSession session, HttpServletResponse response) throws IOException{
 		Korisnik prijavljeniKorisnik = (Korisnik) session.getAttribute(KorisnikController.KORISNIK_KEY);
@@ -79,6 +80,7 @@ public class ListaZeljaController implements ServletContextAware {
 		
 		return null;
 	}
+	
 	
 	@PostMapping(value="/Create")
 	public void create(@RequestParam(required=false)Integer knjigaId,
@@ -106,8 +108,8 @@ public class ListaZeljaController implements ServletContextAware {
 		listaZeljaService.save(listaZelja);
 		
 		response.sendRedirect(baseURL + "Knjige");
-		
 	}
+	
 	
 	@GetMapping(value="/Delete")
 	public void delete(@RequestParam int id,
@@ -121,25 +123,9 @@ public class ListaZeljaController implements ServletContextAware {
 		
 		listaZeljaService.delete(id);
 		
-		
-		
 	}
-				
-	/*@GetMapping(value="/Details")
-	public ModelAndView details(@RequestParam int id, HttpSession session, HttpServletRequest request,
-				HttpServletResponse response) throws IOException {
-					
-					ListaZelja listaZelja = listaZeljaService.findOne(id);
-					List<ListaZelja> listaZelja = ListaZeljaService.findAll();
-					
-					ModelAndView rezultat = new ModelAndView("korisnik");
-					
-					rezultat.addObject("korisnik", korisnik);
-					rezultat.addObject("listaZelja", listaZelja);
-
-					
-					return rezultat;
-				}*/
+	
+		
 	
 	@PostMapping(value="/Delete")
 	public void Delete(@RequestParam int id, 
@@ -152,8 +138,6 @@ public class ListaZeljaController implements ServletContextAware {
 		}
 
 		listaZeljaService.delete(id);
-
-		//response.sendRedirect(baseURL + "Korisnik");
 		
 	}
 	
