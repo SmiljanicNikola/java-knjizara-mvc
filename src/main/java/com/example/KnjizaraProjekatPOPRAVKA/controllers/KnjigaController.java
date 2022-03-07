@@ -236,7 +236,7 @@ public class KnjigaController implements ServletContextAware {
 						return;
 					}
 					
-					knjiga.setBrojPrimeraka(brojPrimeraka);
+					knjiga.setBrojPrimeraka(knjiga.getBrojPrimeraka() + brojPrimeraka);
 					//knjiga.setProsecnaOcena(prosecnaOcena); //Aplikacija resava(Barem bi trebalo)
 					
 					knjigaService.update2(knjiga);
@@ -268,7 +268,8 @@ public class KnjigaController implements ServletContextAware {
 			return;
 		}
 		
-		Knjiga knjiga = new Knjiga(naziv,isbn,izdavackaKuca,autor, godinaIzdavanja, kratakOpis, cena, brojStranica, tipPoveza, pismo, jezik, prosecnaOcena);
+		Knjiga knjiga = new Knjiga(naziv,isbn,izdavackaKuca,autor, godinaIzdavanja, kratakOpis, cena, brojStranica, tipPoveza, pismo, jezik, prosecnaOcena,1);
+		//Setujem na kraju 1 npr kada admin kreira novu knjigu po defaultu postoji samo jedna pa ako zeli nek naruci vise
 		knjiga.setZanrovi(zanrService.find(zanrIds));
 
 		knjigaService.save(knjiga);

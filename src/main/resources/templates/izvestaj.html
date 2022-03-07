@@ -37,8 +37,7 @@
 					</th>
 					<th>
 					<th>
-						<!-- od:<input type="number" th:value="${param.cenaKarteOd?: '0.0'}" min="0" step="0.1" name="cenaKarteOd"/><br/>
-						do:<input type="number" th:value="${param.cenaKarteDo?: '1000.0'}" min="0" step="0.1" name="cenaKarteDo"/> -->
+						
 					</th>
 					<th><input type="submit" value="Pretraži"/></th>
 				</tr>
@@ -53,5 +52,7 @@
 			</table>
 		</form>
 	</div>
+	
+	<div th:insert="footer :: footer">...</div>
 </body>
 </html>

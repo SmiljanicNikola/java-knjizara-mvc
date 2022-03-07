@@ -12,7 +12,7 @@
 	<div th:insert="navbar :: navbar">...</div>
 
 	<form method="post" action="Korisnici/Edit" th:if="${session.prijavljeniKorisnik != null}">
-		<table border="1">
+		<table border="1" style="margin-left: auto; margin-right: auto;">
 		
 			<caption>Korisnik</caption>
 			<tr><th>Ime:</th><td><input type="text" th:value="${korisnik.ime}" name="ime"/></td></tr>
@@ -66,7 +66,7 @@
 		
 	<br><hr width="100%"><br>
 	<form method="post" action="">
-			<table class="tabela" border="1" >
+			<table class="tabela" border="1" style="margin-left: auto; margin-right: auto;">
 			<caption>Dosadasnje kupovine</caption>
 			
 			<tr>

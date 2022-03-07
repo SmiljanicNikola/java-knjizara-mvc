@@ -6,12 +6,12 @@
 	<title>Dodavanje knjige</title>
 	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
-	
+	<link rel="stylesheet" type="text/css" href="css/formaNovaKnjiga.css"/>
 </head>
 <body>
 	<div th:insert="navbar :: navbar">...</div>
 
-	<form method="post" action="Knjige/Create">
+	<!--<form method="post" action="Knjige/Create">
 		<table border="1">
 			<caption>Dodavanje Knjige</caption>
 					<tr>
@@ -73,7 +73,69 @@
 						<th></th><td><input type="submit" value="Kreiraj knjigu"/></td>
 					</tr>
 		</table>
-	</form>
+	</form> -->
+	
+	<div class="center">
+		<h1>Dodavanje knjige</h1>
+		<form method="post" action="Knjige/Create">
+			<div class="txt_field">
+				<input type="text" name="naziv" placeholder="naziv" required>
+				<span></span>	
+
+				<input type="number" name="isbn" placeholder="isbn" required>
+				<span></span>
+			</div>
+            <div class="txt_field">
+				<input type="text" name="izdavackaKuca" placeholder="izdavackaKuca" required>
+				<span></span>
+
+				<input type="text" name="autor" placeholder="autor" required>
+				<span></span>
+			</div>
+            <div class="txt_field">
+				<input type="date" name="godinaIzdavanja" required>
+				<span></span>
+			
+				<input type="text" name="kratakOpis" placeholder="kratakOpis" required>
+				<span></span>				
+			</div>
+            <div class="txt_field">
+                <input type="number" name="cena" placeholder="cena" required>
+				<span></span>
+			
+				<input type="text" name="brojStranica" placeholder="brojStranica" required>
+				<span></span>				
+			</div>
+            <div class="txt_field">					
+				<select name="tipPoveza">
+                    <option value="tvrdi" th:selected="${#strings.equals(param.tipPoveza, 'tvrdi')}">tvrdi</option>
+					<option value="meki" th:selected="${#strings.equals(param.tipPoveza, 'meki')}">meki</option>
+                </select>
+				<span></span>				
+		
+				<select name="pismo">
+                    <option value="latinica" th:selected="${#strings.equals(param.pismo, 'latinica')}">latinica</option>
+                    <option value="cirilica" th:selected="${#strings.equals(param.pismo, 'cirilica')}">cirilica</option>
+                </select>
+				<span></span>				
+			</div>
+            <div class="txt_field">
+				<input type="text" name="jezik" placeholder="Jezik" required>
+				<span></span>	
+
+                <input type="number" step="0.1" min="0" max="5" value="" name="prosecnaOcena" placeholder="prosecnaOcena" required>
+				<span></span>			
+			</div>
+            <div class="txt_field">
+                <th:block th:each="itZanr: ${zanrovi}">
+					<input type="checkbox" name="zanrId" th:value="${itZanr.id}"/><span th:text="${itZanr.ime}"></span><br>
+				<th:block>
+            </div>
+			<input type="submit" value="Kreiraj knjigu">
+		</form>
+	</div>
+	
+	
 	<p class="greska" th:text="${poruka}"></p>
 	
 	<div th:insert="footer :: footer">...</div>

@@ -5,71 +5,90 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<script src="https://kit.fontawesome.com/0784e25e70.js"></script>
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 	<title th:text="#{index.pageTitle}">Pocetna</title>
 </head>
 <body>
 	<div th:insert="navbar :: navbar">...</div>
-	
-	<div>
-		<h4 th:text="#{lang.change}"></h4>
-		<ul>
-			<li><a href="Index/menjajLokalizacijuNaSrpski" th:text="#{lang.sr}"></a></li>
-			<li><a href="Index/menjajLokalizacijuNaEngleski" th:text="#{lang.eng}"></a></li>
-		</ul>
-	</div>
-	
-	<table th:if="${session.prijavljeniKorisnik == null}" class="position-center">
-		<tr>
-			<th th:text="#{knjige.notLoggedIn}"></th>
-		</tr>
-		<tr>
-			<td>
-				<ul>
-					<li><a href="registracija.html">Registracija</a></li>
-					<li><a href="login.html">Prijava</a></li>
-				</ul>
-			</td>
-		</tr>
-	</table>
-	
-	
-	
-	<table th:if="${session.prijavljeniKorisnik != null}">
-		<tr>
-			<th th:text="#{knjige.loggedIn}"></th><td><a th:href="|Korisnici/Details?korisnickoIme=${session.prijavljeniKorisnik.korisnickoIme}|" th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<ul>
-					<li><a href="Korisnici/Logout" th:text="#{knjige.logOut}"></a></li>
-				</ul>
-			</td>
-		</tr>
-	</table>
-		
-	<br>
-	
-	<br>
-	<table th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga != 'administrator'}">
-		<tr>
-			<th th:text="#{log.loggedIn}"></th>
-		</tr>
-		<tr>
-			<td>
-				<ul>
-					<li><a href="Knjige">Knjige</a>
-					<li><a href="KorisnickaKorpa">Prikazi korisnicku korpu</a>
-					<li><a href="ZahtevLoyaltyKartice">Zahtev za loyalty karticu</a>
-				</ul>
-			</td>
-		</tr>
-	</table>
-	
+
+	<div class="main" id="about">
+		 <!--<div>
+			<h4 th:text="#{lang.change}"></h4>
+			<ul>
+				<li><a href="Index/menjajLokalizacijuNaSrpski" th:text="#{lang.sr}"></a></li>
+				<li><a href="Index/menjajLokalizacijuNaEngleski" th:text="#{lang.eng}"></a></li>
+			</ul>
+		</div>-->
+        <div class="main__container">
+            <div class="main__img--container">
+                <div class="main__img--card"><i class="fas fa-layer-group"></i></div>
+            </div>
+            <div class="main__content">
+                <h1>O nama?</h1>
+                <h2>Mi smo gde je znanje</h2>
+                <p>Javite nam se i ne ustrucavajte se</p>
+                <button class="main__btn"><a href="#">Pisite nam</a></button>
+            </div>
+        </div>
+    </div>
+   
+
+    <div th:if="${session.prijavljeniKorisnik == null}">
+	    <div class="main" id="sign-up">
+	        <div class="main__container">
+	            <div class="main__content">
+	                <h1>Pridruzite nam se</h1>
+	                <h2>Registrujte se vec danas</h2>
+	                <p>Mi pravimo razliku</p>
+	                <button class="main__btn"><a href="registracija.html">Registracija</a></button>
+	            </div>
+	            <div class="main__img--container">
+	                <div class="main__img--card" id="card-2"><i class="fas fa-users"></i></div>
+	            </div>
+	        </div>
+	    </div>
+    </div>
+    
+    <div th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}">
+	    <div class="services" id="services">
+	        <h1>Our services</h1>
+	        <div class="services__wrapper">
+	            <div class="services__card">
+	                <h2>Svi komentari</h2>
+	                <p>Handluj ih</p>
+	                <div class="services__btn">
+	                    <button><a href="Komentari">Get started</a></button>
+	                </div>
+	            </div>
+	            <div class="services__card">
+	                <h2>Izvestaji kupovina</h2>
+	                <p>Baci pogled</p>
+	                <div class="services__btn">
+	                    <button><a href="Izvestaj">Get started</a></button>
+	                </div>
+	            </div>
+	            <div class="services__card">
+	                <h2>Loyalty kartice</h2>
+	                <p>Pregledaj zahteve</p>
+	                <div class="services__btn">
+	                    <button><a href="LoyaltyKartice">Get started</a></button>
+	                </div>
+	            </div>
+	            <div class="services__card">
+	                <h2>Sve knjige po ISBN</h2>
+	                <p>Pretrazi</p>
+	                <div class="services__btn">
+	                    <button><a href="KnjigeIsbn">Get started</a></button>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+    </div>
+
+    
 	<table th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}">
-		<tr>
-			<th>Prijavljen si</th>
-		</tr>
 		<tr>
 			<td>
 				<ul>

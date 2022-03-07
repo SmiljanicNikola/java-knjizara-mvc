@@ -11,14 +11,16 @@
 		<label for="check" class="checkBtn">
 			<i class="fas fa-bars" id="activeBars"></i>
 		</label>
-		<label class="logo">LOGO</label>
+		<a href="/KnjizaraProjekat"><label class="logo">LOGO</label></a>
 		<ul>
 			<li th:if="${session.prijavljeniKorisnik == null}"><a href="login.html">Prijava</a></li>
 			<li th:if="${session.prijavljeniKorisnik == null}"><a href="registracija.html">Registracija</a></li>
+			<li><a href="/KnjizaraProjekat">Pocetna</a></li>
 			<li><a href="Knjige">Knjige</a></li>
 			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'kupac'}"><a href="KorisnickaKorpa">Moja korpa</a></li>
 			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}"><a href="Korisnici">Korisnici</a></li>
-			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}"><a th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>Admin</li>
+			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}">Prijavljen je: <a th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a></li>
+			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'kupac'}">Prijavljen je: <a th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a></li>
 			<li th:if="${session.prijavljeniKorisnik != null}"><a href="Korisnici/Logout" th:text="#{knjige.logOut}"><button>Odjavite se</button></a></li>	
 			
 		</ul>

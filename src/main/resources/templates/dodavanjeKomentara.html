@@ -4,23 +4,30 @@
 	<base href="/KnjizaraProjekat/">
 	<meta charset="UTF-8">
 	<title th:text="#{dodavanjeKomentara.pageTitle}"></title>
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+	
 	</head>
 <body>
 	<div th:insert="navbar :: navbar">...</div>
 
-	<form method="post" action="DodavanjeKomentara/Create">
-		<table border="1">
+	<form method="post" action="Komentari/Create">
+		<table border="1" style="margin-left: auto; margin-right: auto;">
 		<caption th:text="#{dodavanjeKomentara.pageTitle}"></caption>
 					<tr><th th:text="#{komentari.tekstKomentara}"></th><td><input type="text" value=""  name="tekstKomentara" required/></td></tr>
 					<tr><th th:text="#{komentari.ocena}"></th><td><input type="number" value="" name="ocena" required/></td></tr>
 					<tr><th></th><td><input type="hidden" name="datumPostavljanja" value="2021-02-14" required/></td></tr>
 					<!-- <tr><th>Autor:</th><td><input type="text" name="autorOznaka" th:value=${prijavljeniKorisnik.korisnickoIme}/></td></tr> -->
 					<tr><th th:text="#{komentari.autor}"></th><td><input type="text" name="autorOznaka" th:value="${session.prijavljeniKorisnik.korisnickoIme}"/></td></tr>
-					<tr><th  th:text="#{dodavanjeKomentara.knjigaId}"></th><td><input type="number" name="knjigaId" value="izabranaKnjiga.id" required/></td></tr>
+					<tr><th  th:text="#{dodavanjeKomentara.knjigaId}"></th><td><input type="number" name="knjigaId" value="izabranaKnjiga.id"/></td></tr>
 					<tr><th></th><td><input type="hidden" value="Na cekanju" name="status"/></td></tr>
 					<tr><th></th><td><input type="submit" th:value="#{dodavanjeKomentara.kreirajKomentar}"/></td>
 		</table>
 	</form>
 	<p class="greska" th:text="${poruka}"></p>
+	
+	<div th:insert="footer :: footer">...</div>
+	
 </body>
 </html>

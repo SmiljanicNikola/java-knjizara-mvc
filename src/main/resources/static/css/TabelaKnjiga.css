@@ -1,6 +1,15 @@
 table.tabela {
 	border-collapse: collapse;
 }
+form{
+	margin-left: auto;
+  	margin-right: auto;
+}
+form table{
+  margin-left: auto;
+  margin-right: auto;
+}
+}
 
 table.tabela caption {
 	font-size: 16pt

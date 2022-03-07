@@ -5,6 +5,10 @@
 	<meta charset="UTF-8">
 	<title>Pojedinacna knjiga</title>
 	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	<link rel="stylesheet" type="text/css" href="css/dugmad.css"/>
+	
 </head>
 
 <body>
@@ -12,7 +16,7 @@
 	<div th:insert="navbar :: navbar">...</div>
 
 	<form method="post" action="Knjige/Edit" th:if="${session.prijavljeniKorisnik != null}">
-		<table border="1">
+		<table border="1" style="margin-left: auto; margin-right: auto;">
 			<caption th:text="#{knjiga.pageTitle}"></caption>
 			<tr><th>Id</th><td><input type="number" th:value="${knjiga.id}" name="id"/></td></tr>
 			<tr><th th:text="#{knjiga.naziv}"></th><td><input type="text" th:value="${knjiga.naziv}" name="naziv"/></td></tr>
@@ -29,8 +33,13 @@
 			<tr><th th:text="#{knjiga.prosecnaOcena}"></th><td><input type="number" th:value="${knjiga.prosecnaOcena}" name="prosecnaOcena"/></td></tr>
 			
 			<tr th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}"><th></th><td><input type="submit" value="Izmeni"/></td></tr>
+			<tr></tr>
 		</table>
 	</form>
+				<form method="post" action="ListaZelja/Create">
+					<input type="hidden" name="knjigaId" th:value="${knjiga.id}"/>
+					<input type="submit" value="Dodaj u listu zelja"/>
+				</form>
 			<table th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}">
 				<tr>
 					<td>
@@ -49,20 +58,35 @@
 				</tr>
 			</table>
 			
+			<div class="grupacija" style="margin-left: auto; margin-right: auto; margin-top: 30px">
+				
+				<form method="post" action="Komentari/Create">
+					<table border="1" style="margin-left: auto; margin-right: auto;">
+						<caption th:text="#{dodavanjeKomentara.pageTitle}"></caption>
+						<tr><th th:text="#{komentari.tekstKomentara}"></th><td><input type="text" value=""  name="tekstKomentara" required/></td></tr>
+						<tr><th th:text="#{komentari.ocena}"></th><td><input type="number" value="" name="ocena" required/></td></tr>
+						<tr><th></th><td><input type="hidden" name="datumPostavljanja" value="2021-02-14" required/></td></tr>
+						<!-- <tr><th>Autor:</th><td><input type="text" name="autorOznaka" th:value=${prijavljeniKorisnik.korisnickoIme}/></td></tr> -->
+						<tr><th th:text="#{komentari.autor}"></th><td><input type="text" name="autorOznaka" th:value="${session.prijavljeniKorisnik.korisnickoIme}"/></td></tr>
+						<tr><th></th><td><input type="hidden" name="knjigaId" th:value="${knjiga.id}"/></td></tr>
+						<tr><th></th><td><input type="hidden" value="Na cekanju" name="status"/></td></tr>
+						<tr><th></th><td><input type="submit" th:value="#{dodavanjeKomentara.kreirajKomentar}"/></td>
+					</table>
+				</form>
+				<p class="greska" th:text="${poruka}"></p>
+				
+				
+			</div>
 			
-			<ul>
-				<li><a href="DodavanjeKomentara" th:text="#{knjiga.ostaviKomentar}" ></a></li>
-				<li><a href="KorisnickaKorpa" th:text="#{Pregledaj korisnicku korpu}" ></a></li>
-			</ul>
-			
-			<form method="post" action="Delete">
+			<!-- <form method="post" action="Delete">
 				<input type="hidden" name="id" th:value="${knjiga.id}"/>
 				<table>
 					<tr><td><input type="submit" value="Obriši knjigu"/></td></tr>
 				</table>
-			</form>	
+			</form>  -->	
 			
-			<form method="post" action="KorisnickaKorpa/Create">
+			<br>
+			<form method="post" action="KorisnickaKorpa/Create" style="margin-left: auto; margin-right: auto;">
 				<input type="hidden" name="knjigaId" th:value="${knjiga.id}"/>
 				<div class="Udesno">
 					<table>
@@ -71,16 +95,12 @@
 				</div>
 			</form>
 			
-			<form method="post" action="ListaZelja/Create">
-				<input type="hidden" name="knjigaId" th:value="${knjiga.id}"/>
-				<table>
-					<tr><td><input type="submit" value="Dodaj u listu zelja"/></td></tr>
-				</table>
-			</form>		
+			<br>
+				
 			
 	<form method="get">
-			<table class="tabela" border="1" >
-			<caption>Komentari</caption>
+		<table class="tabela" border="1" style="margin-left: auto; margin-right: auto;">
+			<caption>Komentari izabrane knjige</caption>
 			<tr>
 				<th>Id</th>
 				<th>Tekst Komentara</th>
@@ -101,9 +121,9 @@
 				<td th:text="${komentar.knjiga.naziv}"></td>
 				<td th:text="${komentar.status}"></td>
 			</tr>
-			
 		</table>
 	</form>
-				
+	<br><br>
+	<div th:insert="footer :: footer">...</div>			
 </body>
 </html>

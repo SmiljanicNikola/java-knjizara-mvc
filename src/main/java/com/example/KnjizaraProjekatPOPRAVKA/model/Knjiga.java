@@ -99,6 +99,27 @@ public class Knjiga {
 		this.prosecnaOcena = prosecnaOcena;
 		this.brojPrimeraka = brojPrimeraka;
 	}
+	
+
+	public Knjiga(String naziv, long isbn, String izdavackaKuca, String autor, LocalDate godinaIzdavanja,
+			String kratakOpis, float cena, int brojStranica, String tipPoveza, String pismo, String jezik,
+			float prosecnaOcena, int brojPrimeraka) {
+		super();
+		this.naziv = naziv;
+		this.isbn = isbn;
+		this.izdavackaKuca = izdavackaKuca;
+		this.autor = autor;
+		this.godinaIzdavanja = godinaIzdavanja;
+		this.kratakOpis = kratakOpis;
+		this.cena = cena;
+		this.brojStranica = brojStranica;
+		this.tipPoveza = tipPoveza;
+		this.pismo = pismo;
+		this.jezik = jezik;
+		this.prosecnaOcena = prosecnaOcena;
+		this.brojPrimeraka = brojPrimeraka;
+	}
+
 
 	public int getId() {
 		return id;

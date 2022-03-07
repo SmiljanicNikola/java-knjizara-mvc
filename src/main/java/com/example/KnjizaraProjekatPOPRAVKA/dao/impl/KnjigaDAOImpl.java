@@ -178,7 +178,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 			
 			@Override
 			public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
-				String sql = "INSERT INTO knjige(id,naziv,isbn,izdavackaKuca,autor,godinaIzdavanja,kratakOpis,cena,brojStranica,tipPoveza,pismo,jezik,prosecnaOcena) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				String sql = "INSERT INTO knjige(id,naziv,isbn,izdavackaKuca,autor,godinaIzdavanja,kratakOpis,cena,brojStranica,tipPoveza,pismo,jezik,prosecnaOcena,brojPrimeraka) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 				/*jdbcTemplate.update(sql, knjiga.getId(), knjiga.getNaziv(), knjiga.getIsbn(), knjiga.getIzdavackaKuca(), knjiga.getAutor(), knjiga.getGodinaIzdavanja(),
 						knjiga.getKratakOpis(),knjiga.getCena(),knjiga.getBrojStranica(),knjiga.getTipPoveza(), knjiga.getPismo(), knjiga.getJezik(), knjiga.getProsecnaOcena());*/
 				
@@ -198,6 +198,7 @@ public class KnjigaDAOImpl implements KnjigaDAO {
 				preparedStatement.setString(index++,knjiga.getPismo());
 				preparedStatement.setString(index++,knjiga.getJezik());
 				preparedStatement.setFloat(index++,knjiga.getProsecnaOcena());
+				preparedStatement.setInt(index++, knjiga.getBrojPrimeraka());
 				
 				return preparedStatement;
 			}

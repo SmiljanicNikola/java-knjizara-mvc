@@ -4,8 +4,12 @@
 	<meta charset="UTF-8">
 	<title>Pojedinacnai komentar</title>
 	<link rel="stylesheet" type="text/css" href="css/StiloviForma.css"/>
+	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 </head>
 <body>
+
 	<div th:insert="navbar :: navbar">...</div>
 
 	<form method="post" action="Edit" th:if="${session.prijavljeniKorisnik != null}">
@@ -28,7 +32,7 @@
 			</td></tr>
 			
 			<tr><th></th><td><input type="submit" value="Izmeni"/></td></tr>
-			<br>
+			
 		</table>
 		</form>
 			
@@ -37,6 +41,8 @@
 			<table>
 				<tr><th></th><td><input type="submit" value="Obriši komentar"/></td></tr>
 			</table>
-		</form>			
-		</body>
+		</form>
+		
+		<div th:insert="footer :: footer">...</div>			
+</body>
 </html>

@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<title th:text="#{komentari.pageHeader}"></title>
 	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
+	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 </head>
 <body>
 	<div th:insert="navbar :: navbar">...</div>
@@ -15,19 +17,8 @@
 			<li><a href="Komentari/menjajLokalizacijuNaEngleski" th:text="#{lang.eng}"></a></li>
 		</ul>
 	</div>
-<br>
-	<table th:if="${session.prijavljeniKorisnik != null}">
-		<tr><th th:text="#{knjige.loggedIn}"></th><td><a th:href="|Korisnici/Details?korisnickoIme=${session.prijavljeniKorisnik.korisnickoIme}|" th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.</td></tr>
-		<tr>
-			<td colspan="2">
-				<ul>
-					<li><a href="Korisnici/Logout" th:text="#{knjige.logOut}">Odjavite se</a></li>
-				</ul>
-			</td>
-		</tr>
-	</table>
 	
-	<br><br>
+	<br><br><br>
 	<form method="get">
 		<table class="tabela">
 			<caption th:text="#{komentari.naslov}"><b></b></caption>
