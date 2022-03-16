@@ -7,8 +7,10 @@ html{
 footer{
 	display:flex;
 	flex-flow: row wrap;
-    /*background-color:#865439;*/
-    background-color:#bc6c25;
+    /*background-color:#865439;
+    background-color:#bc6c25;*/
+    background-color:#865439;
+    
 	color: white;
 	border-top: 1px solid #e5e5e5;
 }

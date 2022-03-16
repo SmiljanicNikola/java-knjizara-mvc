@@ -8,6 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 	<link rel="stylesheet" type="text/css" href="css/dugmad.css"/>
+	<link rel="stylesheet" type="text/css" href="css/book-info.css"/>
+	
 	
 </head>
 
@@ -31,15 +33,79 @@
 			<tr><th th:text="#{knjiga.pismo}"></th><td><input type="text" th:value="${knjiga.pismo}" name="pismo"/></td></tr>
 			<tr><th th:text="#{knjiga.jezik}"></th><td><input type="text" th:value="${knjiga.jezik}" name="jezik"/></td></tr>
 			<tr><th th:text="#{knjiga.prosecnaOcena}"></th><td><input type="number" th:value="${knjiga.prosecnaOcena}" name="prosecnaOcena"/></td></tr>
-			
 			<tr th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}"><th></th><td><input type="submit" value="Izmeni"/></td></tr>
 			<tr></tr>
 		</table>
 	</form>
-				<form method="post" action="ListaZelja/Create">
+	
+  	<div id="container">
+       <div id="left">
+			<img th:src="@{resources/slike/knjiga1.jpg}" alt="knjiga" width="150px" height="150px">
+			<form method="post" action="KorisnickaKorpa/Create">
+			<input type="hidden" name="knjigaId" th:value="${knjiga.id}"/>
+			<div
+>
+				<table>
+					<tr><th>Unesite zeljenu kolicinu</th><td><input type="number" name="kolicina"/><input type="submit" value="Dodaj u korpu"/></td></tr>	
+				</table>
+			</div>
+		</form>
+       </div>
+       <div id="right">
+	           <div class="grupacija" style="margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto;">
+				
+				<form method="post" action="Komentari/Create">
+					<table border="1" style="margin-left: auto; margin-right: auto;">
+						<caption th:text="#{dodavanjeKomentara.pageTitle}"></caption>
+						<tr><th th:text="#{komentari.tekstKomentara}"></th><td><input type="text" value=""  name="tekstKomentara" required/></td></tr>
+						<tr><th th:text="#{komentari.ocena}"></th><td><input type="number" value="" name="ocena" required/></td></tr>
+						<tr><th></th><td><input type="hidden" name="datumPostavljanja" value="2021-02-14" required/></td></tr>
+						<!-- <tr><th>Autor:</th><td><input type="text" name="autorOznaka" th:value=${prijavljeniKorisnik.korisnickoIme}/></td></tr> -->
+						<tr><th th:text="#{komentari.autor}"></th><td><input type="text" name="autorOznaka" th:value="${session.prijavljeniKorisnik.korisnickoIme}"/></td></tr>
+						<tr><th></th><td><input type="hidden" name="knjigaId" th:value="${knjiga.id}"/></td></tr>
+						<tr><th></th><td><input type="hidden" value="Na cekanju" name="status"/></td></tr>
+						<tr><th></th><td><input type="submit" th:value="#{dodavanjeKomentara.kreirajKomentar}"/></td>
+					</table>
+				</form>
+				<p class="greska" th:text="${poruka}"></p>
+				
+				
+			</div>
+       </div>
+       <div id="center">
+        <div class="opis-knjige">
+        	<b>Naziv: </b> <p th:text="${knjiga.naziv}"></p>
+        </div>
+        <div class="opis-knjige">
+        	<b>Autor: </b> <p th:text="${knjiga.autor}"></p>
+        </div>
+        <div class="opis-knjige">
+        	<b>Izdavacka Kuca:</b> <p th:text="${knjiga.izdavackaKuca}"></p>
+        </div>
+        <div class="opis-knjige">
+        	<b>Godina izdavanja:</b> <p th:text="${knjiga.godinaIzdavanja}"></p>
+        </div>
+		<div class="opis-knjige">
+        	<b>Cena:</b> <p th:text="${knjiga.cena}"></p>
+        </div>
+		<div class="opis-knjige">
+        	<b>Pismo:</b> <p th:text="${knjiga.pismo}"></p>
+        </div>
+		<div class="opis-knjige">
+        	<b>Kratak Opis:</b> <p th:text="${knjiga.kratakOpis}"></p>
+        </div>
+		<form method="post" action="ListaZelja/Create">
+			<input type="hidden" name="knjigaId" th:value="${knjiga.id}"/>
+			<input type="submit" value="Dodaj u listu zelja"/>
+		</form>
+		
+       </div>
+     </div>
+		
+				<!-- <form method="post" action="ListaZelja/Create">
 					<input type="hidden" name="knjigaId" th:value="${knjiga.id}"/>
 					<input type="submit" value="Dodaj u listu zelja"/>
-				</form>
+				</form>-->
 			<table th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}">
 				<tr>
 					<td>

@@ -87,25 +87,6 @@
 	    </div>
     </div>
 
-    
-	<table th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}">
-		<tr>
-			<td>
-				<ul>
-					<li><a href="Knjige">Knjige</a></li>
-					<li><a href="Korisnici">Korisnici</a></li>
-					<li><a href="Komentari">Komentari</a>
-					<hr width="100%"/>
-					<li><a href="LoyaltyKartice">Loyalty Kartice</a></li>
-					<li><a href="Izvestaj">Izvestavanje</a>
-					<hr width="100%"/>
-					<li><a href="#">Tabelarni prikaz godine i datumi</a>
-					<li><a href="KnjigeIsbn">Pretraga po ISBN-u</a>
-				</ul>
-			</td>
-		</tr>
-	</table>
-
 
 	<div th:insert="footer :: footer">...</div>
 	

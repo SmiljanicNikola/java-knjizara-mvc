@@ -17,18 +17,7 @@
 			<li><a href="LoyaltyKartice/menjajLokalizacijuNaEngleski" th:text="#{lang.eng}"></a></li>
 		</ul>
 	</div>
-	<table th:if="${session.prijavljeniKorisnik != null}">
-		<tr>
-			<th th:text="#{knjige.loggedIn}"></th><td><a th:href="|Korisnici/Details?korisnickoIme=${session.prijavljeniKorisnik.korisnickoIme}|" th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a>.</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<ul>
-					<li><a href="Korisnici/Logout" th:text="#{knjige.logOut}"></a></li>
-				</ul>
-			</td>
-		</tr>
-	</table>
+	
 	
 	<br><br>
 	<form method="get">

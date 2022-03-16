@@ -1,5 +1,6 @@
 .main{
-    background: #dda15e;
+    /*background: #dda15e;*/
+   	background: #FCDEC0;
     padding: 10rem 0;
 }
 
@@ -17,26 +18,26 @@
 }
 
 .main__content{
-    color: #fff;
+   	color: #C68B59;
     width:100%;
 }
 
 .main__content h1{
     font-size:1.7rem;
-    background-color: #fff;
+    background-color: #C68B59;
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color:transparent;
     text-transform: uppercase;
     margin-bottom: 32px;
-    color: #fff;
+   	color: #8FC1D4;
     
 }
 
 .main__content h2{
     font-size:4rem;
-    background: #fefae0;
+    background: #C68B59;
      background-size: 100%;
      -webkit-background-clip: text;
      -moz-background-clip: text;
@@ -52,12 +53,14 @@
 
 .main__btn{
     font-size:1.4rem;
-    background: #283618;
-    background: -webkit-linear-gradient(to right, #283618, #606c38, #fefae0);
+    background: #865439;
+    background: -webkit-linear-gradient(to right, #865439, #C68B59, #fefae0);
+       /*background: -webkit-linear-gradient(to right, #865439, #606c38, #fefae0);*/
+    
     padding: 20px 60px;
     border:none;
     border-radius: 14px;
-    color:#fff;
+   	color: #8FC1D4;
     margin-top: 2rem;
     cursor:pointer;
     position: relative;
@@ -68,7 +71,7 @@
 .main__btn a{
     position:relative;
     z-index:2;
-    color:#fff;
+   	color: #C68B59;
     text-decoration: none;
 }
 
@@ -79,13 +82,14 @@
     left: 0;
     width: 0;
     height: 100%;
-    background: #606c38;
+   	background: #FCDEC0;
+   	border: 1px solid #C68B59;
     transition: all 0.35s;
     border-radius: 4px;
 }
 
 .main__btn:hover{
-    color:#fff;
+   	color: #8FC1D4;
 
 }
 
@@ -105,10 +109,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color:#fff;
-    background: #ff512f;
-    background: -webkit-linear-gradient(to right, #fefae0, #606c38);
-    background: linear-gradient(to right, #606c38, #283618);
+   	color: #FCDEC0;
+    background: -webkit-linear-gradient(to right, #C68B59, #865439);
+    background: linear-gradient(to right, #C68B59, #865439);
 }
 
 .fa-layer-group, .fa-users{
@@ -116,9 +119,8 @@
 }
 
 #card-2{
-    background: #ff512f;
-    background: -webkit-linear-gradient(to right, #fefae0, #606c38);
-    background: linear-gradient(to right, #606c38, #283618);
+    background: -webkit-linear-gradient(to right, #C68B59, #865439);
+    background: linear-gradient(to right, #C68B59, #865439);
 }
 
 
@@ -171,7 +173,7 @@
 /*Services tj poslagane kartice*/
 
 .services{
-    background: #dda15e;
+   	background: #FCDEC0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -181,7 +183,7 @@
 }
 
 .services h1{
-    background-color: #fff;
+    background-color: #C68B59;
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -205,23 +207,24 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #fff;
-    background-image: linear-gradient(to right, #00dbde 0%, #fc00ff  100%);
+    color: #FCDEC0;
+    /*background-image: linear-gradient(to right, #FCDEC0 0%, #865439  100%);*/
+    background: #865439;
     transition: 0.3s ease-in;
 }
 
 .services__card:nth-child(2){
-    background: #636363;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #a2ab58, #636363);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #a2ab58, #636363); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #865439;
+    /*background: -webkit-linear-gradient(to right, #FCDEC0, #865439);
+    background: linear-gradient(to right, #FCDEC0, #FCDEC0);*/
 
 
 }
 
 .services__card:nth-child(3){
-    background: #000000;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #0f9b0f, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #0f9b0f, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #865439; 
+    /*background: -webkit-linear-gradient(to right, #FCDEC0, #865439);
+    background: linear-gradient(to right, #FCDEC0, #865439);*/
 }
 
 .services__card h2{
@@ -248,7 +251,7 @@
     border: none;
     outline: none;
     border-radius: 4px;
-    background-color: #131313;
+    background-color: #8FC1D4;
     font-size: 1rem;
 }
 

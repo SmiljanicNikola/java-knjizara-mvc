@@ -10,7 +10,7 @@
 	<title>Registracija</title>
 </head>
 <body>
-	<nav>
+	<nav style="background:#865439">
 		<input type="checkbox" id="check">
 		<label for="check" class="checkBtn">
 			<i class="fas fa-bars" id="activeBars"></i>
@@ -32,8 +32,9 @@
 	
 
 	<div class="center">
-		<div class="header">Registracija</div>
 		<form method="post" action="Korisnici/Register">
+				<h1>Registracija</h1>
+		
 		<div class="skupina">
 			<div class="txt_field">
 				<span class="details">Ime</span>				
@@ -60,25 +61,23 @@
 				<input type="password" name="lozinka" required/>
 			</div>
 			<div class="txt_field">
-				<span class="details">Korisnicko Ime</span>
-				<input type="text" name="korisnickoIme" required/>
-			</div>
-		
-			<div class="txt_field">
-				<span class="details">Ponovljena Lozinka</span>
+				<span class="details">Ponovi Lozinku</span>
 				<input type="password" name="ponovljenaLozinka" required />
 			</div>
-			<div class="txt_field">
+			<div class="txt_field" style="width:20%;">
 				<span class="details">Datum Rodjenja</span>
 				<input type="date" name="datumRodjenja" required>
 			</div>
+			<div class="txt_field"  style="width:25%;">
+				<span class="details">KorisnickoIme</span>
+				<input type="text" name="korisnickoIme" required/>
+			</div>
+			
 			<div class="txt_field">
-				<span class="details">Datum Registracije</span>
-				<input value="2021-02-14T18:00:00" name="datumRegistracije" readonly="readonly"/>
+				<input value="2021-02-14T18:00:00" name="datumRegistracije" hidden="true" readonly="readonly"/>
 			</div>
 			<div class="txt_field">
-				<span class="details">Uloga</span>
-				<input type="text" value="kupac" name="uloga" readonly="readonly" />
+				<input type="text" value="kupac" name="uloga" readonly="readonly" hidden="true"/>
 			</div>
 				<input type="submit" value="Registruj se">
 			<div class="signup_link">
@@ -90,7 +89,7 @@
 	</div>
 	
 	
-	<footer>
+	<footer style="background:#865439">
 		 <div class="footer_adress" style="margin: 15px 50px">
             <h1> Logo </h1>
             <h2>Contact: 065/333-9208</h2>

@@ -20,7 +20,6 @@
 	</div>
 	
 	<br><br>
-	<form method="get" name="formaPretraga">
 		<table class="tabela" style="margin-left: auto; margin-right: auto;">
 			<caption th:text="#{knige.naslov}"><b></b></caption>
 			<tr>
@@ -53,7 +52,6 @@
 				</th>
 				<th><input type="submit" value="Pretraži"/></th>
 			</tr>
-		</form>
 		
 			<tr th:each="itKnjiga, status: ${knjige}" th:if="${itKnjiga.brojPrimeraka != 0}">
 				<td><a th:href="|Knjige/Details?naziv=${itKnjiga.naziv}|"th:text="${itKnjiga.naziv}"></a></td>
@@ -76,7 +74,7 @@
 		<li><a href="KorisnickaKorpa" th:text="#{Pregledaj korisnicku korpu}" ></a></li>
 	</ul>
 	
-	<div th:insert="footer :: footer">...</div>
+	<div th:insert="footer :: footer" style="width:100%">...</div>
 	
 </body>
 </html>
