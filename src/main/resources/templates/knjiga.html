@@ -61,7 +61,7 @@
 						<tr><th th:text="#{komentari.ocena}"></th><td><input type="number" value="" name="ocena" required/></td></tr>
 						<tr><th></th><td><input type="hidden" name="datumPostavljanja" value="2021-02-14" required/></td></tr>
 						<!-- <tr><th>Autor:</th><td><input type="text" name="autorOznaka" th:value=${prijavljeniKorisnik.korisnickoIme}/></td></tr> -->
-						<tr><th th:text="#{komentari.autor}"></th><td><input type="text" name="autorOznaka" th:value="${session.prijavljeniKorisnik.korisnickoIme}"/></td></tr>
+						<tr><th th:text="#{komentari.autor}"></th><td><input type="text" name="autorOznaka" th:value="${session.prijavljeniKorisnik.korisnickoIme}" readonly/></td></tr>
 						<tr><th></th><td><input type="hidden" name="knjigaId" th:value="${knjiga.id}"/></td></tr>
 						<tr><th></th><td><input type="hidden" value="Na cekanju" name="status"/></td></tr>
 						<tr><th></th><td><input type="submit" th:value="#{dodavanjeKomentara.kreirajKomentar}"/></td>
@@ -94,7 +94,7 @@
 		<div class="opis-knjige">
         	<b>Kratak Opis:</b> <p th:text="${knjiga.kratakOpis}"></p>
         </div>
-		<form method="post" action="ListaZelja/Create">
+		<form method="post" action="ListaZelja/Create" style="margin-top: 15px;">
 			<input type="hidden" name="knjigaId" th:value="${knjiga.id}"/>
 			<input type="submit" value="Dodaj u listu zelja"/>
 		</form>
@@ -124,7 +124,7 @@
 				</tr>
 			</table>
 			
-			<div class="grupacija" style="margin-left: auto; margin-right: auto; margin-top: 30px">
+			<!-- <div class="grupacija" style="margin-left: auto; margin-right: auto; margin-top: 30px">
 				
 				<form method="post" action="Komentari/Create">
 					<table border="1" style="margin-left: auto; margin-right: auto;">
@@ -132,7 +132,7 @@
 						<tr><th th:text="#{komentari.tekstKomentara}"></th><td><input type="text" value=""  name="tekstKomentara" required/></td></tr>
 						<tr><th th:text="#{komentari.ocena}"></th><td><input type="number" value="" name="ocena" required/></td></tr>
 						<tr><th></th><td><input type="hidden" name="datumPostavljanja" value="2021-02-14" required/></td></tr>
-						<!-- <tr><th>Autor:</th><td><input type="text" name="autorOznaka" th:value=${prijavljeniKorisnik.korisnickoIme}/></td></tr> -->
+						<!-- <tr><th>Autor:</th><td><input type="text" name="autorOznaka" th:value=${prijavljeniKorisnik.korisnickoIme}/></td></tr> 
 						<tr><th th:text="#{komentari.autor}"></th><td><input type="text" name="autorOznaka" th:value="${session.prijavljeniKorisnik.korisnickoIme}"/></td></tr>
 						<tr><th></th><td><input type="hidden" name="knjigaId" th:value="${knjiga.id}"/></td></tr>
 						<tr><th></th><td><input type="hidden" value="Na cekanju" name="status"/></td></tr>
@@ -142,7 +142,7 @@
 				<p class="greska" th:text="${poruka}"></p>
 				
 				
-			</div>
+			</div> -->
 			
 			<!-- <form method="post" action="Delete">
 				<input type="hidden" name="id" th:value="${knjiga.id}"/>

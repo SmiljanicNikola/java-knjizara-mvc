@@ -19,8 +19,8 @@
 			<li><a href="Knjige">Knjige</a></li>
 			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'kupac'}"><a href="KorisnickaKorpa">Moja korpa</a></li>
 			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}"><a href="Korisnici">Korisnici</a></li>
-			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}">Prijavljen je: <a th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a></li>
-			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'kupac'}">Prijavljen je: <a th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a></li>
+			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}"><a th:text="${session.prijavljeniKorisnik.korisnickoIme} "></a></li>
+			<li th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'kupac'}"><a th:href="|Korisnici/Details?korisnickoIme=${session.prijavljeniKorisnik.korisnickoIme}|" th:text="${session.prijavljeniKorisnik.korisnickoIme}"></a></li>
 			<li th:if="${session.prijavljeniKorisnik != null}"><a href="Korisnici/Logout" th:text="#{knjige.logOut}"><button>Odjavite se</button></a></li>	
 			
 		</ul>

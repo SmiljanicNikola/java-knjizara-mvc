@@ -54,7 +54,6 @@
 				<th></th>
 			</tr>
 			<tr th:each="zelja, status: ${listaZelja}" th:if="${zelja.vlasnikListe.korisnickoIme == korisnik.korisnickoIme}">
-				<td th:text="${zelja.id}"></td>
 				<td th:text="${zelja.knjiga}"></td>
 				<td th:text="${zelja.vlasnikListe.korisnickoIme}"></td>
 				<td>
@@ -79,11 +78,6 @@
 			</tr>
 		</table>
 	</form>	
-			
-		<ul>	
-			<li><a href="/KnjizaraProjekat">Pocetna</a></li>
-			<li><a href="/KnjizaraProjekat/Korisnici">Nazad na listu svih korisnika</a></li>
-		</ul>
 		
 		<div th:insert="footer :: footer">...</div>
 			
