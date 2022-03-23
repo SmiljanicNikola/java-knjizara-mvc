@@ -13,8 +13,8 @@
 	<div th:insert="navbar :: navbar">...</div>
 
 	<form action="" th:if="${session.prijavljeniKorisnik != null}">
-		<table class="tabela" border="1">
-			<caption>Kupovina</caption>
+		<table class="tabela" border="1" style="margin-top:25px;">
+			<caption style="font-size: 18px;">Kupovina</caption>
 			<tr><th>Ukupna cena:</th><td><input type="number" th:value="${kupovina.ukupnaCena}" name="ukupnaCena" readonly/></td></tr>
 			<tr><th>Datum Kupovine:</th><td><input type="date" th:value="${#temporals.format(kupovina.datumKupovine, 'yyyy-MM-dd')}" name="datumKupovine" readonly/></td></tr>
 			<tr><th>Musterija oznaka:</th><td><input type="text" th:value="${kupovina.musterija.korisnickoIme}" name="musterijaOznaka" readonly/></td></tr>

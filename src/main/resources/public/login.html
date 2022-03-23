@@ -27,11 +27,11 @@
 		<h1>Login</h1>
 		<form method="post" action="Korisnici/Login">
 			<div class="txt_field">
-				<input type="text" name="korisnickoIme" placeholder="Korisnicko Ime" required>
+				<input type="text" name="korisnickoIme" class="placeholder-stuff" placeholder="Korisnicko Ime" onfocus="this.placeholder=''" onblur="this.placeholder='Korisnicko Ime'" autocomplete="off" required>
 				<span></span>				
 			</div>
 			<div class="txt_field">
-				<input type="password" name="lozinka" placeholder="Lozinka" required>
+				<input type="password" name="lozinka" placeholder="Lozinka" onfocus="this.placeholder=''" onblur="this.placeholder='Lozinka'" required>
 				<span></span>
 			</div>
 			<div class="pass">Forgot password?</div>

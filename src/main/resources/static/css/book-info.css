@@ -12,16 +12,19 @@
   	flex-wrap: nowrap;              /* default value; can be omitted */
   	justify-content: space-between; /* switched from default (flex-start, see below) */
 }
+
 .centrirano2{
     width: 900px;
     height: 400px;
 }
+
 #container {
     border: 1px solid black;
-    margin-top: 200px;
+    margin-top: 90px;
     margin-left: auto;
     margin-right: auto;
-
+	background: #C68B59;
+	border-radius:10px;
     width: 1000px;
     height: 400px;
     display: inline-block;
@@ -53,6 +56,7 @@
     float:right;
     width:400px;
 }
+
 .opis-knjige{
 	display: flex; 
 	flex-direction: row;

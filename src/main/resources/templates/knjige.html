@@ -2,9 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
+	<base href="/KnjizaraProjekat/"><!-- SAmo ubacio da bi testirao services na navbaru -->
+	
 	<title th:text="#{knjige.pageTitle}"></title>
 	<link rel="stylesheet" type="text/css" href="css/TabelaKnjiga.css"/>
 	<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+	<link rel="stylesheet" type="text/css" href="css/formaNovaKnjiga.css"/>
+	
 	<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 	<script src="js/lokacijaJS.js"></script>
@@ -69,8 +73,11 @@
 		</table>
 		
 	<br>
+		
 	<ul>
 		<li><a href="Knjige/Create" th:text="#{knjige.dodaj}"></a></li>
+		<li><a href="Knjige/Create"><input type="submit" value="Kreiraj knjigu"></a></li>
+		
 	</ul>
 	
 	<div th:insert="footer :: footer" style="width:100%">...</div>

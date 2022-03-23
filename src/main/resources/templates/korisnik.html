@@ -24,7 +24,8 @@
 			<tr><th>Lozinka:</th><td><input type="text" th:value="${korisnik.lozinka}" name="lozinka"/></td></tr>
 			<tr><th>Datum Rodjenja:</th><td><input type="date" th:value="${#temporals.format(korisnik.datumRodjenja, 'yyyy-MM-dd')}" name="datumRodjenja"/></td></tr>
 			<tr><th>Datum Registracije:</th><td><input th:value="${#temporals.format(korisnik.datumRegistracije, 'yy-MM-dd  HH:mm')}" name="datumRegistracije"/></td></tr>			
-			<tr>
+			
+			<tr th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}">
 				<th>Uloga:</th><td>
 						<select name="uloga">
 								<option th:value="${korisnik.uloga}" th:selected="${#strings.equals(param.uloga, 'kupac')}">.</option>
@@ -32,7 +33,7 @@
 								<option value="kupac" th:selected="${#strings.equals(param.uloga, 'kupac')}">kupac</option>
 						</select></td>
 			</tr>
-			<tr th:if="${session.prijavljeniKorisnik.uloga == 'administrator' and korisnik.uloga == 'kupac'}"><th>Blokiran:</th><td><input type="checkbox" name="blokiran" th:checked="${korisnik.blokiran}"/></td></tr>
+			<tr th:if="${session.prijavljeniKorisnik.uloga == 'administrator'}"><th>Blokiran:</th><td><input type="checkbox" name="blokiran" th:checked="${korisnik.blokiran}"/></td></tr>
 			<tr>
 				<th></th><td><input type="submit" value="Izmeni" th:if="${session.prijavljeniKorisnik.uloga == 'administrator'}"/></td>
 			</tr>

@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div th:insert="navbar :: navbar">...</div>
-
+	
 	<div class="main" id="about">
 		 <!--<div>
 			<h4 th:text="#{lang.change}"></h4>
@@ -33,7 +33,6 @@
             </div>
         </div>
     </div>
-   
 
     <div th:if="${session.prijavljeniKorisnik == null}">
 	    <div class="main" id="sign-up">
@@ -50,6 +49,23 @@
 	        </div>
 	    </div>
     </div>
+    
+    
+    <div th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'kupac'}">
+   		 <div class="main" id="pogodnosti">
+	        <div class="main__container">
+	            <div class="main__content">
+	                <h1>Zelite pogodnosti?</h1>
+	                <h2>Pridruzite se nasem loyalty klubu</h2>
+	                <p>Podnesite zahtev brzo i lako, ne ustrucavajte se</p>
+	                <button class="main__btn"><a href="ZahtevLoyaltyKartice">Podnesi zahtev</a></button>
+	            </div>
+	            <div class="main__img--container">
+	                <div class="main__img--card" id="card-2"><i class="fas fa-users"></i></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
     
     <div th:if="${session.prijavljeniKorisnik != null and session.prijavljeniKorisnik.uloga == 'administrator'}">
 	    <div class="services" id="services">
@@ -89,7 +105,6 @@
 
 
 	<div th:insert="footer :: footer">...</div>
-	
 
 </body>
 </html>

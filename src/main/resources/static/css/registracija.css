@@ -24,12 +24,12 @@ body{
   	justify-content: center;
   	text-align:center;
 	padding: 20px 0 20px 0;
-	border-bottom: 1px solid silver;
+	border-bottom: 1px solid #FCDEC0;
 }
 .center h2{
 	text-align:center;
     margin-top: 15px;
-	border-bottom: 1px solid silver;
+	border-bottom: 1px solid  #FCDEC0;
 }
 
 .center form .skupina{
@@ -79,7 +79,7 @@ form .skupina .txt_field{
 	text-align:center;
     justify-content: center;
 	font-size:16px;
-	color:white;
+	color:#FCDEC0;
 }
 
 .signup_link a{

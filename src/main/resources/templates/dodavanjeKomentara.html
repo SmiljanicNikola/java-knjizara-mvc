@@ -18,7 +18,6 @@
 					<tr><th th:text="#{komentari.tekstKomentara}"></th><td><input type="text" value=""  name="tekstKomentara" required/></td></tr>
 					<tr><th th:text="#{komentari.ocena}"></th><td><input type="number" value="" name="ocena" required/></td></tr>
 					<tr><th></th><td><input type="hidden" name="datumPostavljanja" value="2021-02-14" required/></td></tr>
-					<!-- <tr><th>Autor:</th><td><input type="text" name="autorOznaka" th:value=${prijavljeniKorisnik.korisnickoIme}/></td></tr> -->
 					<tr><th th:text="#{komentari.autor}"></th><td><input type="text" name="autorOznaka" th:value="${session.prijavljeniKorisnik.korisnickoIme}"/></td></tr>
 					<tr><th  th:text="#{dodavanjeKomentara.knjigaId}"></th><td><input type="number" name="knjigaId" value="izabranaKnjiga.id"/></td></tr>
 					<tr><th></th><td><input type="hidden" value="Na cekanju" name="status"/></td></tr>

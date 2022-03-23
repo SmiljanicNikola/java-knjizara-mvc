@@ -4,22 +4,49 @@ body{
 table.tabela {
 	border-collapse: collapse;
 }
+
 form{
 	margin-left: auto;
   	margin-right: auto;
 }
+
+.centriraj{
+	margin-left: auto;
+	margin-right: auto;
+}
+.centriraj-odmakni-gore{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:30px;
+}
+.width-fit-content{
+	width: fit-content;
+}
+
 form table{
   margin-left: auto;
   margin-right: auto;
 }
-}
 
-table.tabela caption {
+table .tabela caption {
 	font-size: 16pt
 }
 
+form table tr td input{
+	 -webkit-appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 0;
+    height: 21px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: all .15s ease;
+}
+
 table.tabela th, td {
-	border: 2px solid Gray;
+	border: 1px solid #FCDEC0;
 	padding: 5px;
 }
 
@@ -39,14 +66,17 @@ table.tabela tr:nth-child(even) {
 table.tabela input[type="search"] {
 	width: 100%;
 }
+
 tr{
     transition: all .3s ease-in;
     cursor: pointer;
 }
+
 tr:hover{
     transform: scale(1.01);
     box-shadow: 2px 2px 12px rgba(0,0,0,0.2), -1px -1px 8px rgba(0,0,0,0.2);
 }
+
 .Udesno{
 	position:relative;
 	align:center;
