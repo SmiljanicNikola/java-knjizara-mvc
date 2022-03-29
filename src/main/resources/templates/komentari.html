@@ -36,7 +36,7 @@
 					<td th:text="${komentar.tekstKomentara}"></td>
 					<td class="broj" th:text="${komentar.ocena}"></td>
 					<td th:text="${komentar.datumPostavljanja}"></td>
-					<td th:text="${komentar.autor}"></td>
+					<td th:text="'Ime: '+ ${komentar.autor.ime } +  ' Prezime:' + ${komentar.autor.prezime} + ' KorisnickoIme: ' + ${komentar.autor.korisnickoIme}"></td>
 					<td th:text="${komentar.knjiga.naziv}"></td>
 					<td th:text="${komentar.status}"></td>
 			</tr>
