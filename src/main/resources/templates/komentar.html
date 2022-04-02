@@ -15,12 +15,12 @@
 	<form method="post" action="Edit" th:if="${session.prijavljeniKorisnik != null}">
 		<table border="1">
 			<caption>Komentar</caption>
-			<tr><th>Id:</th><td><input type="number" th:value="${komentar.id}" name="id" readonly="readonly"/></td></tr>
-			<tr><th>Tekst Komentara:</th><td><input type="text" th:value="${komentar.tekstKomentara}" name="tekstKomentara" readonly="readonly"/></td></tr>
-			<tr><th>Ocena:</th><td><input type="number" th:value="${komentar.ocena}" name="ocena" readonly="readonly" /></td></tr>
-			<tr><th>Datum Postavljanja:</th><td><input type="date" th:value="${#temporals.format(komentar.datumPostavljanja, 'yyyy-MM-dd')}" name="datumPostavljanja" readonly="readonly"/></td></tr>
-			<tr><th>Autor Oznaka:</th><td><input type="text" th:value="${komentar.autor.korisnickoIme}" name="autorOznaka" readonly="readonly"/></td></tr>		
-			<tr><th>KnjigaId:</th><td><input type="text" th:value="${komentar.knjiga.Id}" name="knjigaId" readonly="readonly"/></td></tr>
+			<tr><th>Id:</th><td><input type="number" th:value="${komentar.id}" name="id"/></td></tr>
+			<tr><th>Tekst Komentara:</th><td><input type="text" th:value="${komentar.tekstKomentara}" name="tekstKomentara"/></td></tr>
+			<tr><th>Ocena:</th><td><input type="number" th:value="${komentar.ocena}" name="ocena"></td></tr>
+			<tr><th>Datum Postavljanja:</th><td><input type="date" th:value="${#temporals.format(komentar.datumPostavljanja, 'yyyy-MM-dd')}" name="datumPostavljanja"/></td></tr>
+			<tr><th>Autor Oznaka:</th><td><input type="text" th:value="${komentar.autor.korisnickoIme}" name="autorOznaka"/></td></tr>		
+			<tr><th>KnjigaId:</th><td><input type="text" th:value="${komentar.knjiga.Id}" name="knjigaId"/></td></tr>
 			<tr><th>Status:</th><td>
 						<select name="status">
 							<option value="">Odobri/Odbij</option>
