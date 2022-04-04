@@ -12,7 +12,7 @@
 
 	<div th:insert="navbar :: navbar">...</div>
 
-	<form method="post" action="Edit" th:if="${session.prijavljeniKorisnik != null}">
+	<form method="post" action="Komentari/Edit" th:if="${session.prijavljeniKorisnik != null}">
 		<table border="1">
 			<caption>Komentar</caption>
 			<tr><th>Id:</th><td><input type="number" th:value="${komentar.id}" name="id"/></td></tr>

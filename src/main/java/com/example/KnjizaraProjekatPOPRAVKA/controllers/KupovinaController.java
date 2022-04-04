@@ -129,7 +129,7 @@ public class KupovinaController implements ServletContextAware {
 			//@RequestParam Integer knjigaId,
 			@RequestParam Integer knjigaId,
 			@RequestParam Float ukupnaCena,
-			@RequestParam @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate datumKupovine, 
+			//@RequestParam @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate datumKupovine, 
 			@RequestParam String musterijaOznaka,
 			@RequestParam Integer brojKupljenihKnjiga,
 			HttpSession session, HttpServletResponse response) throws IOException {
@@ -152,7 +152,7 @@ public class KupovinaController implements ServletContextAware {
 			return;
 		}
 
-		Kupovina kupovina = new Kupovina(knjiga,ukupnaCena,datumKupovine,musterija,brojKupljenihKnjiga);
+		Kupovina kupovina = new Kupovina(knjiga,ukupnaCena,LocalDate.now(),musterija,brojKupljenihKnjiga);
 		
 		LoyaltyKartica kartica = LoyaltyKarticaService.findOne(musterijaOznaka);
 		if(kartica != null) {

@@ -98,7 +98,7 @@ public class ZahtevZaLoyaltyKarticuController implements ServletContextAware {
 		session.setAttribute(KorisnikController.KORISNIK_KEY, prijavljeniKorisnik);	*/
 		Korisnik vlasnik = korisnikService.findOne(vlasnikOznaka);
 		LoyaltyKartica kartica = loyaltyKarticaService.findOne(vlasnikOznaka);
-		if(kartica == null) {
+		if(kartica == null || kartica.getStatus().equalsIgnoreCase("Nije odobrena")) {
 			LoyaltyKartica loyaltyKartica = new LoyaltyKartica(popust, brPoena, vlasnik, status);
 			loyaltyKarticaService.save(loyaltyKartica);
 			response.sendRedirect(baseURL);
