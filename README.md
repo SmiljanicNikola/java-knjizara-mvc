@@ -94,3 +94,5 @@ datuma potrebno je prikazati tabelu svih knjiga koje su kupljene u zadatom perio
 4. ukupnu cenu za tu knjigu (broj primeraka*jedinična cena knjige).
 
 <b>Dvojezicnost aplikacije nije detaljno odradjena, za sada idalje povrsno.</b>
+
+<b>Upiti za kreiranje i popunjavanje svih potrebnih tabela bice okaceni u data.sql fajlu.</b>
