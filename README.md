@@ -1,8 +1,56 @@
+Application is implemented using <b> Java SPRING MVC </b> on BACKEND and <b> Thymeleaf </b> on FRONTEND. Data are persisted in MySQL. This is Book Store web aplication that can be used by registered and unregistered users. There are two registered types of users: Admins and Customers.
+<br/><br/>
+<b> Project Specification </b><br/><br/>
+When registering, the role is not entered, and the user gets customer role. An administrator is a predefined user who arleady exists in the system.
+Each book can belong to more than one genre, and each genre belongs to one or more books.
+Model a shopping cart as an object where all selected books for
+shopping should be stored. The user has the opportunity to buy one or more books with each purchase.
+It is necessary to pay attention to the number of copies of the book that the bookstore owns.
+
+<b>Knjige</b><br/>
+By default, the main page of the application needs to allow all users to view all available books. The name of the book should be realized as a link, where the user will click on it to go to the page for reviewing one book. The previously mentioned page for displaying an individual book should show all the information about the book. If the page is displayed to an ordinary user (customer), it is not necessary to display information on the number of remaining copies of the book, while on the other hand, this feature should be shown to administrators.
+Also on this page, customers should be able to add books in the shopping cart and specify how many books they want to buy. In addition to this option, on the individual book page, allow the user to add the book to the personal wish list (a list that the user keeps to keep track of some books he wants to buy in the future).
+Allow administrators to modify book information, making it possible to change anything but the ISBN.
+
+On the page of an individual book, comments about this book should be displayed. Administrators should be able to add a new book.
+Enable administrators to search for books by ISBN. This search should allow the administrator to search for books which are not in stock(Remaining quantity is 0). After selecting the searched book and going to the previously described page to view an individual book, admin should be able to update all attributes beside ISBN.
+On the same page, admin should be able to order a specific book and he needs to enter desired number of copies. After the confirmation of ordering books, the new quantity is stored in the database (it is assumed that the order of books happens immediately).
+
+<b> Shopping cart </b><br/>
+Allow the user to access a special page so he can see content of his Shopping cart. For every book in the basket, display name of the book, the author, the number of copies, the unit and the total price. Give the user the ability to delete book from cart. On this page, the user will also be provided with the functionality of completing the purchase, where the user will select the action (Click on the button) to purchase the selected books.
+When buying, points are added to the loyalty card. On every spent 1000 dinars, the user receives 1 point. 1 point brings a discount
+of 5%. The user does not receive a loyalty card after registration, but can request its creation.
+
+<b> Loyalty Card </b><br/>
+The previous section describes how to use a loyalty card if the user has one. If he does not own it, the user can submit request to create a loyalty card. On the other hand, the administrator can see all requests and he can approve or reject them. When the request is approved, a card is created for a specific user with an initial 20% discount and 4 points. If the administrator decline request, the user can resubmit it. After the request is approved, the user can use his card in accordance with the method described in the previous section.
+
+<b> Comments </b><br/>
+Customers should have option to leave comments on specific book. He needs to enter comment and rating (1 to 5), with both fields required. When the customer leaves a comment, he will not be publicly visible, ie. other users will not see it as long as admin does not approve his comment. Provide administrators link to comment management on the homepage, which displays all comments waiting to be approved. The administrator can approve or reject comment. If admin approve, it will be public and visible on the page of a specific book, and if he reject it, it will not be visible, but it does not need to be physically deleted from the database and it does not need to be displayed next time when he enters comment management page.
+
+<b> Features with Users </b><br/>
+Not logged in user can register on system. On home page they should have links that redirects to register and login pages. After registration, user is being redirected to login page. Logged in users have links towards their profile page and they can logout. Admins has feature for user management. When it comes to user management, admin should see all registered users displayed with their personal data including their username(Which needs to serve as link, where if username is clicked, it leads admin on that user's profile.
+Admin can update user's attributes and he can block/unblock. Blocked users do not have the ability to log in and use the application.
+Users whose page is viewed and admins can see table of purchases of that user with the total price of that purchase and the date and time of purchase (date and time should be implemented as a link to the page of that specific purchase). Regular customers on their own profiles should see their own wish list, where customer can also remove unwanted books from list.
+
+<b> Reports </b><br/>
+Admins need to have access to a separate reporting page. For the entered range of dates, it is necessary to display table of all the books sold in that specific period. For each book it should display:
+1. Their name
+2. Author name
+3. Number of copies sold 
+4. Final price (quantity*unit price)
+
+<b>The bilingualism of the application has not been implemented in detail, for now it is still superficial.</b>
+
+<b>SQL Queries for creating and populating entity tables will be published inside data.sql file</b>
+
+<hr><br/>
+<b>Specifikacija na srpskom jeziku:</b>
+<br/><br/>
+
 Aplikacija je implementirana uz pomoc <b>Java Spring MVC</b> na backend-u a frontend je odradjen pomocu <b>Thymeleaf-a</b>. Podaci su perzistirani u <b>MySQL</b> bazi podataka.
 U pitanju je web aplikacija za rad <b>Knjizare</b> koju mogu da koriste prijavljeni i neprijavljeni korisnici.<br>
 Medju prijavljene korisnike ubrajamo <b>kupce</b> i <b>administratore</b>.
 
-<hr>
 
 <b>Specifikacija i funkcionalnosti projekta:</b><br/>
 
