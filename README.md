@@ -7,7 +7,7 @@ Model a shopping cart as an object where all selected books for
 shopping should be stored. The user has the opportunity to buy one or more books with each purchase.
 It is necessary to pay attention to the number of copies of the book that the bookstore owns.
 
-<b>Knjige</b><br/>
+<b>Books</b><br/>
 By default, the main page of the application needs to allow all users to view all available books. The name of the book should be realized as a link, where the user will click on it to go to the page for reviewing one book. The previously mentioned page for displaying an individual book should show all the information about the book. If the page is displayed to an ordinary user (customer), it is not necessary to display information on the number of remaining copies of the book, while on the other hand, this feature should be shown to administrators.
 Also on this page, customers should be able to add books in the shopping cart and specify how many books they want to buy. In addition to this option, on the individual book page, allow the user to add the book to the personal wish list (a list that the user keeps to keep track of some books he wants to buy in the future).
 Allow administrators to modify book information, making it possible to change anything but the ISBN.
